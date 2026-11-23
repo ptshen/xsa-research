@@ -1,0 +1,61 @@
+Collecting tiktoken==0.9.0
+  Obtaining dependency information for tiktoken==0.9.0 from https://files.pythonhosted.org/packages/b1/73/41591c525680cd460a6becf56c9b17468d3711b1df242c53d2c7b2183d16/tiktoken-0.9.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata
+  Downloading tiktoken-0.9.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.7 kB)
+Collecting matplotlib==3.10.5
+  Obtaining dependency information for matplotlib==3.10.5 from https://files.pythonhosted.org/packages/1d/1e/5e187a30cc673a3e384f3723e5f3c416033c1d8d5da414f82e4e731128ea/matplotlib-3.10.5-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata
+  Downloading matplotlib-3.10.5-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (11 kB)
+Collecting regex>=2022.1.18 (from tiktoken==0.9.0)
+  Obtaining dependency information for regex>=2022.1.18 from https://files.pythonhosted.org/packages/ec/9b/010ae7ce9edad5ff603fc6ed8488045a6e6f9f7a028cbd08cd549e338dc5/regex-2026.11.19-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata
+  Downloading regex-2026.11.19-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (40 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 40.5/40.5 kB 1.5 MB/s eta 0:00:00
+Requirement already satisfied: requests>=2.26.0 in /insomnia001/home/pts2125/hpml/dust/.venv/baseline-cu128/lib/python3.11/site-packages (from tiktoken==0.9.0) (2.34.2)
+Collecting contourpy>=1.0.1 (from matplotlib==3.10.5)
+  Obtaining dependency information for contourpy>=1.0.1 from https://files.pythonhosted.org/packages/5f/4b/6157f24ca425b89fe2eb7e7be642375711ab671135be21e6faa100f7448c/contourpy-1.3.3-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata
+  Downloading contourpy-1.3.3-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (5.5 kB)
+Collecting cycler>=0.10 (from matplotlib==3.10.5)
+  Obtaining dependency information for cycler>=0.10 from https://files.pythonhosted.org/packages/e7/05/c19819d5e3d95294a6f5947fb9b9629efb316b96de511b418c53d245aae6/cycler-0.12.1-py3-none-any.whl.metadata
+  Downloading cycler-0.12.1-py3-none-any.whl.metadata (3.8 kB)
+Collecting fonttools>=4.22.0 (from matplotlib==3.10.5)
+  Obtaining dependency information for fonttools>=4.22.0 from https://files.pythonhosted.org/packages/00/01/e0f5b3d648ddd2eae35c4bcddcc2cffc059279e9d2cdb325bed10458f606/fonttools-4.68.0-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata
+  Downloading fonttools-4.68.0-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (139 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 139.9/139.9 kB 1.8 MB/s eta 0:00:00
+Collecting kiwisolver>=1.3.1 (from matplotlib==3.10.5)
+  Obtaining dependency information for kiwisolver>=1.3.1 from https://files.pythonhosted.org/packages/89/00/05c2d0369ac322d22d5c05f84b5c4a6856fa6207fbae42869108a28f0383/kiwisolver-1.5.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata
+  Downloading kiwisolver-1.5.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (5.2 kB)
+Requirement already satisfied: numpy>=1.23 in /insomnia001/home/pts2125/hpml/dust/.venv/baseline-cu128/lib/python3.11/site-packages (from matplotlib==3.10.5) (2.4.6)
+Requirement already satisfied: packaging>=20.0 in /insomnia001/home/pts2125/hpml/dust/.venv/baseline-cu128/lib/python3.11/site-packages (from matplotlib==3.10.5) (26.3)
+Collecting pillow>=8 (from matplotlib==3.10.5)
+  Obtaining dependency information for pillow>=8 from https://files.pythonhosted.org/packages/36/46/f509b74787f40ce0627501089d630b2c741b63b244c1f40b640b3b01e181/pillow-13.0.0-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata
+  Downloading pillow-13.0.0-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (9.1 kB)
+Collecting pyparsing>=2.3.1 (from matplotlib==3.10.5)
+  Obtaining dependency information for pyparsing>=2.3.1 from https://files.pythonhosted.org/packages/38/bb/d215ee7c73b61497b28a5503f9f53523f294fcc936762b7caf90e0c1c2b5/pyparsing-3.3.3-py3-none-any.whl.metadata
+  Downloading pyparsing-3.3.3-py3-none-any.whl.metadata (5.9 kB)
+Requirement already satisfied: python-dateutil>=2.7 in /insomnia001/home/pts2125/hpml/dust/.venv/baseline-cu128/lib/python3.11/site-packages (from matplotlib==3.10.5) (4.0.0)
+Requirement already satisfied: tzdata in /insomnia001/home/pts2125/hpml/dust/.venv/baseline-cu128/lib/python3.11/site-packages (from python-dateutil>=2.7->matplotlib==3.10.5) (2026.6)
+Requirement already satisfied: charset_normalizer<4,>=2 in /insomnia001/home/pts2125/hpml/dust/.venv/baseline-cu128/lib/python3.11/site-packages (from requests>=2.26.0->tiktoken==0.9.0) (3.5.2)
+Requirement already satisfied: idna<4,>=2.5 in /insomnia001/home/pts2125/hpml/dust/.venv/baseline-cu128/lib/python3.11/site-packages (from requests>=2.26.0->tiktoken==0.9.0) (3.20)
+Requirement already satisfied: urllib3<3,>=1.26 in /insomnia001/home/pts2125/hpml/dust/.venv/baseline-cu128/lib/python3.11/site-packages (from requests>=2.26.0->tiktoken==0.9.0) (2.8.0)
+Requirement already satisfied: certifi>=2023.5.7 in /insomnia001/home/pts2125/hpml/dust/.venv/baseline-cu128/lib/python3.11/site-packages (from requests>=2.26.0->tiktoken==0.9.0) (2026.10.23)
+Downloading tiktoken-0.9.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (1.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.2/1.2 MB 1.7 MB/s eta 0:00:00
+Downloading matplotlib-3.10.5-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (8.7 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 8.7/8.7 MB 1.6 MB/s eta 0:00:00
+Downloading contourpy-1.3.3-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (355 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 355.2/355.2 kB 1.5 MB/s eta 0:00:00
+Downloading cycler-0.12.1-py3-none-any.whl (8.3 kB)
+Downloading fonttools-4.68.0-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (5.5 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.5/5.5 MB 1.6 MB/s eta 0:00:00
+Downloading kiwisolver-1.5.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (1.4 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.4/1.4 MB 1.6 MB/s eta 0:00:00
+Downloading pillow-13.0.0-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (7.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 7.1/7.1 MB 1.5 MB/s eta 0:00:00
+Downloading pyparsing-3.3.3-py3-none-any.whl (126 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 126.4/126.4 kB 1.3 MB/s eta 0:00:00
+Downloading regex-2026.11.19-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (805 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 805.9/805.9 kB 1.9 MB/s eta 0:00:00
+Installing collected packages: regex, pyparsing, pillow, kiwisolver, fonttools, cycler, contourpy, tiktoken, matplotlib
+Successfully installed contourpy-1.3.3 cycler-0.12.1 fonttools-4.68.0 kiwisolver-1.5.1 matplotlib-3.10.5 pillow-13.0.0 pyparsing-3.3.3 regex-2026.11.19 tiktoken-0.9.0
+
+[notice] A new release of pip is available: 23.2.1 -> 26.3
+[notice] To update, run: python -m pip install --upgrade pip
+2.10.0+cu128 2.4.6 0.9.0 3.10.5 9.2.0

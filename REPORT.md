@@ -103,3 +103,7 @@ The author's modified nanoGPT commit, exact dataset revision/order/split seed, R
 FineWeb ingestion is implemented and fixture packing/checksums are verified, but the real corpus download/preparation is unrun pending the storage budget. Full downstream datasets, longer pilot curves, three-seed confirmation, context sweeps, paper-scale memory fit, compilation and distributed training remain unrun. No KV cache or proposal extensions are implemented. A zero cosine or a passing smoke run does not establish that the paper is reproduced.
 
 The next actionable decision is authorization for **one total A6000 GPU-hour, bounded CPU preparation, and 5 GiB under `~/algollms/xsa`** for the exploratory seed-17 SA/XSA pair. The exact shared-initialization, preparation, SA, XSA, resume and evaluation commands are in [README.md](README.md). The handoff explicitly requires a concrete GPU-hour allocation and launch authorization after profiling; nothing longer has been submitted.
+
+## Repository delivery
+
+Code and compact results were pushed to [ptshen/xsa-research](https://github.com/ptshen/xsa-research), branch `main`, through the existing GitHub SSH setup on Insomnia. Implementation commit: `72cb3c4802f39d54e2d971d38f2a1b68c3950ccb`; final documentation and raw Slurm logs are delivered in the following commit on the same branch. Checkpoints and token shards are preserved on Insomnia, with checksums in Git, rather than uploaded as large binaries.

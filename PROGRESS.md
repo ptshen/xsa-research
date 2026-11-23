@@ -93,3 +93,12 @@ Next: inspect final job artifacts, render plot, finalize audit/report, push auth
 - Completion checks: architecture/numerical tests, data/config reproducibility, actual allocation/scripts, atomic and signal resume, evaluation/diagnostics/downstream adapter, bounded profiling, checkpoint/plot loading, measured next-stage estimate and report are evidenced. Real FineWeb download, long pilot, paper-scale study and downstream datasets remain intentionally unrun under the handoff's budget/authorization boundary.
 
 Next: push the code and compact evidence to the user's GitHub repository, verify branch/tree, then report completion. The next research-stage decision is authorization for one A6000 GPU-hour total plus bounded CPU preparation and 5 GiB for the exploratory pair; no such job is submitted.
+
+## GitHub delivery
+
+- Committed implementation and compact evidence as **72cb3c4802f39d54e2d971d38f2a1b68c3950ccb** and pushed `main` to **https://github.com/ptshen/xsa-research**. `git ls-remote origin refs/heads/main` matched that commit; remote worktree was clean.
+- HTTPS push initially failed because the noninteractive server session had no HTTPS username credential. The earlier public clone did not prove authentication (correcting the initial wording). Switched the repository remote to `git@github.com:ptshen/xsa-research.git`; the user's existing SSH setup authenticated and pushed successfully. No new credentials were requested or created.
+- Broad `git diff --check` flagged original handoff/reference/log whitespace. Those source/evidence files were preserved verbatim; the authored code/config/docs check passed. Checkpoints, token shards, environments and caches are excluded from Git. Canonical Slurm logs are included under `evidence/cluster/logs/`.
+- All implementation and verification work is complete. Final documentation/log delivery is being committed on top of the source commit; the repository's `main` is the delivery branch.
+
+**Next action:** review REPORT and authorize, if desired, one A6000 GPU-hour total, bounded CPU data preparation and 5 GiB for the seed-17 pilot pair. The handoff requires separate authorization for that longer stage. No active project jobs or long training launches remain.

@@ -1,0 +1,333 @@
+Collecting lm_eval@ git+https://github.com/EleutherAI/lm-evaluation-harness.git@ad3f4d0cad1cfcdb815f1e795f7947e49ed9f2e9
+  Cloning https://github.com/EleutherAI/lm-evaluation-harness.git (to revision ad3f4d0cad1cfcdb815f1e795f7947e49ed9f2e9) to /local/slurm-job-14072287/pip-install-tpshq23s/lm-eval_458ec31c1d1245b19b98a66b8a1d31ca
+  Running command git clone --filter=blob:none --quiet https://github.com/EleutherAI/lm-evaluation-harness.git /local/slurm-job-14072287/pip-install-tpshq23s/lm-eval_458ec31c1d1245b19b98a66b8a1d31ca
+  Running command git rev-parse -q --verify 'sha^ad3f4d0cad1cfcdb815f1e795f7947e49ed9f2e9'
+  Running command git fetch -q https://github.com/EleutherAI/lm-evaluation-harness.git ad3f4d0cad1cfcdb815f1e795f7947e49ed9f2e9
+  Running command git checkout -q ad3f4d0cad1cfcdb815f1e795f7947e49ed9f2e9
+  Resolved https://github.com/EleutherAI/lm-evaluation-harness.git to commit ad3f4d0cad1cfcdb815f1e795f7947e49ed9f2e9
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+  Getting requirements to build wheel: finished with status 'done'
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Collecting accelerate>=0.26.0 (from lm_eval@ git+https://github.com/EleutherAI/lm-evaluation-harness.git@ad3f4d0cad1cfcdb815f1e795f7947e49ed9f2e9)
+  Obtaining dependency information for accelerate>=0.26.0 from https://files.pythonhosted.org/packages/29/8e/d77aa769cf76472ede10e73e5c27ed22587ff12091fdd7408bc390f41af7/accelerate-1.16.0-py3-none-any.whl.metadata
+  Downloading accelerate-1.16.0-py3-none-any.whl.metadata (19 kB)
+Collecting evaluate (from lm_eval@ git+https://github.com/EleutherAI/lm-evaluation-harness.git@ad3f4d0cad1cfcdb815f1e795f7947e49ed9f2e9)
+  Obtaining dependency information for evaluate from https://files.pythonhosted.org/packages/3e/af/3e990d8d4002bbc9342adb4facd59506e653da93b2417de0fa6027cb86b1/evaluate-0.4.6-py3-none-any.whl.metadata
+  Downloading evaluate-0.4.6-py3-none-any.whl.metadata (9.5 kB)
+Requirement already satisfied: datasets>=2.16.0 in /insomnia001/home/pts2125/hpml/dust/.venv/baseline-cu128/lib/python3.11/site-packages (from lm_eval@ git+https://github.com/EleutherAI/lm-evaluation-harness.git@ad3f4d0cad1cfcdb815f1e795f7947e49ed9f2e9) (4.8.4)
+Collecting jsonlines (from lm_eval@ git+https://github.com/EleutherAI/lm-evaluation-harness.git@ad3f4d0cad1cfcdb815f1e795f7947e49ed9f2e9)
+  Obtaining dependency information for jsonlines from https://files.pythonhosted.org/packages/f8/62/d9ba6323b9202dd2fe166beab8a86d29465c41a0288cbe229fac60c1ab8d/jsonlines-4.0.0-py3-none-any.whl.metadata
+  Downloading jsonlines-4.0.0-py3-none-any.whl.metadata (1.6 kB)
+Collecting numexpr (from lm_eval@ git+https://github.com/EleutherAI/lm-evaluation-harness.git@ad3f4d0cad1cfcdb815f1e795f7947e49ed9f2e9)
+  Obtaining dependency information for numexpr from https://files.pythonhosted.org/packages/d6/15/9a7bf92b7c8047157fd96bc42ff6b0a20351f43aa58b9f61eb8f5ff3048b/numexpr-2.14.2-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata
+  Downloading numexpr-2.14.2-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (9.0 kB)
+Collecting peft>=0.2.0 (from lm_eval@ git+https://github.com/EleutherAI/lm-evaluation-harness.git@ad3f4d0cad1cfcdb815f1e795f7947e49ed9f2e9)
+  Obtaining dependency information for peft>=0.2.0 from https://files.pythonhosted.org/packages/60/f2/107e752b64f5636ff92aed4010bad2448d9dd15d9fcf6c1c01b1075dfd76/peft-0.22.0-py3-none-any.whl.metadata
+  Downloading peft-0.22.0-py3-none-any.whl.metadata (15 kB)
+Collecting pybind11>=2.6.2 (from lm_eval@ git+https://github.com/EleutherAI/lm-evaluation-harness.git@ad3f4d0cad1cfcdb815f1e795f7947e49ed9f2e9)
+  Obtaining dependency information for pybind11>=2.6.2 from https://files.pythonhosted.org/packages/33/fd/8762f7ee3e4e4be6d1d846cffb4916dd9bb02b2f800d3603718a0efe494c/pybind11-3.1.0-py3-none-any.whl.metadata
+  Downloading pybind11-3.1.0-py3-none-any.whl.metadata (10 kB)
+Collecting pytablewriter (from lm_eval@ git+https://github.com/EleutherAI/lm-evaluation-harness.git@ad3f4d0cad1cfcdb815f1e795f7947e49ed9f2e9)
+  Obtaining dependency information for pytablewriter from https://files.pythonhosted.org/packages/21/4c/c199512f01c845dfe5a7840ab3aae6c60463b5dc2a775be72502dfd9170a/pytablewriter-1.2.1-py3-none-any.whl.metadata
+  Downloading pytablewriter-1.2.1-py3-none-any.whl.metadata (38 kB)
+Collecting rouge-score>=0.0.4 (from lm_eval@ git+https://github.com/EleutherAI/lm-evaluation-harness.git@ad3f4d0cad1cfcdb815f1e795f7947e49ed9f2e9)
+  Downloading rouge_score-0.1.2.tar.gz (17 kB)
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+  Getting requirements to build wheel: finished with status 'done'
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Collecting sacrebleu>=1.5.0 (from lm_eval@ git+https://github.com/EleutherAI/lm-evaluation-harness.git@ad3f4d0cad1cfcdb815f1e795f7947e49ed9f2e9)
+  Obtaining dependency information for sacrebleu>=1.5.0 from https://files.pythonhosted.org/packages/06/f2/6c90ccf3ad1d09a7d662a405b274f3c93b92df59c8d6a025d26aaf34d302/sacrebleu-2.6.0-py3-none-any.whl.metadata
+  Downloading sacrebleu-2.6.0-py3-none-any.whl.metadata (39 kB)
+Collecting scikit-learn>=0.24.1 (from lm_eval@ git+https://github.com/EleutherAI/lm-evaluation-harness.git@ad3f4d0cad1cfcdb815f1e795f7947e49ed9f2e9)
+  Obtaining dependency information for scikit-learn>=0.24.1 from https://files.pythonhosted.org/packages/69/46/f8b95a7a16fd13b458401d5e85a63d88ecb3679f3649812d5fdbea4c8357/scikit_learn-1.9.1-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata
+  Downloading scikit_learn-1.9.1-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (9.3 kB)
+Collecting sqlitedict (from lm_eval@ git+https://github.com/EleutherAI/lm-evaluation-harness.git@ad3f4d0cad1cfcdb815f1e795f7947e49ed9f2e9)
+  Downloading sqlitedict-2.1.0.tar.gz (21 kB)
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+  Getting requirements to build wheel: finished with status 'done'
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Requirement already satisfied: torch>=1.8 in /insomnia001/home/pts2125/hpml/dust/.venv/baseline-cu128/lib/python3.11/site-packages (from lm_eval@ git+https://github.com/EleutherAI/lm-evaluation-harness.git@ad3f4d0cad1cfcdb815f1e795f7947e49ed9f2e9) (2.10.0+cu128)
+Collecting tqdm-multiprocess (from lm_eval@ git+https://github.com/EleutherAI/lm-evaluation-harness.git@ad3f4d0cad1cfcdb815f1e795f7947e49ed9f2e9)
+  Obtaining dependency information for tqdm-multiprocess from https://files.pythonhosted.org/packages/25/7e/0d889fc6c84e3df6b69aaafe893fc77f69b3d968ac9ce574d1c62c688050/tqdm_multiprocess-0.0.11-py3-none-any.whl.metadata
+  Downloading tqdm_multiprocess-0.0.11-py3-none-any.whl.metadata (5.7 kB)
+Collecting transformers>=4.1 (from lm_eval@ git+https://github.com/EleutherAI/lm-evaluation-harness.git@ad3f4d0cad1cfcdb815f1e795f7947e49ed9f2e9)
+  Obtaining dependency information for transformers>=4.1 from https://files.pythonhosted.org/packages/a4/6c/0a5b01b84e605e811f25d091262f199894c0839dcd7f2a289254cf7a16a7/transformers-5.24.0-py3-none-any.whl.metadata
+  Downloading transformers-5.24.0-py3-none-any.whl.metadata (31 kB)
+Collecting zstandard (from lm_eval@ git+https://github.com/EleutherAI/lm-evaluation-harness.git@ad3f4d0cad1cfcdb815f1e795f7947e49ed9f2e9)
+  Obtaining dependency information for zstandard from https://files.pythonhosted.org/packages/bb/1f/e9cfd801a3f9190bf3e759c422bbfd2247db9d7f3d54a56ecde70137791a/zstandard-0.25.0-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata
+  Downloading zstandard-0.25.0-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (3.3 kB)
+Requirement already satisfied: dill in /insomnia001/home/pts2125/hpml/dust/.venv/baseline-cu128/lib/python3.11/site-packages (from lm_eval@ git+https://github.com/EleutherAI/lm-evaluation-harness.git@ad3f4d0cad1cfcdb815f1e795f7947e49ed9f2e9) (0.4.1)
+Collecting word2number (from lm_eval@ git+https://github.com/EleutherAI/lm-evaluation-harness.git@ad3f4d0cad1cfcdb815f1e795f7947e49ed9f2e9)
+  Downloading word2number-1.1.zip (9.7 kB)
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+  Getting requirements to build wheel: finished with status 'done'
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Collecting more_itertools (from lm_eval@ git+https://github.com/EleutherAI/lm-evaluation-harness.git@ad3f4d0cad1cfcdb815f1e795f7947e49ed9f2e9)
+  Obtaining dependency information for more_itertools from https://files.pythonhosted.org/packages/5d/57/3c4b1c6f2e0cc29ba023802458ea3d2a996f87085559e4a5f2192d549532/more_itertools-11.2.1-py3-none-any.whl.metadata
+  Downloading more_itertools-11.2.1-py3-none-any.whl.metadata (42 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 42.7/42.7 kB 6.3 kB/s eta 0:00:00
+Requirement already satisfied: numpy>=1.17 in /insomnia001/home/pts2125/hpml/dust/.venv/baseline-cu128/lib/python3.11/site-packages (from accelerate>=0.26.0->lm_eval@ git+https://github.com/EleutherAI/lm-evaluation-harness.git@ad3f4d0cad1cfcdb815f1e795f7947e49ed9f2e9) (2.4.6)
+Requirement already satisfied: packaging>=20.0 in /insomnia001/home/pts2125/hpml/dust/.venv/baseline-cu128/lib/python3.11/site-packages (from accelerate>=0.26.0->lm_eval@ git+https://github.com/EleutherAI/lm-evaluation-harness.git@ad3f4d0cad1cfcdb815f1e795f7947e49ed9f2e9) (26.3)
+Collecting psutil (from accelerate>=0.26.0->lm_eval@ git+https://github.com/EleutherAI/lm-evaluation-harness.git@ad3f4d0cad1cfcdb815f1e795f7947e49ed9f2e9)
+  Obtaining dependency information for psutil from https://files.pythonhosted.org/packages/b5/70/5d8df3b09e25bce090399cf48e452d25c935ab72dad19406c77f4e828045/psutil-7.2.2-cp36-abi3-manylinux2010_x86_64.manylinux_2_12_x86_64.manylinux_2_28_x86_64.whl.metadata
+  Downloading psutil-7.2.2-cp36-abi3-manylinux2010_x86_64.manylinux_2_12_x86_64.manylinux_2_28_x86_64.whl.metadata (22 kB)
+Requirement already satisfied: pyyaml in /insomnia001/home/pts2125/hpml/dust/.venv/baseline-cu128/lib/python3.11/site-packages (from accelerate>=0.26.0->lm_eval@ git+https://github.com/EleutherAI/lm-evaluation-harness.git@ad3f4d0cad1cfcdb815f1e795f7947e49ed9f2e9) (6.0.3)
+Requirement already satisfied: huggingface_hub>=0.21.0 in /insomnia001/home/pts2125/hpml/dust/.venv/baseline-cu128/lib/python3.11/site-packages (from accelerate>=0.26.0->lm_eval@ git+https://github.com/EleutherAI/lm-evaluation-harness.git@ad3f4d0cad1cfcdb815f1e795f7947e49ed9f2e9) (1.33.0)
+Collecting safetensors>=0.4.3 (from accelerate>=0.26.0->lm_eval@ git+https://github.com/EleutherAI/lm-evaluation-harness.git@ad3f4d0cad1cfcdb815f1e795f7947e49ed9f2e9)
+  Obtaining dependency information for safetensors>=0.4.3 from https://files.pythonhosted.org/packages/28/50/f203ff3a3ddfe19308efc83c5a3a29ed02bf786732ec35e68bf9162f3365/safetensors-0.8.0-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata
+  Downloading safetensors-0.8.0-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.2 kB)
+Requirement already satisfied: filelock in /insomnia001/home/pts2125/hpml/dust/.venv/baseline-cu128/lib/python3.11/site-packages (from datasets>=2.16.0->lm_eval@ git+https://github.com/EleutherAI/lm-evaluation-harness.git@ad3f4d0cad1cfcdb815f1e795f7947e49ed9f2e9) (4.2.10)
+Requirement already satisfied: pyarrow>=21.0.0 in /insomnia001/home/pts2125/hpml/dust/.venv/baseline-cu128/lib/python3.11/site-packages (from datasets>=2.16.0->lm_eval@ git+https://github.com/EleutherAI/lm-evaluation-harness.git@ad3f4d0cad1cfcdb815f1e795f7947e49ed9f2e9) (26.0.1)
+Requirement already satisfied: pandas in /insomnia001/home/pts2125/hpml/dust/.venv/baseline-cu128/lib/python3.11/site-packages (from datasets>=2.16.0->lm_eval@ git+https://github.com/EleutherAI/lm-evaluation-harness.git@ad3f4d0cad1cfcdb815f1e795f7947e49ed9f2e9) (3.1.1)
+Requirement already satisfied: requests>=2.32.2 in /insomnia001/home/pts2125/hpml/dust/.venv/baseline-cu128/lib/python3.11/site-packages (from datasets>=2.16.0->lm_eval@ git+https://github.com/EleutherAI/lm-evaluation-harness.git@ad3f4d0cad1cfcdb815f1e795f7947e49ed9f2e9) (2.34.2)
+Requirement already satisfied: httpx<1.0.0 in /insomnia001/home/pts2125/hpml/dust/.venv/baseline-cu128/lib/python3.11/site-packages (from datasets>=2.16.0->lm_eval@ git+https://github.com/EleutherAI/lm-evaluation-harness.git@ad3f4d0cad1cfcdb815f1e795f7947e49ed9f2e9) (0.28.1)
+Requirement already satisfied: tqdm>=4.66.3 in /insomnia001/home/pts2125/hpml/dust/.venv/baseline-cu128/lib/python3.11/site-packages (from datasets>=2.16.0->lm_eval@ git+https://github.com/EleutherAI/lm-evaluation-harness.git@ad3f4d0cad1cfcdb815f1e795f7947e49ed9f2e9) (4.70.1)
+Requirement already satisfied: xxhash in /insomnia001/home/pts2125/hpml/dust/.venv/baseline-cu128/lib/python3.11/site-packages (from datasets>=2.16.0->lm_eval@ git+https://github.com/EleutherAI/lm-evaluation-harness.git@ad3f4d0cad1cfcdb815f1e795f7947e49ed9f2e9) (4.1.0)
+Requirement already satisfied: multiprocess<0.70.20 in /insomnia001/home/pts2125/hpml/dust/.venv/baseline-cu128/lib/python3.11/site-packages (from datasets>=2.16.0->lm_eval@ git+https://github.com/EleutherAI/lm-evaluation-harness.git@ad3f4d0cad1cfcdb815f1e795f7947e49ed9f2e9) (0.70.19)
+Requirement already satisfied: fsspec[http]<=2026.2.0,>=2023.1.0 in /insomnia001/home/pts2125/hpml/dust/.venv/baseline-cu128/lib/python3.11/site-packages (from datasets>=2.16.0->lm_eval@ git+https://github.com/EleutherAI/lm-evaluation-harness.git@ad3f4d0cad1cfcdb815f1e795f7947e49ed9f2e9) (2026.2.0)
+Collecting absl-py (from rouge-score>=0.0.4->lm_eval@ git+https://github.com/EleutherAI/lm-evaluation-harness.git@ad3f4d0cad1cfcdb815f1e795f7947e49ed9f2e9)
+  Obtaining dependency information for absl-py from https://files.pythonhosted.org/packages/b3/7d/01e62f59e4166af1be6238d9f2b7f3453630c51b8044b412d05b5606532a/absl_py-2.5.1-py3-none-any.whl.metadata
+  Downloading absl_py-2.5.1-py3-none-any.whl.metadata (3.3 kB)
+Collecting nltk (from rouge-score>=0.0.4->lm_eval@ git+https://github.com/EleutherAI/lm-evaluation-harness.git@ad3f4d0cad1cfcdb815f1e795f7947e49ed9f2e9)
+  Obtaining dependency information for nltk from https://files.pythonhosted.org/packages/a2/04/e7816813e409ca874ba2fcc35455db0e4130b79eb277e1f9edd270ca3c69/nltk-3.10.4-py3-none-any.whl.metadata
+  Downloading nltk-3.10.4-py3-none-any.whl.metadata (5.0 kB)
+Collecting six>=1.14.0 (from rouge-score>=0.0.4->lm_eval@ git+https://github.com/EleutherAI/lm-evaluation-harness.git@ad3f4d0cad1cfcdb815f1e795f7947e49ed9f2e9)
+  Obtaining dependency information for six>=1.14.0 from https://files.pythonhosted.org/packages/b7/ce/149a00dd41f10bc29e5921b496af8b574d8413afcd5e30dfa0ed46c2cc5e/six-1.17.0-py2.py3-none-any.whl.metadata
+  Downloading six-1.17.0-py2.py3-none-any.whl.metadata (1.7 kB)
+Collecting portalocker (from sacrebleu>=1.5.0->lm_eval@ git+https://github.com/EleutherAI/lm-evaluation-harness.git@ad3f4d0cad1cfcdb815f1e795f7947e49ed9f2e9)
+  Obtaining dependency information for portalocker from https://files.pythonhosted.org/packages/e8/43/bca094221a0f9f592fe1e982d090a92075aa302ecaa92c94cc6268a39b2c/portalocker-4.4.2-py3-none-any.whl.metadata
+  Downloading portalocker-4.4.2-py3-none-any.whl.metadata (10 kB)
+Requirement already satisfied: regex in ./.venv/lib/python3.11/site-packages (from sacrebleu>=1.5.0->lm_eval@ git+https://github.com/EleutherAI/lm-evaluation-harness.git@ad3f4d0cad1cfcdb815f1e795f7947e49ed9f2e9) (2026.11.19)
+Collecting tabulate>=0.8.9 (from sacrebleu>=1.5.0->lm_eval@ git+https://github.com/EleutherAI/lm-evaluation-harness.git@ad3f4d0cad1cfcdb815f1e795f7947e49ed9f2e9)
+  Obtaining dependency information for tabulate>=0.8.9 from https://files.pythonhosted.org/packages/99/55/db07de81b5c630da5cbf5c7df646580ca26dfaefa593667fc6f2fe016d2e/tabulate-0.10.0-py3-none-any.whl.metadata
+  Downloading tabulate-0.10.0-py3-none-any.whl.metadata (40 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 40.8/40.8 kB 255.6 kB/s eta 0:00:00
+Collecting colorama (from sacrebleu>=1.5.0->lm_eval@ git+https://github.com/EleutherAI/lm-evaluation-harness.git@ad3f4d0cad1cfcdb815f1e795f7947e49ed9f2e9)
+  Obtaining dependency information for colorama from https://files.pythonhosted.org/packages/d1/d6/3965ed04c63042e047cb6a3e6ed1a63a35087b6a609aa3a15ed8ac56c221/colorama-0.4.6-py2.py3-none-any.whl.metadata
+  Downloading colorama-0.4.6-py2.py3-none-any.whl.metadata (17 kB)
+Collecting lxml (from sacrebleu>=1.5.0->lm_eval@ git+https://github.com/EleutherAI/lm-evaluation-harness.git@ad3f4d0cad1cfcdb815f1e795f7947e49ed9f2e9)
+  Obtaining dependency information for lxml from https://files.pythonhosted.org/packages/94/2a/25d128872f4d51753542bfc3feb482c2ea7c8a2d6d81a0bc5c6a00779ed4/lxml-6.1.3-cp311-cp311-manylinux_2_26_x86_64.manylinux_2_28_x86_64.whl.metadata
+  Downloading lxml-6.1.3-cp311-cp311-manylinux_2_26_x86_64.manylinux_2_28_x86_64.whl.metadata (3.3 kB)
+Collecting scipy>=1.10.0 (from scikit-learn>=0.24.1->lm_eval@ git+https://github.com/EleutherAI/lm-evaluation-harness.git@ad3f4d0cad1cfcdb815f1e795f7947e49ed9f2e9)
+  Obtaining dependency information for scipy>=1.10.0 from https://files.pythonhosted.org/packages/09/7d/af933f0f6e0767995b4e2d705a0665e454d1c19402aa7e895de3951ebb04/scipy-1.17.1-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata
+  Downloading scipy-1.17.1-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (62 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 62.1/62.1 kB 164.9 kB/s eta 0:00:00
+Collecting joblib>=1.4.0 (from scikit-learn>=0.24.1->lm_eval@ git+https://github.com/EleutherAI/lm-evaluation-harness.git@ad3f4d0cad1cfcdb815f1e795f7947e49ed9f2e9)
+  Obtaining dependency information for joblib>=1.4.0 from https://files.pythonhosted.org/packages/18/53/84099323c2ec4be98d935f63c033ac4151ee83836ca1050ede3b3aadf155/joblib-1.6.0-py3-none-any.whl.metadata
+  Downloading joblib-1.6.0-py3-none-any.whl.metadata (6.5 kB)
+Collecting narwhals>=2.0.1 (from scikit-learn>=0.24.1->lm_eval@ git+https://github.com/EleutherAI/lm-evaluation-harness.git@ad3f4d0cad1cfcdb815f1e795f7947e49ed9f2e9)
+  Obtaining dependency information for narwhals>=2.0.1 from https://files.pythonhosted.org/packages/9e/2b/20b4b463c3795dc390db8fa6ec2b5c3e0aea90a760f813305da4c33dd814/narwhals-2.29.0-py3-none-any.whl.metadata
+  Downloading narwhals-2.29.0-py3-none-any.whl.metadata (15 kB)
+Collecting threadpoolctl>=3.5.0 (from scikit-learn>=0.24.1->lm_eval@ git+https://github.com/EleutherAI/lm-evaluation-harness.git@ad3f4d0cad1cfcdb815f1e795f7947e49ed9f2e9)
+  Obtaining dependency information for threadpoolctl>=3.5.0 from https://files.pythonhosted.org/packages/54/1b/831f2de4840a25db1dd7b1afea433ccafe6bb10aca07e13264f2079462d0/threadpoolctl-3.8.0-py3-none-any.whl.metadata
+  Downloading threadpoolctl-3.8.0-py3-none-any.whl.metadata (29 kB)
+Requirement already satisfied: typing-extensions>=4.10.0 in /insomnia001/home/pts2125/hpml/dust/.venv/baseline-cu128/lib/python3.11/site-packages (from torch>=1.8->lm_eval@ git+https://github.com/EleutherAI/lm-evaluation-harness.git@ad3f4d0cad1cfcdb815f1e795f7947e49ed9f2e9) (4.16.0)
+Requirement already satisfied: sympy>=1.13.3 in /insomnia001/home/pts2125/hpml/dust/.venv/baseline-cu128/lib/python3.11/site-packages (from torch>=1.8->lm_eval@ git+https://github.com/EleutherAI/lm-evaluation-harness.git@ad3f4d0cad1cfcdb815f1e795f7947e49ed9f2e9) (1.14.0)
+Requirement already satisfied: networkx>=2.5.1 in /insomnia001/home/pts2125/hpml/dust/.venv/baseline-cu128/lib/python3.11/site-packages (from torch>=1.8->lm_eval@ git+https://github.com/EleutherAI/lm-evaluation-harness.git@ad3f4d0cad1cfcdb815f1e795f7947e49ed9f2e9) (3.6.1)
+Requirement already satisfied: jinja2 in /insomnia001/home/pts2125/hpml/dust/.venv/baseline-cu128/lib/python3.11/site-packages (from torch>=1.8->lm_eval@ git+https://github.com/EleutherAI/lm-evaluation-harness.git@ad3f4d0cad1cfcdb815f1e795f7947e49ed9f2e9) (3.1.6)
+Requirement already satisfied: cuda-bindings==12.9.4 in /insomnia001/home/pts2125/hpml/dust/.venv/baseline-cu128/lib/python3.11/site-packages (from torch>=1.8->lm_eval@ git+https://github.com/EleutherAI/lm-evaluation-harness.git@ad3f4d0cad1cfcdb815f1e795f7947e49ed9f2e9) (12.9.4)
+Requirement already satisfied: nvidia-cuda-nvrtc-cu12==12.8.93 in /insomnia001/home/pts2125/hpml/dust/.venv/baseline-cu128/lib/python3.11/site-packages (from torch>=1.8->lm_eval@ git+https://github.com/EleutherAI/lm-evaluation-harness.git@ad3f4d0cad1cfcdb815f1e795f7947e49ed9f2e9) (12.8.93)
+Requirement already satisfied: nvidia-cuda-runtime-cu12==12.8.90 in /insomnia001/home/pts2125/hpml/dust/.venv/baseline-cu128/lib/python3.11/site-packages (from torch>=1.8->lm_eval@ git+https://github.com/EleutherAI/lm-evaluation-harness.git@ad3f4d0cad1cfcdb815f1e795f7947e49ed9f2e9) (12.8.90)
+Requirement already satisfied: nvidia-cuda-cupti-cu12==12.8.90 in /insomnia001/home/pts2125/hpml/dust/.venv/baseline-cu128/lib/python3.11/site-packages (from torch>=1.8->lm_eval@ git+https://github.com/EleutherAI/lm-evaluation-harness.git@ad3f4d0cad1cfcdb815f1e795f7947e49ed9f2e9) (12.8.90)
+Requirement already satisfied: nvidia-cudnn-cu12==9.10.2.21 in /insomnia001/home/pts2125/hpml/dust/.venv/baseline-cu128/lib/python3.11/site-packages (from torch>=1.8->lm_eval@ git+https://github.com/EleutherAI/lm-evaluation-harness.git@ad3f4d0cad1cfcdb815f1e795f7947e49ed9f2e9) (9.10.2.21)
+Requirement already satisfied: nvidia-cublas-cu12==12.8.4.1 in /insomnia001/home/pts2125/hpml/dust/.venv/baseline-cu128/lib/python3.11/site-packages (from torch>=1.8->lm_eval@ git+https://github.com/EleutherAI/lm-evaluation-harness.git@ad3f4d0cad1cfcdb815f1e795f7947e49ed9f2e9) (12.8.4.1)
+Requirement already satisfied: nvidia-cufft-cu12==11.3.3.83 in /insomnia001/home/pts2125/hpml/dust/.venv/baseline-cu128/lib/python3.11/site-packages (from torch>=1.8->lm_eval@ git+https://github.com/EleutherAI/lm-evaluation-harness.git@ad3f4d0cad1cfcdb815f1e795f7947e49ed9f2e9) (11.3.3.83)
+Requirement already satisfied: nvidia-curand-cu12==10.3.9.90 in /insomnia001/home/pts2125/hpml/dust/.venv/baseline-cu128/lib/python3.11/site-packages (from torch>=1.8->lm_eval@ git+https://github.com/EleutherAI/lm-evaluation-harness.git@ad3f4d0cad1cfcdb815f1e795f7947e49ed9f2e9) (10.3.9.90)
+Requirement already satisfied: nvidia-cusolver-cu12==11.7.3.90 in /insomnia001/home/pts2125/hpml/dust/.venv/baseline-cu128/lib/python3.11/site-packages (from torch>=1.8->lm_eval@ git+https://github.com/EleutherAI/lm-evaluation-harness.git@ad3f4d0cad1cfcdb815f1e795f7947e49ed9f2e9) (11.7.3.90)
+Requirement already satisfied: nvidia-cusparse-cu12==12.5.8.93 in /insomnia001/home/pts2125/hpml/dust/.venv/baseline-cu128/lib/python3.11/site-packages (from torch>=1.8->lm_eval@ git+https://github.com/EleutherAI/lm-evaluation-harness.git@ad3f4d0cad1cfcdb815f1e795f7947e49ed9f2e9) (12.5.8.93)
+Requirement already satisfied: nvidia-cusparselt-cu12==0.7.1 in /insomnia001/home/pts2125/hpml/dust/.venv/baseline-cu128/lib/python3.11/site-packages (from torch>=1.8->lm_eval@ git+https://github.com/EleutherAI/lm-evaluation-harness.git@ad3f4d0cad1cfcdb815f1e795f7947e49ed9f2e9) (0.7.1)
+Requirement already satisfied: nvidia-nccl-cu12==2.27.5 in /insomnia001/home/pts2125/hpml/dust/.venv/baseline-cu128/lib/python3.11/site-packages (from torch>=1.8->lm_eval@ git+https://github.com/EleutherAI/lm-evaluation-harness.git@ad3f4d0cad1cfcdb815f1e795f7947e49ed9f2e9) (2.27.5)
+Requirement already satisfied: nvidia-nvshmem-cu12==3.4.5 in /insomnia001/home/pts2125/hpml/dust/.venv/baseline-cu128/lib/python3.11/site-packages (from torch>=1.8->lm_eval@ git+https://github.com/EleutherAI/lm-evaluation-harness.git@ad3f4d0cad1cfcdb815f1e795f7947e49ed9f2e9) (3.4.5)
+Requirement already satisfied: nvidia-nvtx-cu12==12.8.90 in /insomnia001/home/pts2125/hpml/dust/.venv/baseline-cu128/lib/python3.11/site-packages (from torch>=1.8->lm_eval@ git+https://github.com/EleutherAI/lm-evaluation-harness.git@ad3f4d0cad1cfcdb815f1e795f7947e49ed9f2e9) (12.8.90)
+Requirement already satisfied: nvidia-nvjitlink-cu12==12.8.93 in /insomnia001/home/pts2125/hpml/dust/.venv/baseline-cu128/lib/python3.11/site-packages (from torch>=1.8->lm_eval@ git+https://github.com/EleutherAI/lm-evaluation-harness.git@ad3f4d0cad1cfcdb815f1e795f7947e49ed9f2e9) (12.8.93)
+Requirement already satisfied: nvidia-cufile-cu12==1.13.1.3 in /insomnia001/home/pts2125/hpml/dust/.venv/baseline-cu128/lib/python3.11/site-packages (from torch>=1.8->lm_eval@ git+https://github.com/EleutherAI/lm-evaluation-harness.git@ad3f4d0cad1cfcdb815f1e795f7947e49ed9f2e9) (1.13.1.3)
+Requirement already satisfied: triton==3.6.0 in /insomnia001/home/pts2125/hpml/dust/.venv/baseline-cu128/lib/python3.11/site-packages (from torch>=1.8->lm_eval@ git+https://github.com/EleutherAI/lm-evaluation-harness.git@ad3f4d0cad1cfcdb815f1e795f7947e49ed9f2e9) (3.6.0)
+Requirement already satisfied: cuda-pathfinder~=1.1 in /insomnia001/home/pts2125/hpml/dust/.venv/baseline-cu128/lib/python3.11/site-packages (from cuda-bindings==12.9.4->torch>=1.8->lm_eval@ git+https://github.com/EleutherAI/lm-evaluation-harness.git@ad3f4d0cad1cfcdb815f1e795f7947e49ed9f2e9) (1.8.6)
+Requirement already satisfied: tokenizers<0.24.0,>=0.23.1 in /insomnia001/home/pts2125/hpml/dust/.venv/baseline-cu128/lib/python3.11/site-packages (from transformers>=4.1->lm_eval@ git+https://github.com/EleutherAI/lm-evaluation-harness.git@ad3f4d0cad1cfcdb815f1e795f7947e49ed9f2e9) (0.23.1)
+Collecting typer (from transformers>=4.1->lm_eval@ git+https://github.com/EleutherAI/lm-evaluation-harness.git@ad3f4d0cad1cfcdb815f1e795f7947e49ed9f2e9)
+  Obtaining dependency information for typer from https://files.pythonhosted.org/packages/62/f3/864dcb0e165b52e9f75aa3c7e0aeeb9876f139c66eb14d87856bb173b0fa/typer-0.29.2-py3-none-any.whl.metadata
+  Downloading typer-0.29.2-py3-none-any.whl.metadata (16 kB)
+Requirement already satisfied: attrs>=19.2.0 in /insomnia001/home/pts2125/hpml/dust/.venv/baseline-cu128/lib/python3.11/site-packages (from jsonlines->lm_eval@ git+https://github.com/EleutherAI/lm-evaluation-harness.git@ad3f4d0cad1cfcdb815f1e795f7947e49ed9f2e9) (26.1.0)
+Requirement already satisfied: setuptools>=38.3.0 in ./.venv/lib/python3.11/site-packages (from pytablewriter->lm_eval@ git+https://github.com/EleutherAI/lm-evaluation-harness.git@ad3f4d0cad1cfcdb815f1e795f7947e49ed9f2e9) (65.5.0)
+Collecting DataProperty<2,>=1.1.0 (from pytablewriter->lm_eval@ git+https://github.com/EleutherAI/lm-evaluation-harness.git@ad3f4d0cad1cfcdb815f1e795f7947e49ed9f2e9)
+  Obtaining dependency information for DataProperty<2,>=1.1.0 from https://files.pythonhosted.org/packages/03/41/eab7fe313820578b341a2a1d6aeeedd2c38ec1e3f3d51e57e2735b5beac0/dataproperty-1.1.1-py3-none-any.whl.metadata
+  Downloading dataproperty-1.1.1-py3-none-any.whl.metadata (12 kB)
+Collecting mbstrdecoder<2,>=1.0.0 (from pytablewriter->lm_eval@ git+https://github.com/EleutherAI/lm-evaluation-harness.git@ad3f4d0cad1cfcdb815f1e795f7947e49ed9f2e9)
+  Obtaining dependency information for mbstrdecoder<2,>=1.0.0 from https://files.pythonhosted.org/packages/4c/eb/711270faab7b7df702339a2c68b31fd3ed4fffc68b0e99e5bdf49b1e87e4/mbstrdecoder-1.1.5-py3-none-any.whl.metadata
+  Downloading mbstrdecoder-1.1.5-py3-none-any.whl.metadata (4.3 kB)
+Collecting pathvalidate<4,>=2.3.0 (from pytablewriter->lm_eval@ git+https://github.com/EleutherAI/lm-evaluation-harness.git@ad3f4d0cad1cfcdb815f1e795f7947e49ed9f2e9)
+  Obtaining dependency information for pathvalidate<4,>=2.3.0 from https://files.pythonhosted.org/packages/9a/70/875f4a23bfc4731703a5835487d0d2fb999031bd415e7d17c0ae615c18b7/pathvalidate-3.3.1-py3-none-any.whl.metadata
+  Downloading pathvalidate-3.3.1-py3-none-any.whl.metadata (12 kB)
+Collecting tabledata<2,>=1.3.1 (from pytablewriter->lm_eval@ git+https://github.com/EleutherAI/lm-evaluation-harness.git@ad3f4d0cad1cfcdb815f1e795f7947e49ed9f2e9)
+  Obtaining dependency information for tabledata<2,>=1.3.1 from https://files.pythonhosted.org/packages/c7/86/37fa0e1437089f08b8b1b8c8ad93f6b57e9427753f002914299323300a9e/tabledata-1.3.5-py3-none-any.whl.metadata
+  Downloading tabledata-1.3.5-py3-none-any.whl.metadata (4.0 kB)
+Collecting tcolorpy<1,>=0.0.5 (from pytablewriter->lm_eval@ git+https://github.com/EleutherAI/lm-evaluation-harness.git@ad3f4d0cad1cfcdb815f1e795f7947e49ed9f2e9)
+  Obtaining dependency information for tcolorpy<1,>=0.0.5 from https://files.pythonhosted.org/packages/05/a2/ed023f2edd1e011b4d99b6727bce8253842d66c3fbf9ed0a26fc09a92571/tcolorpy-0.1.7-py3-none-any.whl.metadata
+  Downloading tcolorpy-0.1.7-py3-none-any.whl.metadata (6.3 kB)
+Collecting typepy[datetime]<2,>=1.3.2 (from pytablewriter->lm_eval@ git+https://github.com/EleutherAI/lm-evaluation-harness.git@ad3f4d0cad1cfcdb815f1e795f7947e49ed9f2e9)
+  Obtaining dependency information for typepy[datetime]<2,>=1.3.2 from https://files.pythonhosted.org/packages/64/71/75cf08c49b64a9419f1f2cef9be072ac34f6b784da2851489470b7c7ba15/typepy-1.3.5-py3-none-any.whl.metadata
+  Downloading typepy-1.3.5-py3-none-any.whl.metadata (9.6 kB)
+Requirement already satisfied: aiohttp!=4.0.0a0,!=4.0.0a1 in /insomnia001/home/pts2125/hpml/dust/.venv/baseline-cu128/lib/python3.11/site-packages (from fsspec[http]<=2026.2.0,>=2023.1.0->datasets>=2.16.0->lm_eval@ git+https://github.com/EleutherAI/lm-evaluation-harness.git@ad3f4d0cad1cfcdb815f1e795f7947e49ed9f2e9) (3.14.5)
+Requirement already satisfied: anyio in /insomnia001/home/pts2125/hpml/dust/.venv/baseline-cu128/lib/python3.11/site-packages (from httpx<1.0.0->datasets>=2.16.0->lm_eval@ git+https://github.com/EleutherAI/lm-evaluation-harness.git@ad3f4d0cad1cfcdb815f1e795f7947e49ed9f2e9) (4.16.0)
+Requirement already satisfied: certifi in /insomnia001/home/pts2125/hpml/dust/.venv/baseline-cu128/lib/python3.11/site-packages (from httpx<1.0.0->datasets>=2.16.0->lm_eval@ git+https://github.com/EleutherAI/lm-evaluation-harness.git@ad3f4d0cad1cfcdb815f1e795f7947e49ed9f2e9) (2026.10.23)
+Requirement already satisfied: httpcore==1.* in /insomnia001/home/pts2125/hpml/dust/.venv/baseline-cu128/lib/python3.11/site-packages (from httpx<1.0.0->datasets>=2.16.0->lm_eval@ git+https://github.com/EleutherAI/lm-evaluation-harness.git@ad3f4d0cad1cfcdb815f1e795f7947e49ed9f2e9) (1.0.9)
+Requirement already satisfied: idna in /insomnia001/home/pts2125/hpml/dust/.venv/baseline-cu128/lib/python3.11/site-packages (from httpx<1.0.0->datasets>=2.16.0->lm_eval@ git+https://github.com/EleutherAI/lm-evaluation-harness.git@ad3f4d0cad1cfcdb815f1e795f7947e49ed9f2e9) (3.20)
+Requirement already satisfied: h11>=0.16 in /insomnia001/home/pts2125/hpml/dust/.venv/baseline-cu128/lib/python3.11/site-packages (from httpcore==1.*->httpx<1.0.0->datasets>=2.16.0->lm_eval@ git+https://github.com/EleutherAI/lm-evaluation-harness.git@ad3f4d0cad1cfcdb815f1e795f7947e49ed9f2e9) (0.16.0)
+Requirement already satisfied: click<9.0.0,>=8.4.2 in /insomnia001/home/pts2125/hpml/dust/.venv/baseline-cu128/lib/python3.11/site-packages (from huggingface_hub>=0.21.0->accelerate>=0.26.0->lm_eval@ git+https://github.com/EleutherAI/lm-evaluation-harness.git@ad3f4d0cad1cfcdb815f1e795f7947e49ed9f2e9) (8.5.1)
+Requirement already satisfied: hf-xet<2.0.0,>=1.6.0 in /insomnia001/home/pts2125/hpml/dust/.venv/baseline-cu128/lib/python3.11/site-packages (from huggingface_hub>=0.21.0->accelerate>=0.26.0->lm_eval@ git+https://github.com/EleutherAI/lm-evaluation-harness.git@ad3f4d0cad1cfcdb815f1e795f7947e49ed9f2e9) (1.8.0)
+Collecting cloudpickle>=3.0 (from joblib>=1.4.0->scikit-learn>=0.24.1->lm_eval@ git+https://github.com/EleutherAI/lm-evaluation-harness.git@ad3f4d0cad1cfcdb815f1e795f7947e49ed9f2e9)
+  Obtaining dependency information for cloudpickle>=3.0 from https://files.pythonhosted.org/packages/a4/42/3b121b42b114919ffc6195a81c1c7065a465f62f46477fbdb87a07699e51/cloudpickle-3.1.3-py3-none-any.whl.metadata
+  Downloading cloudpickle-3.1.3-py3-none-any.whl.metadata (7.1 kB)
+Collecting chardet<7,>=3.0.4 (from mbstrdecoder<2,>=1.0.0->pytablewriter->lm_eval@ git+https://github.com/EleutherAI/lm-evaluation-harness.git@ad3f4d0cad1cfcdb815f1e795f7947e49ed9f2e9)
+  Obtaining dependency information for chardet<7,>=3.0.4 from https://files.pythonhosted.org/packages/66/42/5de54f632c2de53cd3415b3703383d5fff43a94cbc0567ef362515261a21/chardet-6.0.0.post1-py3-none-any.whl.metadata
+  Downloading chardet-6.0.0.post1-py3-none-any.whl.metadata (3.3 kB)
+Requirement already satisfied: charset_normalizer<4,>=2 in /insomnia001/home/pts2125/hpml/dust/.venv/baseline-cu128/lib/python3.11/site-packages (from requests>=2.32.2->datasets>=2.16.0->lm_eval@ git+https://github.com/EleutherAI/lm-evaluation-harness.git@ad3f4d0cad1cfcdb815f1e795f7947e49ed9f2e9) (3.5.2)
+Requirement already satisfied: urllib3<3,>=1.26 in /insomnia001/home/pts2125/hpml/dust/.venv/baseline-cu128/lib/python3.11/site-packages (from requests>=2.32.2->datasets>=2.16.0->lm_eval@ git+https://github.com/EleutherAI/lm-evaluation-harness.git@ad3f4d0cad1cfcdb815f1e795f7947e49ed9f2e9) (2.8.0)
+Requirement already satisfied: mpmath<1.4,>=1.1.0 in /insomnia001/home/pts2125/hpml/dust/.venv/baseline-cu128/lib/python3.11/site-packages (from sympy>=1.13.3->torch>=1.8->lm_eval@ git+https://github.com/EleutherAI/lm-evaluation-harness.git@ad3f4d0cad1cfcdb815f1e795f7947e49ed9f2e9) (1.3.0)
+Collecting typepy<3,>=1.2.0 (from tabledata<2,>=1.3.1->pytablewriter->lm_eval@ git+https://github.com/EleutherAI/lm-evaluation-harness.git@ad3f4d0cad1cfcdb815f1e795f7947e49ed9f2e9)
+  Obtaining dependency information for typepy<3,>=1.2.0 from https://files.pythonhosted.org/packages/80/86/02e36d19ad12e27af63b99062f552c6a1eae030753926223c9575c8f5458/typepy-2.0.0-py3-none-any.whl.metadata
+  Downloading typepy-2.0.0-py3-none-any.whl.metadata (9.6 kB)
+Collecting python-dateutil<3.0.0,>=2.8.0 (from typepy[datetime]<2,>=1.3.2->pytablewriter->lm_eval@ git+https://github.com/EleutherAI/lm-evaluation-harness.git@ad3f4d0cad1cfcdb815f1e795f7947e49ed9f2e9)
+  Obtaining dependency information for python-dateutil<3.0.0,>=2.8.0 from https://files.pythonhosted.org/packages/ec/57/56b9bcc3c9c6a792fcbaf139543cee77261f3651ca9da0c93f5c1221264b/python_dateutil-2.9.0.post0-py2.py3-none-any.whl.metadata
+  Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl.metadata (8.4 kB)
+Collecting pytz>=2018.9 (from typepy[datetime]<2,>=1.3.2->pytablewriter->lm_eval@ git+https://github.com/EleutherAI/lm-evaluation-harness.git@ad3f4d0cad1cfcdb815f1e795f7947e49ed9f2e9)
+  Obtaining dependency information for pytz>=2018.9 from https://files.pythonhosted.org/packages/b6/25/564f3fc5b70c1398d706c51f2b1470d0ea0b1b2f96fee67877b6f5bdf3b6/pytz-2026.6-py2.py3-none-any.whl.metadata
+  Downloading pytz-2026.6-py2.py3-none-any.whl.metadata (22 kB)
+Requirement already satisfied: MarkupSafe>=2.0 in /insomnia001/home/pts2125/hpml/dust/.venv/baseline-cu128/lib/python3.11/site-packages (from jinja2->torch>=1.8->lm_eval@ git+https://github.com/EleutherAI/lm-evaluation-harness.git@ad3f4d0cad1cfcdb815f1e795f7947e49ed9f2e9) (3.0.4)
+Collecting defusedxml (from nltk->rouge-score>=0.0.4->lm_eval@ git+https://github.com/EleutherAI/lm-evaluation-harness.git@ad3f4d0cad1cfcdb815f1e795f7947e49ed9f2e9)
+  Obtaining dependency information for defusedxml from https://files.pythonhosted.org/packages/07/6c/aa3f2f849e01cb6a001cd8554a88d4c77c5c1a31c95bdf1cf9301e6d9ef4/defusedxml-0.7.1-py2.py3-none-any.whl.metadata
+  Downloading defusedxml-0.7.1-py2.py3-none-any.whl.metadata (32 kB)
+Requirement already satisfied: pydantic>=2.5.3 in /insomnia001/home/pts2125/hpml/dust/.venv/baseline-cu128/lib/python3.11/site-packages (from typer->transformers>=4.1->lm_eval@ git+https://github.com/EleutherAI/lm-evaluation-harness.git@ad3f4d0cad1cfcdb815f1e795f7947e49ed9f2e9) (2.14.3)
+Collecting shellingham>=1.3.0 (from typer->transformers>=4.1->lm_eval@ git+https://github.com/EleutherAI/lm-evaluation-harness.git@ad3f4d0cad1cfcdb815f1e795f7947e49ed9f2e9)
+  Obtaining dependency information for shellingham>=1.3.0 from https://files.pythonhosted.org/packages/e0/f9/0595336914c5619e5f28a1fb793285925a8cd4b432c9da0a987836c7f822/shellingham-1.5.4-py2.py3-none-any.whl.metadata
+  Downloading shellingham-1.5.4-py2.py3-none-any.whl.metadata (3.5 kB)
+Collecting rich>=13.8.0 (from typer->transformers>=4.1->lm_eval@ git+https://github.com/EleutherAI/lm-evaluation-harness.git@ad3f4d0cad1cfcdb815f1e795f7947e49ed9f2e9)
+  Obtaining dependency information for rich>=13.8.0 from https://files.pythonhosted.org/packages/82/3b/64d4899d73f91ba49a8c18a8ff3f0ea8f1c1d75481760df8c68ef5235bf5/rich-15.0.0-py3-none-any.whl.metadata
+  Downloading rich-15.0.0-py3-none-any.whl.metadata (18 kB)
+Collecting annotated-doc>=0.0.2 (from typer->transformers>=4.1->lm_eval@ git+https://github.com/EleutherAI/lm-evaluation-harness.git@ad3f4d0cad1cfcdb815f1e795f7947e49ed9f2e9)
+  Obtaining dependency information for annotated-doc>=0.0.2 from https://files.pythonhosted.org/packages/5e/b1/9530d6bee606979d54501adcc767d958a38929827f11a524b0d93429d2ad/annotated_doc-0.0.7-py3-none-any.whl.metadata
+  Downloading annotated_doc-0.0.7-py3-none-any.whl.metadata (6.4 kB)
+Requirement already satisfied: aiohappyeyeballs>=2.5.0 in /insomnia001/home/pts2125/hpml/dust/.venv/baseline-cu128/lib/python3.11/site-packages (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<=2026.2.0,>=2023.1.0->datasets>=2.16.0->lm_eval@ git+https://github.com/EleutherAI/lm-evaluation-harness.git@ad3f4d0cad1cfcdb815f1e795f7947e49ed9f2e9) (2.7.1)
+Requirement already satisfied: aiosignal>=1.4.0 in /insomnia001/home/pts2125/hpml/dust/.venv/baseline-cu128/lib/python3.11/site-packages (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<=2026.2.0,>=2023.1.0->datasets>=2.16.0->lm_eval@ git+https://github.com/EleutherAI/lm-evaluation-harness.git@ad3f4d0cad1cfcdb815f1e795f7947e49ed9f2e9) (1.4.0)
+Requirement already satisfied: frozenlist>=1.1.1 in /insomnia001/home/pts2125/hpml/dust/.venv/baseline-cu128/lib/python3.11/site-packages (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<=2026.2.0,>=2023.1.0->datasets>=2.16.0->lm_eval@ git+https://github.com/EleutherAI/lm-evaluation-harness.git@ad3f4d0cad1cfcdb815f1e795f7947e49ed9f2e9) (1.8.0)
+Requirement already satisfied: multidict<8.0,>=4.5 in /insomnia001/home/pts2125/hpml/dust/.venv/baseline-cu128/lib/python3.11/site-packages (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<=2026.2.0,>=2023.1.0->datasets>=2.16.0->lm_eval@ git+https://github.com/EleutherAI/lm-evaluation-harness.git@ad3f4d0cad1cfcdb815f1e795f7947e49ed9f2e9) (7.2.1)
+Requirement already satisfied: propcache>=0.2.0 in /insomnia001/home/pts2125/hpml/dust/.venv/baseline-cu128/lib/python3.11/site-packages (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<=2026.2.0,>=2023.1.0->datasets>=2.16.0->lm_eval@ git+https://github.com/EleutherAI/lm-evaluation-harness.git@ad3f4d0cad1cfcdb815f1e795f7947e49ed9f2e9) (0.5.4)
+Requirement already satisfied: yarl<2.0,>=1.25.1 in /insomnia001/home/pts2125/hpml/dust/.venv/baseline-cu128/lib/python3.11/site-packages (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<=2026.2.0,>=2023.1.0->datasets>=2.16.0->lm_eval@ git+https://github.com/EleutherAI/lm-evaluation-harness.git@ad3f4d0cad1cfcdb815f1e795f7947e49ed9f2e9) (1.25.1)
+Requirement already satisfied: annotated-types>=0.6.0 in /insomnia001/home/pts2125/hpml/dust/.venv/baseline-cu128/lib/python3.11/site-packages (from pydantic>=2.5.3->typer->transformers>=4.1->lm_eval@ git+https://github.com/EleutherAI/lm-evaluation-harness.git@ad3f4d0cad1cfcdb815f1e795f7947e49ed9f2e9) (0.8.0)
+Requirement already satisfied: pydantic-core==2.50.4 in /insomnia001/home/pts2125/hpml/dust/.venv/baseline-cu128/lib/python3.11/site-packages (from pydantic>=2.5.3->typer->transformers>=4.1->lm_eval@ git+https://github.com/EleutherAI/lm-evaluation-harness.git@ad3f4d0cad1cfcdb815f1e795f7947e49ed9f2e9) (2.50.4)
+Requirement already satisfied: typing-inspection>=0.4.4 in /insomnia001/home/pts2125/hpml/dust/.venv/baseline-cu128/lib/python3.11/site-packages (from pydantic>=2.5.3->typer->transformers>=4.1->lm_eval@ git+https://github.com/EleutherAI/lm-evaluation-harness.git@ad3f4d0cad1cfcdb815f1e795f7947e49ed9f2e9) (0.4.5)
+Collecting markdown-it-py>=2.2.0 (from rich>=13.8.0->typer->transformers>=4.1->lm_eval@ git+https://github.com/EleutherAI/lm-evaluation-harness.git@ad3f4d0cad1cfcdb815f1e795f7947e49ed9f2e9)
+  Obtaining dependency information for markdown-it-py>=2.2.0 from https://files.pythonhosted.org/packages/c9/31/5f0ac2f1a1c67423c995c731a11cd4ad05d081a2be969d74f868bdb9cc70/markdown_it_py-4.3.0-py3-none-any.whl.metadata
+  Downloading markdown_it_py-4.3.0-py3-none-any.whl.metadata (7.9 kB)
+Requirement already satisfied: pygments<3.0.0,>=2.13.0 in /insomnia001/home/pts2125/hpml/dust/.venv/baseline-cu128/lib/python3.11/site-packages (from rich>=13.8.0->typer->transformers>=4.1->lm_eval@ git+https://github.com/EleutherAI/lm-evaluation-harness.git@ad3f4d0cad1cfcdb815f1e795f7947e49ed9f2e9) (2.21.0)
+Collecting mdurl~=0.1 (from markdown-it-py>=2.2.0->rich>=13.8.0->typer->transformers>=4.1->lm_eval@ git+https://github.com/EleutherAI/lm-evaluation-harness.git@ad3f4d0cad1cfcdb815f1e795f7947e49ed9f2e9)
+  Obtaining dependency information for mdurl~=0.1 from https://files.pythonhosted.org/packages/b3/38/89ba8ad64ae25be8de66a6d463314cf1eb366222074cfda9ee839c56a4b4/mdurl-0.1.2-py3-none-any.whl.metadata
+  Downloading mdurl-0.1.2-py3-none-any.whl.metadata (1.6 kB)
+Downloading accelerate-1.16.0-py3-none-any.whl (389 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 389.4/389.4 kB 1.5 MB/s eta 0:00:00
+Downloading evaluate-0.4.6-py3-none-any.whl (84 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 84.1/84.1 kB 1.2 MB/s eta 0:00:00
+Downloading peft-0.22.0-py3-none-any.whl (886 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 886.7/886.7 kB 1.6 MB/s eta 0:00:00
+Downloading pybind11-3.1.0-py3-none-any.whl (319 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 319.4/319.4 kB 1.9 MB/s eta 0:00:00
+Downloading sacrebleu-2.6.0-py3-none-any.whl (100 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100.8/100.8 kB 1.7 MB/s eta 0:00:00
+Downloading scikit_learn-1.9.1-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (9.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 9.3/9.3 MB 1.6 MB/s eta 0:00:00
+Downloading transformers-5.24.0-py3-none-any.whl (13.5 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 13.5/13.5 MB 1.5 MB/s eta 0:00:00
+Downloading jsonlines-4.0.0-py3-none-any.whl (8.7 kB)
+Downloading more_itertools-11.2.1-py3-none-any.whl (74 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 74.4/74.4 kB 2.3 MB/s eta 0:00:00
+Downloading numexpr-2.14.2-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (443 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 443.5/443.5 kB 1.9 MB/s eta 0:00:00
+Downloading pytablewriter-1.2.1-py3-none-any.whl (91 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 91.1/91.1 kB 1.7 MB/s eta 0:00:00
+Downloading tqdm_multiprocess-0.0.11-py3-none-any.whl (9.8 kB)
+Downloading zstandard-0.25.0-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (5.6 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.6/5.6 MB 1.6 MB/s eta 0:00:00
+Downloading dataproperty-1.1.1-py3-none-any.whl (27 kB)
+Downloading joblib-1.6.0-py3-none-any.whl (306 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 306.1/306.1 kB 1.9 MB/s eta 0:00:00
+Downloading mbstrdecoder-1.1.5-py3-none-any.whl (8.0 kB)
+Downloading narwhals-2.29.0-py3-none-any.whl (501 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 501.7/501.7 kB 1.3 MB/s eta 0:00:00
+Downloading pathvalidate-3.3.1-py3-none-any.whl (24 kB)
+Downloading safetensors-0.8.0-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (516 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 516.0/516.0 kB 1.9 MB/s eta 0:00:00
+Downloading scipy-1.17.1-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (35.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 35.3/35.3 MB 1.5 MB/s eta 0:00:00
+Downloading six-1.17.0-py2.py3-none-any.whl (11 kB)
+Downloading tabledata-1.3.5-py3-none-any.whl (11 kB)
+Downloading tabulate-0.10.0-py3-none-any.whl (39 kB)
+Downloading tcolorpy-0.1.7-py3-none-any.whl (8.1 kB)
+Downloading threadpoolctl-3.8.0-py3-none-any.whl (32 kB)
+Downloading absl_py-2.5.1-py3-none-any.whl (137 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 137.7/137.7 kB 1.9 MB/s eta 0:00:00
+Downloading colorama-0.4.6-py2.py3-none-any.whl (25 kB)
+Downloading lxml-6.1.3-cp311-cp311-manylinux_2_26_x86_64.manylinux_2_28_x86_64.whl (5.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.2/5.2 MB 1.5 MB/s eta 0:00:00
+Downloading nltk-3.10.4-py3-none-any.whl (1.7 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.7/1.7 MB 1.5 MB/s eta 0:00:00
+Downloading portalocker-4.4.2-py3-none-any.whl (129 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 129.7/129.7 kB 1.9 MB/s eta 0:00:00
+Downloading psutil-7.2.2-cp36-abi3-manylinux2010_x86_64.manylinux_2_12_x86_64.manylinux_2_28_x86_64.whl (155 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 155.6/155.6 kB 1.7 MB/s eta 0:00:00
+Downloading typer-0.29.2-py3-none-any.whl (121 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 121.0/121.0 kB 1.7 MB/s eta 0:00:00
+Downloading annotated_doc-0.0.7-py3-none-any.whl (5.3 kB)
+Downloading chardet-6.0.0.post1-py3-none-any.whl (627 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 627.2/627.2 kB 1.3 MB/s eta 0:00:00
+Downloading cloudpickle-3.1.3-py3-none-any.whl (22 kB)
+Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl (229 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 229.9/229.9 kB 1.6 MB/s eta 0:00:00
+Downloading pytz-2026.6-py2.py3-none-any.whl (506 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 506.3/506.3 kB 1.9 MB/s eta 0:00:00
+Downloading rich-15.0.0-py3-none-any.whl (310 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 310.7/310.7 kB 1.8 MB/s eta 0:00:00
+Downloading shellingham-1.5.4-py2.py3-none-any.whl (9.8 kB)
+Downloading typepy-1.3.5-py3-none-any.whl (31 kB)
+Downloading defusedxml-0.7.1-py2.py3-none-any.whl (25 kB)
+Downloading markdown_it_py-4.3.0-py3-none-any.whl (96 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 97.0/97.0 kB 1.7 MB/s eta 0:00:00
+Downloading mdurl-0.1.2-py3-none-any.whl (10.0 kB)
+Building wheels for collected packages: lm_eval, rouge-score, sqlitedict, word2number
+  Building wheel for lm_eval (pyproject.toml): started
+  Building wheel for lm_eval (pyproject.toml): finished with status 'done'
+  Created wheel for lm_eval: filename=lm_eval-0.4.9.2-py3-none-any.whl size=8231260 sha256=9d24b0ff0ab7e380f6ac465230a61d76958739ca81432adac323d1712648283a
+  Stored in directory: /local/slurm-job-14072287/pip-ephem-wheel-cache-oy590xt1/wheels/4b/f7/75/0dc1e1a64ce9ee4c80b5e37835d3eee8adb78cd713369d402a
+  Building wheel for rouge-score (pyproject.toml): started
+  Building wheel for rouge-score (pyproject.toml): finished with status 'done'
+  Created wheel for rouge-score: filename=rouge_score-0.1.2-py3-none-any.whl size=24985 sha256=6f6ff4c67e0adb46df1a0de5d43eda0cf1e2d382f172d585de18b99963ff5f49
+  Stored in directory: /local/slurm-job-14072287/pip-ephem-wheel-cache-oy590xt1/wheels/1e/19/43/8a442dc83660ca25e163e1bd1f89919284ab0d0c1475475148
+  Building wheel for sqlitedict (pyproject.toml): started
+  Building wheel for sqlitedict (pyproject.toml): finished with status 'done'
+  Created wheel for sqlitedict: filename=sqlitedict-2.1.0-py3-none-any.whl size=16957 sha256=31e3c878587d0a483b3984725ec2071c1c23a6068569c4c7386f078aea41064b
+  Stored in directory: /local/slurm-job-14072287/pip-ephem-wheel-cache-oy590xt1/wheels/73/63/89/7210274f9b7fb033b8f22671f64c0e0b55083d30c3c046a3ff
+  Building wheel for word2number (pyproject.toml): started
+  Building wheel for word2number (pyproject.toml): finished with status 'done'
+  Created wheel for word2number: filename=word2number-1.1-py3-none-any.whl size=5659 sha256=7a6bf2366f0a0acb03d53cf2b0bb2de15c4708c126ff1a1d89835fe016d4c425
+  Stored in directory: /local/slurm-job-14072287/pip-ephem-wheel-cache-oy590xt1/wheels/cd/ef/ae/073b491b14d25e2efafcffca9e16b2ee6d114ec5c643ba4f06
+Successfully built lm_eval rouge-score sqlitedict word2number
+Installing collected packages: word2number, sqlitedict, pytz, zstandard, threadpoolctl, tcolorpy, tabulate, six, shellingham, scipy, safetensors, pybind11, psutil, portalocker, pathvalidate, numexpr, narwhals, more_itertools, mdurl, lxml, jsonlines, defusedxml, colorama, cloudpickle, chardet, annotated-doc, absl-py, tqdm-multiprocess, sacrebleu, python-dateutil, mbstrdecoder, markdown-it-py, joblib, typepy, scikit-learn, rich, nltk, typer, rouge-score, accelerate, transformers, evaluate, DataProperty, tabledata, peft, pytablewriter, lm_eval
+  Attempting uninstall: python-dateutil
+    Found existing installation: python-dateutil 4.0.0
+    Not uninstalling python-dateutil at /insomnia001/home/pts2125/hpml/dust/.venv/baseline-cu128/lib/python3.11/site-packages, outside environment /insomnia001/home/pts2125/algollms/xsa/.venv
+    Can't uninstall 'python-dateutil'. No files were found to uninstall.
+Successfully installed DataProperty-1.1.1 absl-py-2.5.1 accelerate-1.16.0 annotated-doc-0.0.7 chardet-6.0.0.post1 cloudpickle-3.1.3 colorama-0.4.6 defusedxml-0.7.1 evaluate-0.4.6 joblib-1.6.0 jsonlines-4.0.0 lm_eval-0.4.9.2 lxml-6.1.3 markdown-it-py-4.3.0 mbstrdecoder-1.1.5 mdurl-0.1.2 more_itertools-11.2.1 narwhals-2.29.0 nltk-3.10.4 numexpr-2.14.2 pathvalidate-3.3.1 peft-0.22.0 portalocker-4.4.2 psutil-7.2.2 pybind11-3.1.0 pytablewriter-1.2.1 python-dateutil-2.9.0.post0 pytz-2026.6 rich-15.0.0 rouge-score-0.1.2 sacrebleu-2.6.0 safetensors-0.8.0 scikit-learn-1.9.1 scipy-1.17.1 shellingham-1.5.4 six-1.17.0 sqlitedict-2.1.0 tabledata-1.3.5 tabulate-0.10.0 tcolorpy-0.1.7 threadpoolctl-3.8.0 tqdm-multiprocess-0.0.11 transformers-5.24.0 typepy-1.3.5 typer-0.29.2 word2number-1.1 zstandard-0.25.0
+
+[notice] A new release of pip is available: 23.2.1 -> 26.3
+[notice] To update, run: /insomnia001/home/pts2125/algollms/xsa/.venv/bin/python -m pip install --upgrade pip
