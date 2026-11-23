@@ -151,3 +151,19 @@ Both training jobs completed the full budget; identical initialization/batch ord
 - Measured planning estimate for two further paired seeds: **0.715 GPU-hours actual-time projection**, or **2 GPU-hours reserved** with the same four 30-minute caps. Retaining artifacts would require roughly **7.7 GiB peak project storage**, above the existing 5 GiB cap. No further seed, downstream evaluation or full matrix has been submitted.
 
 Next action: review PILOT_REPORT.md and the one-seed result before deciding whether to authorize seed confirmation and a revised storage cap. All current authorized work is complete; preserve the existing data, logs and latest/previous checkpoints under `~/algollms/xsa`.
+
+## Direction A — authorized implementation and screen
+
+- Read the goal attachment in full; implementing Direction A only, thresholds 0.25/0.50/0.75, seed 17 and existing pilot protocol. Authorized stage bounds: 7200 GPU seconds total, 300 GPU verification/profile seconds within it, 8 GiB project storage, 900 allocated CPU seconds. Prior smoke/profile accounting remains unchanged.
+- Rechecked local and remote clean source at 3e81815, no active jobs, all earlier IDs terminal. `edu/short` permits A6000. Home usage 33,307,936 KiB of 52,428,800 KiB; project 4,757,404,924 bytes. No AGENTS.md file found; the supplied AGENTS instructions apply. Existing baseline checkpoints and reports remain intact.
+- Wrote numerical/integration tests first; import failed before implementation (`evidence/direction_a/model_red.txt`). Implemented the formula with unchanged SA/XSA arithmetic, fp32 reductions under bf16, explicit [0,1) threshold validation and baseline epsilon convention. Initial local suite: 30 passed / 6 CUDA skips (`model_green.txt`). Tau=0 forward/gradient equivalence, bounds, degeneracies, causality, shared init, checkpoint compatibility and CPU resume pass.
+- Snapshot of baseline model source preserved from commit 3e81815 for exact regression comparisons.
+
+Next action: finish threshold metadata/diagnostics/strict collection and budgeted Slurm scripts, then run the allocated CUDA correctness/profile gate before any full screen training.
+
+- Metadata/diagnostics tests first failed for missing threshold fields and activation rate; implemented both. Full local suite now **43 passed / 6 CUDA skips**, including bitwise SA/XSA output/gradient regression against the frozen baseline source. Strict screen matching and stage reservation/duplicate guards also have red/green tests. No training submitted. Next: 180-second allocated CUDA correctness, baseline checkpoint re-evaluation and five-method pilot-shape profile.
+
+- GPU verification **14072510 COMPLETED**, exit 0, 38 seconds on RTX A6000 ins093. **49 passed / 0 failed / 0 skipped**, 10.77 s. Actual preserved SA/XSA checkpoints re-evaluate within 1e-6 per-window tolerance; shared initialization loads into all caps and produces the original hash. Five-method SDPA/bf16 profiles saved. Cap compute-only projections: 590.904 / 590.422 / 589.152 seconds. Project 5,031,103,892 bytes after preserved test artifacts; conservative peak estimate 7,581,040,745 bytes (7.06 GiB), below 8 GiB.
+- Collection rollback test failed before implementation, then all 3 screen/collection/budget tests passed locally. Numerical code/config hashes are frozen by the CUDA gate. Stage reserved GPU seconds so far: 180/7200; verification reservation 180/300. Actual GPU time: 38 seconds.
+
+Next: commit the verified implementation, submit only tau=0.25 with a 30-minute cap, and inspect its terminal state/full-budget artifacts before the next threshold.

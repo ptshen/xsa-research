@@ -13,15 +13,16 @@ from .model import GPT, ModelConfig, Block, project
 from .train import software
 
 
-def benchmark(cfg, batch, warmup, iterations, compile_model=False, block_only=False):
+def benchmark(cfg, batch, warmup, iterations, compile_model=False, block_only=False, variants=None):
     if not torch.cuda.is_available():
         raise RuntimeError("benchmark requires an allocated CUDA GPU")
     if min(batch, warmup, iterations) < 1:
         raise ValueError("positive batch, warmup and iteration counts required")
     results = []
-    for kind in ("sa", "xsa"):
+    for kind, tau in (variants or [("sa", None), ("xsa", None)]):
         torch.manual_seed(cfg["seed"])
-        mc = ModelConfig(**cfg["model"]); mc.attention_type = kind
+        settings = dict(cfg['model'], attention_type=kind, alignment_tau=tau)
+        mc = ModelConfig(**settings)
         model = (Block(mc) if block_only else GPT(mc)).cuda().train()
         params = sum(p.numel() for p in model.parameters())
         optimizer = torch.optim.AdamW(model.parameters(), lr=cfg["train"]["learning_rate"], betas=tuple(cfg["train"]["betas"]))
@@ -69,7 +70,7 @@ def benchmark(cfg, batch, warmup, iterations, compile_model=False, block_only=Fa
                 torch.nn.utils.clip_grad_norm_(model.parameters(),cfg['train']['grad_clip'],error_if_nonfinite=True)
                 optimizer.step();torch.cuda.synchronize();full_update_seconds.append(time.perf_counter()-start)
             estimated_update_seconds=sum(full_update_seconds)/len(full_update_seconds)
-        results.append({"attention":kind,"scope":"attention_plus_ffn_block" if block_only else "full_model",
+        results.append({"attention":kind,"alignment_tau":tau,"scope":"attention_plus_ffn_block" if block_only else "full_model",
                         "batch":batch,"context":mc.seq_len,"parameters":params,"precision":"bfloat16; fp32 XSA projection",
                         "attention_backend":"pytorch SDPA automatic dispatch","compiled":compile_model,
                         "first_step_seconds":first_step_seconds,"compilation_including_first_step_seconds":compilation_seconds,

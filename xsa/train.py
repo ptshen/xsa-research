@@ -122,6 +122,7 @@ class Trainer:
 
     def log(self, event):
         event.update(update=self.update, tokens=self.tokens_seen, elapsed_seconds=self.elapsed, session=self.session)
+        event.update(attention=self.cfg['model']['attention_type'], alignment_tau=self.cfg['model'].get('alignment_tau'))
         with (self.output / "metrics.jsonl").open("a") as f:
             f.write(json.dumps(event) + "\n"); f.flush()
 
@@ -185,6 +186,9 @@ class Trainer:
         t = self.cfg["train"]
         self.model.train()
         self.synchronize(); start = time.monotonic(); initial_elapsed = self.elapsed
+        initial_tokens = self.tokens_seen
+        if self.device.type == 'cuda':
+            torch.cuda.reset_peak_memory_stats(self.device)
         if self.update == 0:
             self.log(self.evaluate())
         while self.update < min(t["updates"], stop_after if stop_after is not None else t["updates"]):
@@ -214,13 +218,21 @@ class Trainer:
                 self.save()
         self.synchronize(); self.elapsed = initial_elapsed + time.monotonic() - start
         self.save()
-        return self.evaluate()
+        result = self.evaluate()
+        runtime = {'session': self.session, 'attention': self.cfg['model']['attention_type'],
+                   'alignment_tau': self.cfg['model'].get('alignment_tau'),
+                   'session_tokens': self.tokens_seen - initial_tokens,
+                   'session_seconds_including_final_evaluation_and_saves': time.monotonic() - start,
+                   'peak_allocated_bytes': torch.cuda.max_memory_allocated(self.device) if self.device.type == 'cuda' else None,
+                   'peak_reserved_bytes': torch.cuda.max_memory_reserved(self.device) if self.device.type == 'cuda' else None}
+        (self.output / f'runtime-{self.session}.json').write_text(json.dumps(runtime, indent=2) + '\n')
+        return result
 
 
 def main():
     p = argparse.ArgumentParser()
     p.add_argument("--config", required=True); p.add_argument("--data", required=True); p.add_argument("--output", required=True)
-    p.add_argument("--attention", choices=("sa", "xsa")); p.add_argument("--seed", type=int)
+    p.add_argument("--attention", choices=("sa", "xsa", "alignment_cap")); p.add_argument("--seed", type=int)
     p.add_argument("--device", default="cuda"); p.add_argument("--resume", action="store_true")
     p.add_argument("--stop-after", type=int); p.add_argument("--max-seconds", type=float)
     p.add_argument('--initial-state')

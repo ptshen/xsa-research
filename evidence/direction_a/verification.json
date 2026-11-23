@@ -1,0 +1,34 @@
+{
+  "passed": true,
+  "tests": {
+    "tests": 49,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "baseline_recheck_passed": true,
+  "initialization_passed": true,
+  "baseline_batches_passed": true,
+  "source_sha256": {
+    "xsa/model.py": "978345cc94ada9fd1efaa700f917190b119dcd17ff8e5c6ac11171005091027a",
+    "xsa/train.py": "0e958d15c85304dac26aae770175bf57ef0d4dd8f955adc811845c0f6dcf49c7",
+    "xsa/data.py": "c7a124cf34d580f33f84a1528d2c98a372a65b0fefae229ae544d5095d388ef5",
+    "xsa/config.py": "25b20f9cf29a70841c8951aa152032f00c3e65fbed934202e5c2f3ed3bb998e9",
+    "xsa/initialize.py": "e4092c8f846fc9677eafeb87c98df642661a050a35b0ad432ff4ba130992a869",
+    "xsa/evaluate.py": "0bdd386bbd5996e0cf6d9e116c7e04a63f5927c2dd9763d6b20860004ee6cc4e",
+    "xsa/diagnostics.py": "b444cb03c31bed80d163984b0ae61a050219b0d842418800d3846372c43e016e",
+    "xsa/benchmark.py": "38cc7e7cf9a962d5a84ea638839c6a593c68808da5fb037aac95b8f008c4fa64",
+    "configs/direction_a_025.json": "c8d8453b360ca0fc134df9cfebf7a629acf27355843483aae1638f19d9306903",
+    "configs/direction_a_050.json": "7eabeb9083e522f35fc0f43ce4473bebb78d809542c61f22f8a9da709907f6f3",
+    "configs/direction_a_075.json": "2ec2d331f4682dcae30fd340ef93a5b0ccc829a6595e66a952c41e6e419d9e4e"
+  },
+  "project_bytes": 5031103892,
+  "project_peak_estimate_bytes": 7581040745,
+  "compute_only_run_seconds": [
+    590.9038674036661,
+    590.4217468897501,
+    589.1522730191549
+  ],
+  "screen_fits_time_and_storage": true,
+  "job_id": "14072510"
+}

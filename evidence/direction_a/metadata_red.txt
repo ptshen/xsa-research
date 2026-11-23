@@ -1,0 +1,44 @@
+.............sss.FF                                                      [100%]
+=================================== FAILURES ===================================
+_______________ test_cap_diagnostic_activation_and_zero_outputs ________________
+
+    def test_cap_diagnostic_activation_and_zero_outputs():
+        from xsa.diagnostics import diagnostic_stats
+        v = torch.tensor([[[[1., 0.], [1., 0.], [1., 0.], [0., 0.]]]])
+        y = torch.tensor([[[[1., 0.], [0., 1.], [4., 2.], [0., 1.]]]])
+        z = cap_alignment(y, v, .5)
+>       stats = diagnostic_stats(v, v, v, y, z, tau=.5)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       TypeError: diagnostic_stats() got an unexpected keyword argument 'tau'
+
+tests/test_alignment_cap.py:169: TypeError
+______________ test_threshold_recorded_in_metrics_and_evaluation _______________
+
+tmp_path = PosixPath('/private/var/folders/x3/40vnrw8d4fz2ns5khjmvbp380000gn/T/pytest-of-patrick/pytest-15/test_threshold_recorded_in_met0')
+
+    def test_threshold_recorded_in_metrics_and_evaluation(tmp_path):
+        import json
+        from xsa.evaluate import evaluate
+        c = config(); c['model'].update(attention_type='alignment_cap', alignment_tau=.25)
+        data = tiny_data(tmp_path / 'data')
+        trainer = Trainer(c, data, tmp_path / 'run'); trainer.run(stop_after=1)
+        rows = [json.loads(s) for s in (tmp_path / 'run' / 'metrics.jsonl').read_text().splitlines()]
+>       assert all(r['alignment_tau'] == .25 and r['attention'] == 'alignment_cap' for r in rows)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_alignment_cap.py:182: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+.0 = <list_iterator object at 0x119a4fac0>
+
+>   assert all(r['alignment_tau'] == .25 and r['attention'] == 'alignment_cap' for r in rows)
+               ^^^^^^^^^^^^^^^^^^
+E   KeyError: 'alignment_tau'
+
+tests/test_alignment_cap.py:182: KeyError
+----------------------------- Captured stdout call -----------------------------
+{"config": {"label": "smoke fixture; execution only", "seed": 17, "data_seed": 1017, "eval_seed": 2017, "data_kind": "fixture", "model": {"vocab_size": 50304, "n_layers": 1, "d_model": 16, "n_heads": 2, "head_dim": 8, "seq_len": 8, "attention_type": "alignment_cap", "dropout": 0.1, "bias": false, "rope_base": 10000.0, "projection_eps": 1e-12, "projection_precision": "float32", "backend": "sdpa", "alignment_tau": 0.25}, "train": {"updates": 4, "microbatch_sequences": 2, "accumulation_steps": 2, "learning_rate": 0.0006, "min_lr_ratio": 0.1, "warmup_updates": 1, "weight_decay": 0.1, "betas": [0.9, 0.95], "grad_clip": 1.0, "precision": "float32", "eval_interval": 2, "eval_windows": 2, "checkpoint_interval": 2}}, "parameter_counts": {"total_unique": 808000, "token_embedding_tied_head": 804864, "non_embedding": 3136}, "initial_state_sha256": "578c21105406eb6bbec9f4b57fb53525cb3bb7d67de523482ae80dc78883da9e", "data_manifest_sha256": "f1350b4561e87fa2aace88f964a506a171aaf85882c819d76c1b3648edd9505f", "evaluation_windows_sha256": "00bce8f3c90c322551ae7c180ec6583f3384aca5f9383e6a4046f22abcb4c331", "tokens_per_update": 32, "total_tokens": 128, "software": {"python": "3.13.5", "packages": {"torch": "2.9.1", "numpy": "2.4.4", "tiktoken": "0.9.0", "matplotlib": "3.10.5", "pytest": "8.4.1", "huggingface-hub": "0.36.0", "pyarrow": "22.0.0"}, "cuda": null, "gpu": null}, "slurm_job_id": null, "scientific_result": false, "session": "b15f45cc0d294db9bb6dd11aa8a78d55"}
+=========================== short test summary info ============================
+FAILED tests/test_alignment_cap.py::test_cap_diagnostic_activation_and_zero_outputs
+FAILED tests/test_alignment_cap.py::test_threshold_recorded_in_metrics_and_evaluation
+2 failed, 14 passed, 3 skipped in 3.43s

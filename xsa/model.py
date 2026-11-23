@@ -22,10 +22,18 @@ class ModelConfig:
     projection_eps: float = 1e-12
     projection_precision: str = "float32"
     backend: str = "sdpa"
+    alignment_tau: float | None = None
 
     def __post_init__(self):
-        if self.attention_type not in ("sa", "xsa"):
-            raise ValueError("attention_type must be sa or xsa")
+        if self.attention_type not in ("sa", "xsa", "alignment_cap"):
+            raise ValueError("attention_type must be sa, xsa or alignment_cap")
+        if self.attention_type == "alignment_cap":
+            if self.alignment_tau is None or not 0 <= self.alignment_tau < 1:
+                raise ValueError("alignment_tau must satisfy 0 <= tau < 1")
+            if self.projection_precision != "float32":
+                raise ValueError("alignment_cap requires float32 projection reductions")
+        elif self.alignment_tau is not None:
+            raise ValueError("alignment_tau is only valid for alignment_cap")
         if self.head_dim % 2 or min(self.head_dim, self.n_heads, self.d_model, self.n_layers, self.seq_len) <= 0:
             raise ValueError("positive dimensions and even head_dim required")
         if self.projection_precision not in ("float32", "native") or self.projection_eps <= 0:
@@ -43,6 +51,36 @@ def project(y, v, eps=1e-12, precision="float32"):
     return (y - (y * v_hat).sum(dim=-1, keepdim=True) * v_hat).to(dtype)
 
 
+def cap_alignment(y, v, tau, eps=1e-12):
+    """Direction A; cosine bound applies when ||v|| >= eps and output is nonzero.
+
+    Match XSA's clamped normalization below eps, including its tau=0 limit.
+    Zero v leaves y unchanged. Float64 is retained for numerical references.
+    """
+    if tau is None or not 0 <= tau < 1:
+        raise ValueError("tau must satisfy 0 <= tau < 1")
+    if tau == 0:
+        return project(y, v, eps, "float32")
+    dtype = y.dtype
+    if dtype in (torch.float16, torch.bfloat16):
+        y, v = y.float(), v.float()
+    u = F.normalize(v, dim=-1, eps=eps)
+    c = (y * u).sum(dim=-1, keepdim=True)
+    r = y - c * u
+    b = (tau / math.sqrt(1 - tau * tau)) * r.norm(dim=-1, keepdim=True)
+    return (r + c.clamp(min=-b, max=b) * u).to(dtype)
+
+
+def correct_aggregate(y, v, kind, eps=1e-12, precision="float32", tau=None):
+    if kind == "xsa":
+        return project(y, v, eps, precision)
+    if kind == "alignment_cap":
+        return cap_alignment(y, v, tau, eps)
+    if kind != "sa":
+        raise ValueError(kind)
+    return y
+
+
 def rope(x, offset=0, base=10000.0):
     """Full-head RoPE using adjacent even/odd pairs, Q and K only."""
     dtype = torch.float64 if x.dtype == torch.float64 else torch.float32
@@ -53,7 +91,7 @@ def rope(x, offset=0, base=10000.0):
     return torch.stack((even * cos - odd * sin, even * sin + odd * cos), dim=-1).flatten(-2)
 
 
-def attention(q, k, v, kind="sa", backend="sdpa", dropout=0.0, eps=1e-12, precision="float32"):
+def attention(q, k, v, kind="sa", backend="sdpa", dropout=0.0, eps=1e-12, precision="float32", tau=None):
     if backend == "sdpa":
         y = F.scaled_dot_product_attention(q, k, v, is_causal=True, dropout_p=dropout)
     elif backend == "reference":
@@ -62,7 +100,7 @@ def attention(q, k, v, kind="sa", backend="sdpa", dropout=0.0, eps=1e-12, precis
         y = F.dropout(weights, dropout, training=dropout > 0) @ v
     else:
         raise ValueError(backend)
-    return project(y, v, eps, precision) if kind == "xsa" else y
+    return correct_aggregate(y, v, kind, eps, precision, tau)
 
 
 class Attention(nn.Module):
@@ -81,7 +119,8 @@ class Attention(nn.Module):
                    for a in self.c_attn(x).split(self.width, dim=-1)]
         q, k = rope(q, base=self.cfg.rope_base), rope(k, base=self.cfg.rope_base)
         y = attention(q, k, v, "sa", self.cfg.backend, self.cfg.dropout if self.training else 0.0)
-        z = project(y, v, self.cfg.projection_eps, self.cfg.projection_precision) if self.cfg.attention_type == "xsa" else y
+        z = correct_aggregate(y, v, self.cfg.attention_type, self.cfg.projection_eps,
+                              self.cfg.projection_precision, self.cfg.alignment_tau)
         if self.diagnostic_sink is not None:
             self.diagnostic_sink(q.detach(), k.detach(), v.detach(), y.detach(), z.detach())
         return self.resid_dropout(self.c_proj(z.transpose(1, 2).contiguous().view(b, t, self.width)))

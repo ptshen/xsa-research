@@ -24,6 +24,9 @@ def load_model(checkpoint, device):
 
 def comparison_hash(cfg, across_seeds=False):
     cfg = json.loads(json.dumps(cfg))
+    ModelConfig(**cfg['model'])
+    if cfg['model']['attention_type'] == 'alignment_cap':
+        cfg['model'].pop('alignment_tau')
     cfg["model"].pop("attention_type")
     cfg.pop("label", None)
     if across_seeds:
@@ -53,7 +56,8 @@ def evaluate(checkpoint, data, device="cpu"):
             nll = F.cross_entropy(logits.float().flatten(0, 1), y.to(device).flatten(), reduction="sum")
         losses.append(float(nll) / y.numel())
     ce = float(np.mean(losses))
-    return {"attention": cfg["model"]["attention_type"], "seed": cfg["seed"], "tokens": state["tokens_seen"],
+    return {"attention": cfg["model"]["attention_type"], "alignment_tau": cfg['model'].get('alignment_tau'),
+            "seed": cfg["seed"], "tokens": state["tokens_seen"],
             "update": state["update"], "cross_entropy": ce, "perplexity": math.exp(ce), "window_losses": losses,
             "evaluated_tokens": len(losses) * cfg["model"]["seq_len"], "checkpoint_sha256": checksum(checkpoint),
             "data_manifest_sha256": state["data_manifest_sha256"], "evaluation_windows_sha256": evaluation_hash,

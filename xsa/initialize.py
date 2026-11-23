@@ -12,6 +12,7 @@ from .model import GPT, ModelConfig
 def architecture(config):
     model = dict(config['model'])
     model.pop('attention_type')
+    model.pop('alignment_tau', None)  # Operator setting does not change tensor shapes.
     return model
 
 

@@ -4,6 +4,6 @@ set -euo pipefail
 rsync -az --exclude='.git' --exclude='.venv*' --exclude='__pycache__' \
   --exclude='.pytest_cache' --exclude='data' --exclude='runs' --exclude='/logs/' \
   --exclude='cache' --exclude='evidence/job_ledger.json' \
-  --exclude='evidence/submission.lock' --exclude='build' --exclude='*.egg-info' \
+  --exclude='evidence/submission.lock' --exclude='evidence/direction_a/job_ledger.json' --exclude='evidence/direction_a/submission.lock' --exclude='build' --exclude='*.egg-info' \
   --exclude='*.whl' --exclude='evidence/cluster/cluster/' \
   --exclude='evidence/cluster/results/' ./ insomnia:algollms/xsa/

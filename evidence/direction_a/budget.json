@@ -1,0 +1,18 @@
+{
+  "authorized": true,
+  "gpu_seconds": 7200,
+  "verification_gpu_seconds": 300,
+  "cpu_seconds": 900,
+  "storage_bytes": 8589934592,
+  "thresholds": [
+    0.25,
+    0.5,
+    0.75
+  ],
+  "seed": 17,
+  "updates": 2048,
+  "tokens_per_arm": 67108864,
+  "data": "data/pilot-v2",
+  "initial_state": "runs/initial/pilot-s17.pt",
+  "baseline_commit": "3e818153b1b1953e24129b519a3e40fa251b5727"
+}
