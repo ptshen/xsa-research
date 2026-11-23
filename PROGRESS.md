@@ -140,3 +140,14 @@ SA job **14072327 COMPLETED**, exit 0, allocated **624 seconds** on ins092. Reac
 ## Pilot finished automatically
 
 Both training jobs completed the full budget; identical initialization/batch order verified. SA CE 4.89046994, XSA CE 4.80333272, XSA−SA -0.08713721. GPU allocation 1287/3600 seconds; disk 4.430/5 GiB. See PILOT_REPORT.md. Next action: review the one-seed findings; no further training authorized or scheduled.
+
+## Pilot final audit and delivery
+
+- **SA 14072327 COMPLETED 624 s**, **XSA 14072338 COMPLETED 663 s**, **collector 14072339 COMPLETED 19 s**, all exit 0:0. Both arms reached 2048 updates / 67,108,864 tokens. Total actual pilot GPU allocation **1287 s (21m27s, 0.3575 GPU-hours)**; project storage at collection **4.430 GiB**. The original smoke/profile total remains 49 s.
+- Collector verified identical initialization, all 2048 ordered minibatch hashes, final data RNG state, configs, fixed held-out windows and GPU type. Published compact results in commit **2aa3d9d8e3c5dcf621c75fce2ea963489590f55c**; remote GitHub main matched it. No active user jobs remained at final inspection.
+- Independently audited downloaded compact artifacts: consecutive updates and finite losses/gradients, every paired batch hash, data/checkpoint checksum identity and exact paired-summary recomputation all pass. Plot visually checked. SA CE **4.89046994**, XSA CE **4.80333272**, difference **-0.08713721**; one-seed exploratory result only.
+- The new preparation-cap and pilot-gate tests passed on a compute node (**2 passed, 11.63 s**) and locally (**2 passed, 1.08 s**). A local recheck first used a nonexistent shortened test selector and collected no tests; rerunning the actual test name passed. This was a command typo, not a code failure.
+- Updated README to the successful `data/pilot-v2` workflow, documented the actual dependent Slurm commands, and labeled REPORT as the historical pre-pilot snapshot. Recorded pilot package versions including hf-xet 1.8.0. Final collector log and all scheduler outcomes are retained.
+- Measured planning estimate for two further paired seeds: **0.715 GPU-hours actual-time projection**, or **2 GPU-hours reserved** with the same four 30-minute caps. Retaining artifacts would require roughly **7.7 GiB peak project storage**, above the existing 5 GiB cap. No further seed, downstream evaluation or full matrix has been submitted.
+
+Next action: review PILOT_REPORT.md and the one-seed result before deciding whether to authorize seed confirmation and a revised storage cap. All current authorized work is complete; preserve the existing data, logs and latest/previous checkpoints under `~/algollms/xsa`.

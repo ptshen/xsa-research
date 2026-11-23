@@ -105,7 +105,9 @@
         "logs/pilot-data-v1-%j.log",
         "/insomnia001/home/pts2125/algollms/xsa/slurm/prepare.sbatch"
       ],
-      "state": "submitted"
+      "state": "cancelled by 562312",
+      "actual_elapsed_seconds": 188,
+      "exit_code": "0:0"
     },
     {
       "key": "pilot-data-v2",
@@ -133,7 +135,9 @@
         "logs/pilot-data-v2-%j.log",
         "/insomnia001/home/pts2125/algollms/xsa/slurm/prepare.sbatch"
       ],
-      "state": "submitted"
+      "state": "completed",
+      "actual_elapsed_seconds": 163,
+      "exit_code": "0:0"
     },
     {
       "key": "pilot-sa-s17-v1",
@@ -163,13 +167,15 @@
         "logs/pilot-sa-s17-v1-%j.log",
         "/insomnia001/home/pts2125/algollms/xsa/slurm/train.sbatch"
       ],
-      "state": "submitted"
+      "state": "completed",
+      "actual_elapsed_seconds": 624,
+      "exit_code": "0:0"
     },
     {
       "key": "pilot-xsa-s17-v1",
       "kind": "train",
       "job_id": "14072338",
-      "state": "submitted",
+      "state": "completed",
       "reserved_seconds": 1800,
       "command": [
         "sbatch",
@@ -187,13 +193,15 @@
         "--output=logs/pilot-xsa-s17-v1-%j.log",
         "slurm/pilot_xsa.sbatch"
       ],
-      "submitted_at": 1795470363.8276844
+      "submitted_at": 1795470363.8276844,
+      "actual_elapsed_seconds": 663,
+      "exit_code": "0:0"
     },
     {
       "key": "pilot-collect-v1",
       "kind": "collect",
       "job_id": "14072339",
-      "state": "submitted",
+      "state": "completed",
       "reserved_seconds": 0,
       "command": [
         "sbatch",
@@ -210,7 +218,9 @@
         "--output=logs/pilot-collect-%j.log",
         "slurm/pilot_collect.sbatch"
       ],
-      "submitted_at": 1795470363.8446321
+      "submitted_at": 1795470363.8446321,
+      "actual_elapsed_seconds": 19,
+      "exit_code": "0:0"
     },
     {
       "key": "pilot-verify-v1",
@@ -218,7 +228,8 @@
       "job_id": "14072336",
       "reserved_seconds": 0,
       "state": "completed",
-      "actual_elapsed_seconds": 15
+      "actual_elapsed_seconds": 15,
+      "exit_code": "0:0"
     }
   ]
 }

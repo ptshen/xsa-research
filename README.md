@@ -1,10 +1,10 @@
 # SA / XSA on Insomnia
 
-The **approved one-seed pilot is now scheduled**; see [PILOT_STATUS.md](PILOT_STATUS.md) for job IDs and automatic result publication. The Part 1 report below records the earlier verification stage.
+The **approved one-seed pilot is complete**. See [PILOT_REPORT.md](PILOT_REPORT.md) for results, [PILOT_MANIFEST.json](PILOT_MANIFEST.json) for paired checks and budgets, and [PILOT_STATUS.md](PILOT_STATUS.md) for completion status. The Part 1 report records the earlier verification stage.
 
 A matched, resumable PyTorch baseline for Part 1 of `XSA_Insomnia_complete_handoff.md`. Start with [REPORT.md](REPORT.md) for actual results and [PROGRESS.md](PROGRESS.md) for jobs, failures and the next action. [REPRODUCTION_SPEC.md](REPRODUCTION_SPEC.md) distinguishes paper settings, upstream inheritance and assumptions.
 
-Remote root: **`~/algollms/xsa`**. GitHub: https://github.com/ptshen/xsa-research. All remote commands below start there. The exploratory pilot is approved and queued; the paper-scale training matrix remains unlaunched. Extensions A/B/C are not implemented.
+Remote root: **`~/algollms/xsa`**. GitHub: https://github.com/ptshen/xsa-research. All remote commands below start there. The exploratory pilot is complete; the paper-scale training matrix remains unlaunched. Extensions A/B/C are not implemented.
 
 ## Layout
 
@@ -60,15 +60,17 @@ OMP_NUM_THREADS=1 .venv/bin/python -m xsa.benchmark --config configs/pilot.json 
 
 Interactive execution bypasses the ledger; reserve its walltime before using it. It is provided as a command, not an instruction to consume more smoke budget. `--block-only` selects attention+FFN timing; `--compile` separately reports first-step/compilation cost. No compilation was used in the recorded profile.
 
-## Prepare real data once, after the pilot budget is approved
+## Prepared pilot data
 
-No FineWeb training download has run. The preparation command requires a document cap. It reads pinned `sample-100BT` parquet shards in filename/row order, uses GPT-2 tokenization, appends EOS, assigns whole documents to deterministic splits, and records all output checksums. A consumed source parquet shard is downloaded in full, even for a small document cap. Keep the raw cache and packed data within the agreed storage cap.
+The approved pilot uses `data/pilot-v2`: 99,962,616 training tokens and 36,418 validation tokens, prepared by job **14072321**. The first HTTP attempt, **14072309**, was cancelled for insufficient throughput; its logs and data directory remain. The successful retry used parallel Xet download with the chunk cache disabled. Preparation reads pinned `sample-100BT` parquet shards in filename/row order, uses GPT-2 tokenization, appends EOS, assigns whole documents to deterministic splits, and records all output checksums. A source parquet shard is downloaded in full even when only its prefix is consumed.
 
 ```bash
-# After authorization for the proposed small data/pilot budget:
-/usr/bin/python3 -m xsa.submission prepare --key pilot-data-v1 --data data/pilot-v1 --max-documents 150000 --walltime 00:30:00 --cpus 4 --mem 16G
-# After that job completes, use an allocated CPU node:
-.venv/bin/python -m xsa.data validate --output data/pilot-v1
+# Executed successfully as 14072321. Inspect the existing job; do not resubmit.
+XSA_MAX_TOKENS=100000000 XSA_MAX_SHARDS=1 XSA_PREPARE_INITIAL=1 \
+  /usr/bin/python3 -m xsa.submission prepare --key pilot-data-v2 \
+  --data data/pilot-v2 --max-documents 150000 --walltime 00:25:00 --cpus 4 --mem 16G
+# Validation and shared initialization also ran inside this CPU job:
+.venv/bin/python -m xsa.data validate --output data/pilot-v2
 ```
 
 150,000 documents is a bounded prefix, not an assertion of an exact token count. Read the resulting manifest. It must provide at least 64 disjoint validation windows of 513 tokens and enough training data for the intended study; the loader fails if validation is too short. The training sampler draws with replacement and the exact 67,108,864-token budget is independent of corpus size. The first pilot is a scaled-down, prefix-data approximation of FineWeb-100BT, not the paper corpus experiment. To prepare more data, select a new output directory and explicitly approve the revised cap; the writer refuses to overwrite an existing preparation.
@@ -82,33 +84,35 @@ du -sh data cache runs
 
 The full ~100B-token corpus alone needs about 200 GB decimal packed storage and does not fit the current 50 GiB home quota. It requires a separately authorized project/scratch allocation, raw-cache budget and retention policy before download.
 
-## Exact next paired pilot commands — prepared, not executed
+## Approved pilot execution
 
-Proposed allocation: one A6000 at a time, **one GPU-hour total reserved across the two arms**, 8 CPUs, 32 GiB RAM, plus bounded CPU preparation and 5 GiB storage. The measured compute-only pair is about 0.295 GPU-hours; the one-hour reservation allows evaluation/checkpoint/I/O and scheduling margin. Request this allocation/launch authorization before running these commands.
+Approved allocation: one A6000 at a time, **one GPU-hour total reserved across the two arms**, 8 CPUs, 32 GiB RAM, plus bounded CPU preparation and 5 GiB storage. SA **14072327** and XSA **14072338** each have a 30-minute cap. These are the executed commands and script entry points, not requests to submit duplicates. Exact `sbatch` argument arrays are preserved in [the ledger](evidence/job_ledger.json); the bounded authorization is in [pilot_budget.json](evidence/pilot_budget.json).
 
-On an allocated CPU node, create a shared seed-17 initialization once:
+The successful preparation job created the shared seed-17 initialization once:
 
 ```bash
 mkdir -p runs/initial
 .venv/bin/python -m xsa.initialize --config configs/pilot.json --seed 17 --output runs/initial/pilot-s17.pt
 ```
 
-Then submit **SA first**:
+SA was submitted first, with post-training evaluation and diagnostics included:
 
 ```bash
-/usr/bin/python3 -m xsa.submission train --key pilot-sa-s17-v1 \
+XSA_POST_EVALUATE=1 /usr/bin/python3 -m xsa.submission train --key pilot-sa-s17-v1 \
   --config configs/pilot.json --attention sa --seed 17 \
-  --initial-state runs/initial/pilot-s17.pt --data data/pilot-v1 --output runs/pilot-sa-s17 \
+  --initial-state runs/initial/pilot-s17.pt --data data/pilot-v2 --output runs/pilot-sa-s17 \
   --account edu --partition short --gpu A6000 --cpus 8 --mem 32G --walltime 00:30:00
 ```
 
-After its ID is terminal and its checkpoint has **2048 updates / 67,108,864 tokens**, submit XSA with the same data, initialization, LR and GPU type:
+XSA was submitted with an `afterok` dependency. Its script requires SA's final evaluation to contain **2048 updates / 67,108,864 tokens**, then uses the same data, initialization, LR and GPU type. A dependent CPU collector checks both checkpoints, all batch hashes, budgets and scheduler outcomes, then publishes compact results:
 
 ```bash
-/usr/bin/python3 -m xsa.submission train --key pilot-xsa-s17-v1 \
-  --config configs/pilot.json --attention xsa --seed 17 \
-  --initial-state runs/initial/pilot-s17.pt --data data/pilot-v1 --output runs/pilot-xsa-s17 \
-  --account edu --partition short --gpu A6000 --cpus 8 --mem 32G --walltime 00:30:00
+sbatch --parsable --no-requeue --kill-on-invalid-dep=yes --dependency=afterok:14072327 \
+  --account=edu --partition=short --gres=gpu:A6000:1 --cpus-per-task=8 --mem=32G \
+  --time=00:30:00 --job-name=xsa-pilot-xsa --output=logs/pilot-xsa-s17-v1-%j.log slurm/pilot_xsa.sbatch
+sbatch --parsable --no-requeue --kill-on-invalid-dep=yes --dependency=afterok:14072338 \
+  --account=edu --partition=short --cpus-per-task=2 --mem=8G --time=00:03:00 \
+  --job-name=xsa-pilot-collect --output=logs/pilot-collect-%j.log slurm/pilot_collect.sbatch
 ```
 
 For a stopped run, inspect its job and checkpoint before submitting a new, uniquely keyed continuation; preserve the same config/data/initial-state arguments:
@@ -116,7 +120,7 @@ For a stopped run, inspect its job and checkpoint before submitting a new, uniqu
 ```bash
 /usr/bin/python3 -m xsa.submission resume --key pilot-sa-s17-resume1 \
   --config configs/pilot.json --attention sa --seed 17 \
-  --initial-state runs/initial/pilot-s17.pt --data data/pilot-v1 --output runs/pilot-sa-s17 \
+  --initial-state runs/initial/pilot-s17.pt --data data/pilot-v2 --output runs/pilot-sa-s17 \
   --gpu A6000 --cpus 8 --mem 32G --walltime 00:30:00
 ```
 
@@ -129,9 +133,9 @@ Additional time beyond the approved pair allocation needs a revised budget. No a
 Run on an allocation; the following examples assume completed pilot checkpoints:
 
 ```bash
-.venv/bin/python -m xsa.evaluate --checkpoint runs/pilot-sa-s17/checkpoint.pt --data data/pilot-v1 --output runs/pilot-sa-s17/evaluation.json
-.venv/bin/python -m xsa.evaluate --checkpoint runs/pilot-xsa-s17/checkpoint.pt --data data/pilot-v1 --output runs/pilot-xsa-s17/evaluation.json
-.venv/bin/python -m xsa.diagnostics --checkpoint runs/pilot-xsa-s17/checkpoint.pt --data data/pilot-v1 --samples 4 --context 128 --output runs/pilot-xsa-s17/diagnostics.json
+.venv/bin/python -m xsa.evaluate --checkpoint runs/pilot-sa-s17/checkpoint.pt --data data/pilot-v2 --output runs/pilot-sa-s17/evaluation.json
+.venv/bin/python -m xsa.evaluate --checkpoint runs/pilot-xsa-s17/checkpoint.pt --data data/pilot-v2 --output runs/pilot-xsa-s17/evaluation.json
+.venv/bin/python -m xsa.diagnostics --checkpoint runs/pilot-xsa-s17/checkpoint.pt --data data/pilot-v2 --samples 4 --context 128 --output runs/pilot-xsa-s17/diagnostics.json
 .venv/bin/python -m xsa.collect \
   --results runs/pilot-sa-s17/evaluation.json runs/pilot-xsa-s17/evaluation.json \
   --runs runs/pilot-sa-s17 runs/pilot-xsa-s17 --plot runs/pilot-curves.png --output runs/pilot-paired.json

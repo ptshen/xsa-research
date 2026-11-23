@@ -1,0 +1,26 @@
+[main 2aa3d9d] Record completed one-seed FineWeb SA/XSA pilot results
+ 23 files changed, 5967 insertions(+), 24 deletions(-)
+ create mode 100644 PILOT_MANIFEST.json
+ create mode 100644 PILOT_REPORT.md
+ create mode 100644 evidence/pilot/accounting.psv
+ create mode 100644 evidence/pilot/curves.png
+ create mode 100644 evidence/pilot/data_manifest.json
+ create mode 100644 evidence/pilot/pair_identity.json
+ create mode 100644 evidence/pilot/paired_results.json
+ create mode 100644 evidence/pilot/pilot-collect-14072339.log
+ create mode 100644 evidence/pilot/pilot-data-v1-14072309.log
+ create mode 100644 evidence/pilot/pilot-data-v2-14072321.log
+ create mode 100644 evidence/pilot/pilot-sa-s17-v1-14072327.log
+ create mode 100644 evidence/pilot/pilot-sa-s17/diagnostics.json
+ create mode 100644 evidence/pilot/pilot-sa-s17/evaluation.json
+ create mode 100644 evidence/pilot/pilot-sa-s17/manifest-c0be451fe5824e418563d4d72791aa98.json
+ create mode 100644 evidence/pilot/pilot-sa-s17/metrics.jsonl
+ create mode 100644 evidence/pilot/pilot-verify-14072336.log
+ create mode 100644 evidence/pilot/pilot-xsa-s17-v1-14072338.log
+ create mode 100644 evidence/pilot/pilot-xsa-s17/diagnostics.json
+ create mode 100644 evidence/pilot/pilot-xsa-s17/evaluation.json
+ create mode 100644 evidence/pilot/pilot-xsa-s17/manifest-e944ef99316946a1b1f38db1c1c15abc.json
+ create mode 100644 evidence/pilot/pilot-xsa-s17/metrics.jsonl
+To github.com:ptshen/xsa-research.git
+   2bea6aa..2aa3d9d  main -> main
+Pilot results published: 2aa3d9d8e3c5dcf621c75fce2ea963489590f55c

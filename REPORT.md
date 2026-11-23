@@ -1,5 +1,7 @@
 # Part 1 implementation and verification report
 
+This is the historical Part 1 verification report, written before the separately approved pilot. See [PILOT_REPORT.md](PILOT_REPORT.md) for the completed pilot and [PROGRESS.md](PROGRESS.md) for subsequent execution. Statements below about unrun pilot work describe that earlier snapshot.
+
 **2026-11-23.** The matched SA/XSA experiment pipeline is implemented and verified on Insomnia. No pilot training, paper-scale study, extension, full FineWeb download or full downstream benchmark has been launched. All reported losses are from a deliberately tiny execution fixture.
 
 ## What was implemented
