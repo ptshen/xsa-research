@@ -132,3 +132,11 @@ Next: submit bounded CPU data preparation, validate exact split sizes and storag
 - `PILOT_STATUS.md` records the queued workflow and exact inspection commands. Completion will automatically write `PILOT_REPORT.md`, `PILOT_MANIFEST.json`, compact artifacts and append PROGRESS, then push them to `main`. It fails closed if budgets, completed updates, paired identities or scheduler outcomes do not match.
 
 Next action: the submitted Slurm dependency chain performs the authorized pair and result collection. Training is currently queued; no result is claimed yet. Inspect jobs 14072327, 14072338 and 14072339 rather than submitting duplicates.
+
+## Pilot running — SA complete
+
+SA job **14072327 COMPLETED**, exit 0, allocated **624 seconds** on ins092. Reached 2048 updates / 67,108,864 tokens; final held-out cross-entropy **4.89046994**, perplexity **133.01607**. Evaluation and diagnostics are saved. XSA **14072338** passed the full-budget gate and is running on the same GPU type. CPU collection **14072339** remains dependent on successful XSA completion. No additional submissions. Next action: verify XSA completion and automatic paired checks/publication.
+
+## Pilot finished automatically
+
+Both training jobs completed the full budget; identical initialization/batch order verified. SA CE 4.89046994, XSA CE 4.80333272, XSA−SA -0.08713721. GPU allocation 1287/3600 seconds; disk 4.430/5 GiB. See PILOT_REPORT.md. Next action: review the one-seed findings; no further training authorized or scheduled.

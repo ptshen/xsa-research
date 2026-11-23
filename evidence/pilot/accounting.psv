@@ -1,0 +1,5 @@
+JobID|JobName|State|ElapsedRaw|ExitCode|NodeList|AllocTRES
+14072309|xsa-prepare|CANCELLED by 562312|188|0:0|ins004|billing=4,cpu=4,mem=16G,node=1
+14072321|xsa-prepare|COMPLETED|163|0:0|ins004|billing=4,cpu=4,mem=16G,node=1
+14072327|xsa-train|COMPLETED|624|0:0|ins092|billing=8,cpu=8,gres/gpu:a6000=1,gres/gpu=1,mem=32G,node=1
+14072338|xsa-pilot-xsa|COMPLETED|663|0:0|ins092|billing=8,cpu=8,gres/gpu:a6000=1,gres/gpu=1,mem=32G,node=1

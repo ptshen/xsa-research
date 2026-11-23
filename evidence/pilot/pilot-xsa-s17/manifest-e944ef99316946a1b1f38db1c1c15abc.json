@@ -1,0 +1,70 @@
+{
+  "config": {
+    "label": "scaled-down pilot; one exploratory paired seed",
+    "seed": 17,
+    "data_seed": 1017,
+    "eval_seed": 2017,
+    "data_kind": "fineweb",
+    "model": {
+      "vocab_size": 50304,
+      "n_layers": 6,
+      "d_model": 384,
+      "n_heads": 6,
+      "head_dim": 64,
+      "seq_len": 512,
+      "attention_type": "xsa",
+      "dropout": 0.0,
+      "bias": false,
+      "rope_base": 10000.0,
+      "projection_eps": 1e-12,
+      "projection_precision": "float32",
+      "backend": "sdpa"
+    },
+    "train": {
+      "updates": 2048,
+      "microbatch_sequences": 8,
+      "accumulation_steps": 8,
+      "learning_rate": 0.0006,
+      "min_lr_ratio": 0.1,
+      "warmup_updates": 64,
+      "weight_decay": 0.1,
+      "betas": [
+        0.9,
+        0.95
+      ],
+      "grad_clip": 1.0,
+      "precision": "bfloat16",
+      "eval_interval": 128,
+      "eval_windows": 64,
+      "checkpoint_interval": 64
+    },
+    "initial_state_path": "runs/initial/pilot-s17.pt"
+  },
+  "parameter_counts": {
+    "total_unique": 29938944,
+    "token_embedding_tied_head": 19316736,
+    "non_embedding": 10622208
+  },
+  "initial_state_sha256": "800499a31616c203ec7ee0267d1c99505b74d9ed88d2df0228528491ddcefade",
+  "data_manifest_sha256": "a026487cdc6f9c1404016c87dd1799e8def657e65af871513b31c20986719ce4",
+  "evaluation_windows_sha256": "3a2b44dcd54890c353321db84104749c08f9984e4f46e1a20316fcb8d86ca324",
+  "tokens_per_update": 32768,
+  "total_tokens": 67108864,
+  "software": {
+    "python": "3.11.5",
+    "packages": {
+      "torch": "2.10.0+cu128",
+      "numpy": "2.4.6",
+      "tiktoken": "0.9.0",
+      "matplotlib": "3.10.5",
+      "pytest": "9.2.0",
+      "huggingface-hub": "1.33.0",
+      "pyarrow": "26.0.1"
+    },
+    "cuda": "12.8",
+    "gpu": "NVIDIA RTX A6000"
+  },
+  "slurm_job_id": "14072338",
+  "scientific_result": true,
+  "session": "e944ef99316946a1b1f38db1c1c15abc"
+}

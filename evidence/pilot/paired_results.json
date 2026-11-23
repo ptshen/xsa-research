@@ -1,0 +1,21 @@
+{
+  "pairs": [
+    {
+      "seed": 17,
+      "tokens": 67108864,
+      "sa_cross_entropy": 4.890469938516617,
+      "xsa_cross_entropy": 4.803332723677158,
+      "xsa_minus_sa": -0.08713721483945847,
+      "window_bootstrap_95ci": [
+        -0.09983557593077422,
+        -0.07541421875357629
+      ]
+    }
+  ],
+  "mean_xsa_minus_sa": -0.08713721483945847,
+  "paired_seeds": 1,
+  "seed_standard_deviation": null,
+  "seed_standard_error": null,
+  "scientific_result": true,
+  "uncertainty_note": "window bootstrap assumes independent windows; same-document correlations may narrow intervals. This is evaluation-sample uncertainty, not training-seed variability. One seed supports feasibility only."
+}

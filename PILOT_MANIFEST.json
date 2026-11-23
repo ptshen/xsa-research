@@ -1,0 +1,80 @@
+{
+  "stage": "approved exploratory pilot",
+  "completed": true,
+  "seed": 17,
+  "gpu_seconds": 1287,
+  "project_bytes": 4756712669,
+  "source_commit": "2bea6aa737a77ba9debba9600228dfe92af35579",
+  "budget": {
+    "authorized": true,
+    "gpu_seconds": 3600,
+    "gpu_type": "A6000",
+    "storage_bytes": 5368709120,
+    "cpu_preparation_wall_seconds": 1800,
+    "data_limits": {
+      "documents": 150000,
+      "tokens": 100000000,
+      "source_shards": 1
+    },
+    "seed": 17,
+    "tokens_per_arm": 67108864,
+    "initial_state": "runs/initial/pilot-s17.pt",
+    "data": "data/pilot-v2",
+    "preparation_job": "14072321",
+    "training_jobs": [
+      {
+        "attention": "sa",
+        "job_id": "14072327",
+        "reserved_seconds": 1800
+      },
+      {
+        "attention": "xsa",
+        "job_id": "14072338",
+        "reserved_seconds": 1800
+      }
+    ],
+    "cancelled_preparation_job": "14072309",
+    "collection_job": "14072339",
+    "verification_job": "14072336"
+  },
+  "summary": {
+    "pairs": [
+      {
+        "seed": 17,
+        "tokens": 67108864,
+        "sa_cross_entropy": 4.890469938516617,
+        "xsa_cross_entropy": 4.803332723677158,
+        "xsa_minus_sa": -0.08713721483945847,
+        "window_bootstrap_95ci": [
+          -0.09983557593077422,
+          -0.07541421875357629
+        ]
+      }
+    ],
+    "mean_xsa_minus_sa": -0.08713721483945847,
+    "paired_seeds": 1,
+    "seed_standard_deviation": null,
+    "seed_standard_error": null,
+    "scientific_result": true,
+    "uncertainty_note": "window bootstrap assumes independent windows; same-document correlations may narrow intervals. This is evaluation-sample uncertainty, not training-seed variability. One seed supports feasibility only."
+  },
+  "identity": {
+    "passed": true,
+    "updates": 2048,
+    "tokens_per_arm": 67108864,
+    "initial_state_sha256": "800499a31616c203ec7ee0267d1c99505b74d9ed88d2df0228528491ddcefade",
+    "all_batch_hashes_identical": true,
+    "final_data_state_identical": true,
+    "checkpoint_sha256": {
+      "runs/pilot-sa-s17/checkpoint.pt": "191d08c8c043cc183a7b484a5bd76a6b714ffbda59e6ea97d79f6fe8cdd7a3e5",
+      "runs/pilot-xsa-s17/checkpoint.pt": "a62d3fce351c940bced933769e2118b6ec95c4a6ea613c6b936b16b583ff195c"
+    }
+  },
+  "limitations": [
+    "one training seed",
+    "FineWeb bounded prefix",
+    "document-level split approximates paper",
+    "no downstream task run",
+    "not a paper-scale reproduction"
+  ]
+}
