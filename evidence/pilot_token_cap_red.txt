@@ -1,0 +1,16 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+___________ test_preparation_token_cap_preserves_complete_documents ____________
+
+tmp_path = PosixPath('/private/var/folders/x3/40vnrw8d4fz2ns5khjmvbp380000gn/T/pytest-of-patrick/pytest-11/test_preparation_token_cap_pre0')
+
+    def test_preparation_token_cap_preserves_complete_documents(tmp_path):
+        docs=[{'id':str(i),'text':'A small document. '*10} for i in range(10)]
+>       m=prepare_documents(docs,tmp_path/'bounded',{'kind':'fixture'},val_fraction=.2,max_tokens=100)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       TypeError: prepare_documents() got an unexpected keyword argument 'max_tokens'. Did you mean 'shard_tokens'?
+
+tests/test_pipeline.py:151: TypeError
+=========================== short test summary info ============================
+FAILED tests/test_pipeline.py::test_preparation_token_cap_preserves_complete_documents
+1 failed in 1.14s

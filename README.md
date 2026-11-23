@@ -1,8 +1,10 @@
 # SA / XSA on Insomnia
 
+The **approved one-seed pilot is now scheduled**; see [PILOT_STATUS.md](PILOT_STATUS.md) for job IDs and automatic result publication. The Part 1 report below records the earlier verification stage.
+
 A matched, resumable PyTorch baseline for Part 1 of `XSA_Insomnia_complete_handoff.md`. Start with [REPORT.md](REPORT.md) for actual results and [PROGRESS.md](PROGRESS.md) for jobs, failures and the next action. [REPRODUCTION_SPEC.md](REPRODUCTION_SPEC.md) distinguishes paper settings, upstream inheritance and assumptions.
 
-Remote root: **`~/algollms/xsa`**. GitHub: https://github.com/ptshen/xsa-research. All remote commands below start there. Long training is prepared, **not launched**. Extensions A/B/C are not implemented.
+Remote root: **`~/algollms/xsa`**. GitHub: https://github.com/ptshen/xsa-research. All remote commands below start there. The exploratory pilot is approved and queued; the paper-scale training matrix remains unlaunched. Extensions A/B/C are not implemented.
 
 ## Layout
 

@@ -20,7 +20,7 @@ def checksum(path):
     return h.hexdigest()
 
 
-def prepare_documents(documents, output, source, val_fraction=.0005, split_seed=2026, shard_tokens=10000000):
+def prepare_documents(documents, output, source, val_fraction=.0005, split_seed=2026, shard_tokens=10000000, max_tokens=None):
     output = Path(output)
     output.mkdir(parents=True, exist_ok=False)
     enc = tiktoken.get_encoding("gpt2")
@@ -33,6 +33,11 @@ def prepare_documents(documents, output, source, val_fraction=.0005, split_seed=
     buffers = {s: [] for s in manifest["splits"]}
     order_hash = hashlib.sha256()
     split_hash = {s: hashlib.sha256() for s in buffers}
+    if max_tokens is not None:
+        if max_tokens <= 0:
+            raise ValueError('max_tokens must be positive')
+        manifest['max_tokens'] = max_tokens
+    total_tokens = 0
 
     def flush(split, count):
         tokens = buffers[split][:count]
@@ -48,6 +53,9 @@ def prepare_documents(documents, output, source, val_fraction=.0005, split_seed=
             digest = hashlib.sha256(f"{split_seed}:{identity}".encode()).digest()
             split = "val" if int.from_bytes(digest, "big") / 2**256 < val_fraction else "train"
             ids = enc.encode_ordinary(doc["text"]) + [enc.eot_token]
+            if max_tokens is not None and total_tokens + len(ids) > max_tokens:
+                break
+            total_tokens += len(ids)
             record = {"order": order, "id": identity, "split": split, "tokens": len(ids),
                       "text_sha256": hashlib.sha256(doc["text"].encode()).hexdigest()}
             line = json.dumps(record, sort_keys=True) + "\n"
@@ -135,14 +143,16 @@ class BatchStream:
         self.sequences_seen = state["sequences_seen"]
 
 
-def fineweb_documents(max_documents):
+def fineweb_documents(max_documents, max_shards=None):
     """Download only consumed pinned parquet shards; no implicit whole-corpus load."""
     from huggingface_hub import HfApi, hf_hub_download
     import pyarrow.parquet as pq
     files = sorted(f for f in HfApi().list_repo_files("HuggingFaceFW/fineweb", repo_type="dataset", revision=FINEWEB_REVISION)
                    if f.startswith("sample/100BT/") and f.endswith(".parquet"))
     count = 0
-    for filename in files:
+    for shard_index, filename in enumerate(files):
+        if max_shards is not None and shard_index >= max_shards:
+            raise ValueError('source shard cap reached; refusing another download')
         local = hf_hub_download("HuggingFaceFW/fineweb", filename, repo_type="dataset", revision=FINEWEB_REVISION)
         for batch in pq.ParquetFile(local).iter_batches(batch_size=1024, columns=["id", "text"]):
             for doc in batch.to_pylist():
@@ -159,6 +169,8 @@ def main():
         a = sub.add_parser(command); a.add_argument("--output", type=Path, required=True)
         if command == "fineweb":
             a.add_argument("--max-documents", type=int, required=True)
+            a.add_argument('--max-tokens', type=int)
+            a.add_argument('--max-shards', type=int)
     args = p.parse_args()
     if args.command == "validate":
         m = validate_manifest(args.output)
@@ -170,7 +182,8 @@ def main():
             p.error("max-documents must be positive")
         source = {"kind": "fineweb", "repo": "HuggingFaceFW/fineweb", "subset": "sample-100BT", "revision": FINEWEB_REVISION,
                   "max_documents": args.max_documents, "order": "lexicographic parquet filename, row order"}
-        m = prepare_documents(fineweb_documents(args.max_documents), args.output, source)
+        source['max_shards'] = args.max_shards
+        m = prepare_documents(fineweb_documents(args.max_documents, args.max_shards), args.output, source, max_tokens=args.max_tokens)
     print(json.dumps(m, indent=2))
 
 

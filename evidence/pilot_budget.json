@@ -1,0 +1,32 @@
+{
+  "authorized": true,
+  "gpu_seconds": 3600,
+  "gpu_type": "A6000",
+  "storage_bytes": 5368709120,
+  "cpu_preparation_wall_seconds": 1800,
+  "data_limits": {
+    "documents": 150000,
+    "tokens": 100000000,
+    "source_shards": 1
+  },
+  "seed": 17,
+  "tokens_per_arm": 67108864,
+  "initial_state": "runs/initial/pilot-s17.pt",
+  "data": "data/pilot-v2",
+  "preparation_job": "14072321",
+  "training_jobs": [
+    {
+      "attention": "sa",
+      "job_id": "14072327",
+      "reserved_seconds": 1800
+    },
+    {
+      "attention": "xsa",
+      "job_id": "14072338",
+      "reserved_seconds": 1800
+    }
+  ],
+  "cancelled_preparation_job": "14072309",
+  "collection_job": "14072339",
+  "verification_job": "14072336"
+}

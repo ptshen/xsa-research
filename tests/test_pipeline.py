@@ -144,3 +144,12 @@ def test_cuda_bfloat16_resume(tmp_path):
     for key,value in full.model.state_dict().items():
         torch.testing.assert_close(value,resumed.model.state_dict()[key],atol=1e-6,rtol=1e-5)
     assert full.batch_hashes==resumed.batch_hashes
+
+
+def test_preparation_token_cap_preserves_complete_documents(tmp_path):
+    docs=[{'id':str(i),'text':'A small document. '*10} for i in range(10)]
+    m=prepare_documents(docs,tmp_path/'bounded',{'kind':'fixture'},val_fraction=.2,max_tokens=100)
+    total=sum(s['tokens'] for s in m['splits'].values())
+    assert 0<total<=100
+    assert sum(s['documents'] for s in m['splits'].values())<10
+    assert m['max_tokens']==100

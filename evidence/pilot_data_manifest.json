@@ -1,0 +1,98 @@
+{
+  "format": 1,
+  "source": {
+    "kind": "fineweb",
+    "repo": "HuggingFaceFW/fineweb",
+    "subset": "sample-100BT",
+    "revision": "9bb295ddab0e05d785b879661af7260fed5140fc",
+    "max_documents": 150000,
+    "order": "lexicographic parquet filename, row order",
+    "max_shards": 1
+  },
+  "dtype": "<u2",
+  "split_seed": 2026,
+  "val_document_probability": 0.0005,
+  "test_split": null,
+  "split_rule": "sha256(seed + colon + document id) / 2**256 < val_fraction",
+  "packing": "source order within split; append EOS per document; no token shuffle; shard boundaries may split documents",
+  "tokenizer": {
+    "name": "gpt2",
+    "package": "tiktoken",
+    "version": "0.9.0",
+    "eos": 50256
+  },
+  "splits": {
+    "train": {
+      "documents": 146329,
+      "tokens": 99962616,
+      "shards": [
+        {
+          "path": "train-00000.bin",
+          "tokens": 10000000,
+          "sha256": "feb11c47d40a65537a3abf169d230b7128ebc8f8269cb215472d2088a73ef14f"
+        },
+        {
+          "path": "train-00001.bin",
+          "tokens": 10000000,
+          "sha256": "3c19dbd387c9facac66e17c910a15bb23a2cfa3bd425ac65b785a6d98b686563"
+        },
+        {
+          "path": "train-00002.bin",
+          "tokens": 10000000,
+          "sha256": "4aec82f692d8d42f58bfae21d43a73d50bde22ed1dd114bbd2c3fcaaae012c82"
+        },
+        {
+          "path": "train-00003.bin",
+          "tokens": 10000000,
+          "sha256": "cb09cf2c445a6ac184d535e9d4501e07dd0a10ab189403a0f08dc42def6164ed"
+        },
+        {
+          "path": "train-00004.bin",
+          "tokens": 10000000,
+          "sha256": "607604b07e376bfbf01c63ccfd8f11ef099d0c1157fb447fbeb1431f1dde9a0a"
+        },
+        {
+          "path": "train-00005.bin",
+          "tokens": 10000000,
+          "sha256": "1a7cf86f69182e858516f3a36409c6c88bb7a2a8a19466a1d38db937e00a846c"
+        },
+        {
+          "path": "train-00006.bin",
+          "tokens": 10000000,
+          "sha256": "7290fb25b8064627e8f24be1aa468f1f07e48aea71ff3ed2d5cf8e89900f21f7"
+        },
+        {
+          "path": "train-00007.bin",
+          "tokens": 10000000,
+          "sha256": "a4cb1b7af808353daa3c5aa958fe9667a15c09afff65f43b5184d7211b8da07c"
+        },
+        {
+          "path": "train-00008.bin",
+          "tokens": 10000000,
+          "sha256": "6ae2452e457ea3a83633dc222505f8868bd3e9b6b29d6c585413e0bf999ed7f3"
+        },
+        {
+          "path": "train-00009.bin",
+          "tokens": 9962616,
+          "sha256": "ee7337a9b450828bb2fe47a4167f9ae7968fb93c713329699a0301a602cf3408"
+        }
+      ],
+      "document_order_sha256": "b18d9079a7df23e5a1dccd552545872a3b0a2523a3816aff75a91da1c7977254"
+    },
+    "val": {
+      "documents": 74,
+      "tokens": 36418,
+      "shards": [
+        {
+          "path": "val-00000.bin",
+          "tokens": 36418,
+          "sha256": "1fe60711f1412fb3e1836dc59c153b28f908b010799e1e42bcb37cca35f316a5"
+        }
+      ],
+      "document_order_sha256": "80043e06df2859c2ce39ed87218c4f32ab40758317d79863b599848014f73ae9"
+    }
+  },
+  "max_tokens": 100000000,
+  "document_order_sha256": "0b6536e911f26199903759974a9804014316c285a078f66e5c8570e23c4d5238",
+  "documents_sha256": "0b6536e911f26199903759974a9804014316c285a078f66e5c8570e23c4d5238"
+}
