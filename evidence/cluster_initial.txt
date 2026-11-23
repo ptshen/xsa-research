@@ -1,0 +1,290 @@
+2026-11-23T15:51:58-05:00
+uid=562312(pts2125) gid=500(user) groups=500(user),59795(somedu)
+total 2352
+drwx------    12 pts2125 user    4096 Nov 23 15:36 .
+drwxr-xr-x  2483 root    root  131072 Nov 20 09:27 ..
+drwxr-x---     2 pts2125 user    4096 Nov 23 15:36 algollms
+-rw-------     1 pts2125 user    5037 Nov 18 18:31 .bash_history
+-rw-r--r--.    1 pts2125 user      17 Feb 13  2024 .bash_logout
+-rw-r--r--.    1 pts2125 user     178 Feb 13  2024 .bash_profile
+-rw-r--r--.    1 pts2125 user     740 Nov 12 22:24 .bashrc
+drwxr-x---     4 pts2125 user    4096 Nov 20 19:43 .cache
+drwxr-x---    15 pts2125 user    4096 Nov 23 15:48 .codex
+-rw-r-----     1 pts2125 user     206 Nov 13 11:18 .gitconfig
+-rw-r-----     1 pts2125 user     474 May  1  2026 gpu.sh
+-rwxr-----     1 pts2125 user     253 May  1  2026 helloworld.sh
+drwxr-x---     3 pts2125 user    4096 Nov 23 15:35 hpml
+drwxr-x---     3 pts2125 user    4096 Nov 20 19:59 .ipython
+-rw-------     1 pts2125 user      20 Nov 12 23:20 .lesshst
+drwxr-x---     4 pts2125 user    4096 Nov 12 19:32 .local
+-rwxr-x---     1 pts2125 user 1008784 May  1  2026 matmul
+-rw-r-----     1 pts2125 user    3706 May  1  2026 matmul.cu
+-rwxr-x---     1 pts2125 user 1018104 May  1  2026 motion
+-rw-r-----     1 pts2125 user    5917 May  1  2026 motion.cu
+-rw-r-----     1 pts2125 user   12288 May  1  2026 .motion.sh.swp
+-rw-r-----     1 pts2125 user     426 May  1  2026 mpi_test.c
+drwx------     3 pts2125 user    4096 May  1  2026 .nv
+-rw-r-----     1 pts2125 user      44 May  1  2026 slurm-9091372.out
+-rw-r-----     1 pts2125 user    4594 Jul  4 03:19 slurm-9091503.out
+drwx------     2 pts2125 user    4096 Nov 12 20:12 .ssh
+drwxr-x---     3 pts2125 user    4096 Nov 20 19:59 .triton
+drwxr-x---     2 pts2125 user    4096 Nov 23 15:35 .venvs
+-rw-------     1 pts2125 user   13660 Nov 18 17:25 .viminfo
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+JobID                               JobName      State    Elapsed  Timelimit                                                    AllocTRES 
+------------ ------------------------------ ---------- ---------- ---------- ------------------------------------------------------------ 
+insomnia|edu|pts2125||burst,burst_interactive,free,free_interactive,free_short,h012,interactive|
+PartitionName=short
+   AllowGroups=ALL AllowAccounts=ALL AllowQos=ALL
+   AllocNodes=ALL Default=NO QoS=N/A
+   DefaultTime=NONE DisableRootJobs=NO ExclusiveUser=NO ExclusiveTopo=NO GraceTime=0 Hidden=NO
+   MaxNodes=UNLIMITED MaxTime=12:00:00 MinNodes=0 LLN=NO MaxCPUsPerNode=UNLIMITED MaxCPUsPerSocket=UNLIMITED
+   Nodes=ins[001-043,046-048,050-062,064-078,080-096]
+   PriorityJobFactor=1 PriorityTier=1 RootOnly=NO ReqResv=NO OverSubscribe=NO
+   OverTimeLimit=NONE PreemptMode=REQUEUE
+   State=UP TotalCPUs=14544 TotalNodes=91 SelectTypeParameters=NONE
+   JobDefaults=(null)
+   DefMemPerCPU=4015 MaxMemPerCPU=6400
+   TRES=cpu=14544,mem=62697419M,node=91,billing=14544,gres/gpu=154,gres/gpu:h100=4,gres/gpu:l40=6,gres/gpu:l40s=16
+
+
+----------------------- /insomnia001/shared/modulefiles ------------------------
+   IDL/8.4
+   ITK/5.3.0
+   MATLAB/R2023b
+   MATLAB/R2025a                            (D)
+   MUMPS/5.7.1
+   MUMPS/5.7.3                              (D)
+   Mathematica/14.0
+   NLI-MRE/9.370
+   ParaView/6.0.0
+   R/4.2.1
+   R/4.3.1
+   R/4.3.3
+   R/4.4.3.BAK-20260922
+   R/4.4.3
+   R/4.5.1                                  (D)
+   alphafold/2.3.2
+   amber/26.bak
+   amber/26                                 (D)
+   anaconda/2023.09
+   apptainer/1.4.5
+   benchmark/1.9.4
+   bids/freesurfer/V30-a43f1f/module
+   bison/3.8
+   bubblewrap/0.11.2
+   bwa/0.7.17
+   bzip2/1.0.8
+   cellranger/5.0.1
+   cellranger/8.0.1
+   cellranger/9.0.1                         (D)
+   cmake/3.30.2
+   code-server/4.22.1
+   cuda/12.3
+   curl/8.7.1
+   curl/8.12.0                              (D)
+   dealii/9.4.2
+   dorado/0.9.6
+   environ/3.1
+   febio/4.10.0-mkl
+   febio/4.10.0                             (D)
+   fftw3/3.3.10
+   gcc/11.4.0
+   gcc/14.1.0                               (D)
+   gdal/3.9.2
+   gdal/3.12.1.bak
+   gdal/3.12.1                              (D)
+   geos/3.12.2
+   glpk/5.0
+   gmt/6.6.0
+   gurobi/11.0.1.BAK-20260923
+   gurobi/11.0.1                            (D)
+   hdf5p-intel/1.14.3
+   hdf5p/1.10.7
+   hdf5p/1.14.3                             (D)
+   htslib/1.17
+   hwloc/2.9.3
+   jags/4.3.2
+   julia/1.10.2
+   knitro/13.2.0
+   lammps/lammps-mpi-manybuild
+   lammps/lammps-mpi                        (D)
+   libgeotiff/1.7.1
+   lmod
+   metis/5.1.0
+   mpi/mpich-x86_64
+   mpi/openmpi-x86_64                       (D)
+   oneapi/2024.0.0/2024.0.0
+   oneapi/advisor/2024.0
+   oneapi/ccl/2021.11.2
+   oneapi/compiler-rt/2024.0.2
+   oneapi/compiler-rt32/2024.0.2
+   oneapi/compiler/2024.0.2
+   oneapi/compiler32/2024.0.2
+   oneapi/dal/2024.0.0
+   oneapi/debugger/2024.0.0
+   oneapi/dev-utilities/2024.0.0
+   oneapi/dnnl/3.3.0
+   oneapi/dpct/2024.0.0
+   oneapi/dpl/2022.3
+   oneapi/hpctoolkit/compiler-rt/2024.0.2
+   oneapi/hpctoolkit/compiler-rt32/2024.0.2
+   oneapi/hpctoolkit/compiler/2024.0.2
+   oneapi/hpctoolkit/compiler32/2024.0.2
+   oneapi/hpctoolkit/debugger/2024.0.0
+   oneapi/hpctoolkit/dev-utilities/2024.0.0
+   oneapi/hpctoolkit/dpl/2022.3
+   oneapi/hpctoolkit/hpctoolkit-2024.0.0
+   oneapi/hpctoolkit/ifort/2024.0.2
+   oneapi/hpctoolkit/ifort32/2024.0.2
+   oneapi/hpctoolkit/inspector/2024.0
+   oneapi/hpctoolkit/itac/2022.0
+   oneapi/hpctoolkit/mpi/2021.11
+   oneapi/hpctoolkit/mpi/2024.2             (D)
+   oneapi/hpctoolkit/oclfpga/2024.0.0
+   oneapi/hpctoolkit/tbb/2021.11
+   oneapi/hpctoolkit/tbb32/2021.11
+   oneapi/ifort/2024.0.2
+   oneapi/ifort32/2024.0.2
+   oneapi/intel_ipp_ia32/2021.10
+   oneapi/intel_ipp_intel64/2021.10
+   oneapi/intel_ippcp_ia32/2021.9
+   oneapi/intel_ippcp_intel64/2021.9
+   oneapi/mkl/2024.0
+   oneapi/mkl32/2024.0
+   oneapi/mpi/2021.11
+   oneapi/oclfpga/2024.0.0
+   oneapi/tbb/2021.11
+   oneapi/tbb32/2021.11
+   oneapi/vtune/2024.0
+   ood-desktop/1.0
+   openfoam/12.1
+   openmpi/4.1.6-gcc11
+   openmpi5/5.0.2
+   p4est/2.3.2
+   parmetis/4.0.3
+   proj/9.4.0
+   protobuf/21.12
+   python/3.13-rc/module
+   qe/7.4
+   readline/8.3
+   rosetta/3.15
+   rosettafold/1.0
+   ruby/3.3
+   samtools/1.7
+   scalapack/2.2.0
+   scalapack/2.2.2                          (D)
+   schrodinger/2024-1
+   schrodinger/2024-4
+   schrodinger/2025-2
+   schrodinger/2026-3                       (D)
+   scotch/7.0.4
+   scotch/7.0.5                             (D)
+   settarg
+   socat/1.7.4.1
+   stata/18
+   tiff/4.6.0
+   tiff/4.6.0-zlib                          (D)
+   trilinos/13.2.0
+   udunits/2.2.28
+   xz/5.8.2
+
+  Where:
+   D:  Default Module
+
+Module defaults are chosen based on Find First Rules due to Name/Version/Version modules found in the module tree.
+See https://lmod.readthedocs.io/en/latest/060_locating.html for details.
+
+If the avail list is too long consider trying:
+
+"module --default avail" or "ml -d av" to just list the default modules.
+"module overview" or "ml ov" to display the number of modules for each name.
+
+Use "module spider" to find all possible modules and extensions.
+Use "module keyword key1 key2 ..." to search for all possible modules matching
+any of the "keys".
+
+
+/usr/bin/quota
+drwxr-s---   4 root    som5sigma           4096 Feb 15  2024 /insomnia001/depts/5sigma
+drwxr-s---   4 root    somasenjo           4096 Jan 29  2025 /insomnia001/depts/asenjo
+drwxr-s---   4 root    somastro            4096 Mar  7  2024 /insomnia001/depts/astro
+drwxr-s---   4 root    somberkelbach       4096 Feb 15  2024 /insomnia001/depts/berkelbach
+drwxr-s---   4 root    sombus-sch          4096 Oct  6 20:02 /insomnia001/depts/bus-sch
+drwxr-s---   4 root    somcboyce           4096 Feb 15  2024 /insomnia001/depts/cboyce
+drwxr-s---   4 root    somciesin           4096 Sep 15  2025 /insomnia001/depts/ciesin
+drwxr-s---   4 root    somcklab            4096 Feb 15  2024 /insomnia001/depts/cklab
+drwxr-s---   4 root    somcrislab          4096 Dec 10  2024 /insomnia001/depts/crislab
+drwxr-s---   4 root    somdb               4096 Feb 15  2024 /insomnia001/depts/db
+drwxr-s---   4 root    somdei              4096 Feb 26  2025 /insomnia001/depts/dei
+drwxr-s---   4 root    somdelmore_lab      4096 Dec 27  2024 /insomnia001/depts/delmore_lab
+drwxr-s---   4 root    somdr_beast         4096 Jan 28  2025 /insomnia001/depts/dr_beast
+drwxr-s---   4 root    some3b              4096 Feb 15  2024 /insomnia001/depts/e3b
+drwxr-s---  31 root    somedu              4096 Nov 19 11:59 /insomnia001/depts/edu
+drwxr-s---   4 root    somesma             4096 Feb 15  2024 /insomnia001/depts/esma
+drwxr-s---   4 root    somexposomics       4096 May  2  2024 /insomnia001/depts/exposomics
+drwxr-s---   4 root    somfree             4096 Sep 25 15:35 /insomnia001/depts/free
+drwxr-s---   4 root    somfriesner         4096 Jan 31  2025 /insomnia001/depts/friesner
+drwxr-s---   4 root    somhill             4096 Feb 15  2024 /insomnia001/depts/hill
+drwxr-s---   4 root    somhilsha           4096 Feb 21  2025 /insomnia001/depts/hilsha
+drwxr-s---   4 root    somhoulab           4096 Nov  8  2024 /insomnia001/depts/houlab
+drwxr-s---   4 root    somieor_lam         4096 Feb 28  2024 /insomnia001/depts/ieor_lam
+drwxr-s---   4 root    somieortang         4096 Feb 15  2024 /insomnia001/depts/ieortang
+drwxr-s---   4 root    somiicd             4096 Feb 15  2024 /insomnia001/depts/iicd
+drwxr-s---   4 root    somintelseedfree    4096 Apr 25  2024 /insomnia001/depts/intelseedfree
+drwxr-sr--   9 root    somfree             4096 Apr 21  2026 /insomnia001/depts/introseries
+drwxrws---   4 root    somjalab            4096 Aug 28  2025 /insomnia001/depts/jalab
+drwxr-s---   4 root    somjavitchlab       4096 May 30  2025 /insomnia001/depts/javitchlab
+drwxr-s---   4 root    somkumar_group      4096 Mar 31  2025 /insomnia001/depts/kumar_group
+drwxr-s---   4 root    somloulab           4096 Aug 13  2025 /insomnia001/depts/loulab
+drwxr-s---   4 root    sommathemalab       4096 Mar 17  2026 /insomnia001/depts/mathemalab
+drwxr-s---   4 root    sommcilvain         4096 May 20  2024 /insomnia001/depts/mcilvain
+drwxr-s---   4 root    sommmsci            4096 Aug  1  2024 /insomnia001/depts/mmsci
+drwxr-s---   4 root    sommorpheus         4096 Feb 15  2024 /insomnia001/depts/morpheus
+drwxr-s---   4 root    sommsph             4096 Feb 15  2024 /insomnia001/depts/msph
+drwxr-s---   4 root    sommyers            4096 Aug 27 11:35 /insomnia001/depts/myers
+drwxr-s---   4 root    somneuralctrl       4096 Apr 11  2024 /insomnia001/depts/neuralctrl
+drwxr-s---   4 root    somnewtest          4096 Sep 15  2025 /insomnia001/depts/newtest
+drwxr-s---   3 root    somnlp              4096 Aug  7  2025 /insomnia001/depts/nlp
+drwxr-s---   4 root    somntar_lab         4096 Feb 21  2024 /insomnia001/depts/ntar_lab
+drwxr-s---   4 root    sompas_lab          4096 Feb 21  2024 /insomnia001/depts/pas_lab
+drwxr-s---   8 root    sompmg             16384 Jun  3 12:46 /insomnia001/depts/pmg
+drwxr-s---   4 root    somqmech            4096 Feb 15  2024 /insomnia001/depts/qmech
+drwxr-s---   8 root    somrcs              4096 Oct  9 13:44 /insomnia001/depts/rcs
+drwxr-s---   4 root    somschwabelab       4096 Mar 25  2025 /insomnia001/depts/schwabelab
+drwxr-s---   4 root    somscripttest       4096 Sep 15  2025 /insomnia001/depts/scripttest
+drwxr-s---   4 root    somsscc             4096 May  3  2024 /insomnia001/depts/sscc
+drwxr-s---   4 root    somtekle_smith      4096 Jul 29  2024 /insomnia001/depts/tekle_smith
+drwxr-s---   4 root    somtepolelab        4096 Dec 11  2025 /insomnia001/depts/tepolelab
+drwxr-s---   4 root    somtrail4health     4096 Dec 11  2025 /insomnia001/depts/trail4health
+drwxr-s---   4 root    somueil             4096 Feb 16  2024 /insomnia001/depts/ueil
+drwxr-s---   4 root    somurbangroup       4096 Dec 17  2025 /insomnia001/depts/urbangroup
+drwxr-s---   4 root    somwilliams_lab     4096 Jun 30 14:10 /insomnia001/depts/williams_lab
+drwxr-s---   4 root    somwulab            4096 Sep 14 11:47 /insomnia001/depts/wulab
+drwxr-s---   4 root    somxulab            4096 Feb 15  2024 /insomnia001/depts/xulab
+drwxr-s---   3 root    somzgroup           4096 Aug  7  2025 /insomnia001/depts/zgroup
+drwxr-x---   2 pts2125 user                4096 Nov 23 15:36 /insomnia001/home/pts2125/algollms
+-rw-r-----   1 pts2125 user                 474 May  1  2026 /insomnia001/home/pts2125/gpu.sh
+-rwxr-----   1 pts2125 user                 253 May  1  2026 /insomnia001/home/pts2125/helloworld.sh
+drwxr-x---   3 pts2125 user                4096 Nov 23 15:35 /insomnia001/home/pts2125/hpml
+-rwxr-x---   1 pts2125 user             1008784 May  1  2026 /insomnia001/home/pts2125/matmul
+-rw-r-----   1 pts2125 user                3706 May  1  2026 /insomnia001/home/pts2125/matmul.cu
+-rwxr-x---   1 pts2125 user             1018104 May  1  2026 /insomnia001/home/pts2125/motion
+-rw-r-----   1 pts2125 user                5917 May  1  2026 /insomnia001/home/pts2125/motion.cu
+-rw-r-----   1 pts2125 user                 426 May  1  2026 /insomnia001/home/pts2125/mpi_test.c
+-rw-r-----   1 pts2125 user                  44 May  1  2026 /insomnia001/home/pts2125/slurm-9091372.out
+-rw-r-----   1 pts2125 user                4594 Jul  4 03:19 /insomnia001/home/pts2125/slurm-9091503.out
+drwxr-xr-x   2 root    root                4096 Jan  7  2026 /insomnia001/shared/app
+drwxrwxr-x. 85 root    hpc-admin           4096 Sep 23 13:19 /insomnia001/shared/apps
+drwxrwx---   5 root    hpc-admin           4096 Feb 13  2024 /insomnia001/shared/apsearch
+drwxr-xr-x   4 root    root                4096 Sep  3 13:15 /insomnia001/shared/databases
+drwxrwx---.  2 root    hpc-admin           4096 Feb 13  2024 /insomnia001/shared/docs
+drwxrwx---.  2 root    hpc-admin           4096 Apr 24  2024 /insomnia001/shared/etc
+drwxrwx---.  2 root    hpc-admin           4096 Mar 12  2024 /insomnia001/shared/examples
+drwxr-xr-x   3 root    root                4096 Dec 30  2025 /insomnia001/shared/installers
+drwxrwx---.  2 root    hpc-admin           4096 Feb 13  2024 /insomnia001/shared/licenses
+drwxr-xr-x. 75 root    hpc-admin           4096 Oct  8 16:36 /insomnia001/shared/modulefiles
+drwxrwsr--. 17 root    somrcs             16384 Nov 23 14:58 /insomnia001/shared/scripts
+drwxr-xr-x   3 root    root                4096 Jul  1  2025 /insomnia001/shared/scripts_git
+drwxr-xr-x   3 root    root                4096 Sep 23 14:36 /insomnia001/shared/software
+drwxr-xr-x   4 root    root                4096 Dec 24  2025 /insomnia001/shared/src

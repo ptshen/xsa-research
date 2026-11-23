@@ -1,0 +1,57 @@
+[
+  {
+    "config": "smoke",
+    "total_unique": 1634496,
+    "token_embedding_tied_head": 1609728,
+    "non_embedding": 24768,
+    "tokens_per_update": 128,
+    "total_tokens": 1024,
+    "estimated_checkpoint_bytes_fp32_adam": 19613952,
+    "estimated_two_checkpoint_bytes": 39227904,
+    "checkpoint_note": "weights plus two fp32 Adam moments; excludes RNG, batch hashes and serialization overhead"
+  },
+  {
+    "config": "pilot",
+    "total_unique": 29938944,
+    "token_embedding_tied_head": 19316736,
+    "non_embedding": 10622208,
+    "tokens_per_update": 32768,
+    "total_tokens": 67108864,
+    "estimated_checkpoint_bytes_fp32_adam": 359267328,
+    "estimated_two_checkpoint_bytes": 718534656,
+    "checkpoint_note": "weights plus two fp32 Adam moments; excludes RNG, batch hashes and serialization overhead"
+  },
+  {
+    "config": "paper_0.7b",
+    "total_unique": 756820992,
+    "token_embedding_tied_head": 77266944,
+    "non_embedding": 679554048,
+    "tokens_per_update": 524288,
+    "total_tokens": 104857600000,
+    "estimated_checkpoint_bytes_fp32_adam": 9081851904,
+    "estimated_two_checkpoint_bytes": 18163703808,
+    "checkpoint_note": "weights plus two fp32 Adam moments; excludes RNG, batch hashes and serialization overhead"
+  },
+  {
+    "config": "paper_1.4b",
+    "total_unique": 1512411136,
+    "token_embedding_tied_head": 103022592,
+    "non_embedding": 1409388544,
+    "tokens_per_update": 524288,
+    "total_tokens": 104857600000,
+    "estimated_checkpoint_bytes_fp32_adam": 18148933632,
+    "estimated_two_checkpoint_bytes": 36297867264,
+    "checkpoint_note": "weights plus two fp32 Adam moments; excludes RNG, batch hashes and serialization overhead"
+  },
+  {
+    "config": "paper_2.7b",
+    "total_unique": 2813301760,
+    "token_embedding_tied_head": 128778240,
+    "non_embedding": 2684523520,
+    "tokens_per_update": 524288,
+    "total_tokens": 104857600000,
+    "estimated_checkpoint_bytes_fp32_adam": 33759621120,
+    "estimated_two_checkpoint_bytes": 67519242240,
+    "checkpoint_note": "weights plus two fp32 Adam moments; excludes RNG, batch hashes and serialization overhead"
+  }
+]

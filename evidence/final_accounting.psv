@@ -1,0 +1,5 @@
+JobID|JobName|Account|Partition|QOS|State|Elapsed|Timelimit|ExitCode|NodeList|AllocTRES
+14072260|xsa-setup|edu|short|free|COMPLETED|00:00:46|00:15:00|0:0|ins096|billing=2,cpu=2,mem=8G,node=1
+14072282|xsa-smoke|edu|short|free|COMPLETED|00:00:33|00:06:00|0:0|ins093|billing=8,cpu=8,gres/gpu:a6000=1,gres/gpu=1,mem=32G,node=1
+14072287|xsa-harness-setup|edu|short|free|COMPLETED|00:02:51|00:15:00|0:0|ins004|billing=2,cpu=2,mem=8G,node=1
+14072292|xsa-smoke|edu|short|free|COMPLETED|00:00:16|00:02:00|0:0|ins093|billing=8,cpu=8,gres/gpu:a6000=1,gres/gpu=1,mem=32G,node=1

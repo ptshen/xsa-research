@@ -1,0 +1,36 @@
+{
+  "attention": "sa",
+  "seed": 17,
+  "tokens": 1024,
+  "update": 8,
+  "cross_entropy": 10.681528091430664,
+  "perplexity": 43544.03881150855,
+  "window_losses": [
+    10.684520721435547,
+    10.69157600402832,
+    10.674837112426758,
+    10.675178527832031
+  ],
+  "evaluated_tokens": 128,
+  "checkpoint_sha256": "aa1156bc50371e9eff9fbbce785c96329ae71b97e6b7d8a607c9d9f4f715f678",
+  "data_manifest_sha256": "2c1bc0fa9cb6b0066992e267b94685758935f978ab48d680426e562b5e99c08f",
+  "evaluation_windows_sha256": "b23df2b3f9f10015f0ef1f265096b35c37bfe507c4a605328d32b594380974f1",
+  "initial_state_sha256": "d52111e2fa5ec05d6adc3afc99ceb12f130c5f6fbc6b36e8abf32160b4029782",
+  "comparison_config_sha256": "6c33e87609cc15ae143b04de14279f0ea968174dfbf5047832ff59940d2434da",
+  "study_config_sha256": "a466cea0c59c91c6ca3024dc8f4ba3555f5395141215dda75167c6776145886c",
+  "scientific_result": false,
+  "software": {
+    "python": "3.11.5",
+    "packages": {
+      "torch": "2.10.0+cu128",
+      "numpy": "2.4.6",
+      "tiktoken": "0.9.0",
+      "matplotlib": "3.10.5",
+      "pytest": "9.2.0",
+      "huggingface-hub": "1.33.0",
+      "pyarrow": "26.0.1"
+    },
+    "cuda": "12.8",
+    "gpu": "NVIDIA RTX A6000"
+  }
+}

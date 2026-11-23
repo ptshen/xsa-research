@@ -1,0 +1,16 @@
+
+==================================== ERRORS ====================================
+__________________ ERROR collecting tests/test_submission.py ___________________
+ImportError while importing test module '/Users/patrick/Documents/school/algos for llms/capstone/tests/test_submission.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/importlib/__init__.py:88: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests/test_submission.py:2: in <module>
+    from xsa.submission import remaining_budget, check_submission
+E   ModuleNotFoundError: No module named 'xsa.submission'
+=========================== short test summary info ============================
+ERROR tests/test_submission.py
+!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+1 error in 0.09s

@@ -1,0 +1,15 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_____________ test_summary_rejects_different_budgets_across_seeds ______________
+
+    def test_summary_rejects_different_budgets_across_seeds():
+        records=[record('sa'),record('xsa'),record('sa',29),record('xsa',29)]
+        for r in records[2:]:r['tokens']=256
+>       with pytest.raises(ValueError,match='across seeds'): paired_summary(records)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE <class 'ValueError'>
+
+tests/test_analysis.py:61: Failed
+=========================== short test summary info ============================
+FAILED tests/test_analysis.py::test_summary_rejects_different_budgets_across_seeds
+1 failed in 1.61s

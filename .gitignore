@@ -1,0 +1,16 @@
+__pycache__/
+.pytest_cache/
+.venv*/
+data/
+runs/
+logs/
+*.pt
+*.tmp
+cache/
+*.lock
+/setup.sbatch
+build/
+*.egg-info/
+*.whl
+evidence/cluster/cluster/
+evidence/cluster/results/

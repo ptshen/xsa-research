@@ -1,0 +1,6 @@
+{
+  "passed": true,
+  "independent_preparations": "local Python 3.13.5 and Insomnia Python 3.11.5",
+  "manifest_sha256": "2c1bc0fa9cb6b0066992e267b94685758935f978ab48d680426e562b5e99c08f",
+  "shards_and_document_index_verified": true
+}

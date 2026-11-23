@@ -1,0 +1,97 @@
+{
+  "samples": 4,
+  "context": 32,
+  "split": "train",
+  "seed": 7017,
+  "precision": "float32 diagnostic forward",
+  "checkpoint_tokens": 1024,
+  "scientific_result": false,
+  "layers": [
+    {
+      "value_cosine_off_diagonal": [
+        0.1442718803882599,
+        0.08787394687533379
+      ],
+      "value_cosine_causal_nonself": [
+        0.14427188783884048,
+        0.08787394128739834
+      ],
+      "diagonal_attention_mass": [
+        0.12592284008860588,
+        0.12705352157354355
+      ],
+      "alignment_before": [
+        0.4774477407336235,
+        0.424302838742733
+      ],
+      "alignment_after": [
+        0.4774477407336235,
+        0.424302838742733
+      ],
+      "aggregate_norm": [
+        0.22805826365947723,
+        0.1989494077861309
+      ],
+      "corrected_norm": [
+        0.22805826365947723,
+        0.1989494077861309
+      ],
+      "removed_update_norm": [
+        0.0,
+        0.0
+      ],
+      "zero_output_fraction": [
+        0.0,
+        0.0
+      ],
+      "near_zero_output_fraction": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "value_cosine_off_diagonal": [
+        0.16269588097929955,
+        0.14070580154657364
+      ],
+      "value_cosine_causal_nonself": [
+        0.16269587352871895,
+        0.14070580154657364
+      ],
+      "diagonal_attention_mass": [
+        0.12680024653673172,
+        0.12655800580978394
+      ],
+      "alignment_before": [
+        0.5018846839666367,
+        0.47298799455165863
+      ],
+      "alignment_after": [
+        0.5018846839666367,
+        0.47298799455165863
+      ],
+      "aggregate_norm": [
+        0.20436596870422363,
+        0.22031794488430023
+      ],
+      "corrected_norm": [
+        0.20436596870422363,
+        0.22031794488430023
+      ],
+      "removed_update_norm": [
+        0.0,
+        0.0
+      ],
+      "zero_output_fraction": [
+        0.0,
+        0.0
+      ],
+      "near_zero_output_fraction": [
+        0.0,
+        0.0
+      ]
+    }
+  ],
+  "averaging": "per head; equal weight per sequence and token; value pairs exclude self; causal metric also excludes masked pairs; alignment excludes norms <=1e-6; exact and near-zero fractions include all positions",
+  "paper_deviation": "paper uses 1024 random training sequences at length 2048, averaged over heads; this bounded command caps context at 512"
+}

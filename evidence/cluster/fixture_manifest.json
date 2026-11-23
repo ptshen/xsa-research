@@ -1,0 +1,52 @@
+{
+  "format": 1,
+  "source": {
+    "kind": "fixture",
+    "scientific_result": false
+  },
+  "dtype": "<u2",
+  "split_seed": 2026,
+  "val_document_probability": 0.2,
+  "test_split": null,
+  "split_rule": "sha256(seed + colon + document id) / 2**256 < val_fraction",
+  "packing": "source order within split; append EOS per document; no token shuffle; shard boundaries may split documents",
+  "tokenizer": {
+    "name": "gpt2",
+    "package": "tiktoken",
+    "version": "0.9.0",
+    "eos": 50256
+  },
+  "splits": {
+    "train": {
+      "documents": 645,
+      "tokens": 168600,
+      "shards": [
+        {
+          "path": "train-00000.bin",
+          "tokens": 100000,
+          "sha256": "f2b4149f8b85ba7c1482d0df6549ce69e3f6c7e16fa860e9b94de2b747716800"
+        },
+        {
+          "path": "train-00001.bin",
+          "tokens": 68600,
+          "sha256": "ee55a91888bbdb53a87aa403db2e8ed4a0a8fd399750ac549a1acf9aeb4b48d4"
+        }
+      ],
+      "document_order_sha256": "d209be880e30f4cbb657316b6f5d13d858f4de7e9a62b6378f90523a1ec47976"
+    },
+    "val": {
+      "documents": 155,
+      "tokens": 40510,
+      "shards": [
+        {
+          "path": "val-00000.bin",
+          "tokens": 40510,
+          "sha256": "bb6b2e6c75a522bb69f23d2dc0726297ffead5d3beb759e9e93321709b15eb42"
+        }
+      ],
+      "document_order_sha256": "21e1c12319a9f88f2865c732678f43cebc49387b526aef8933a103db52446db0"
+    }
+  },
+  "document_order_sha256": "3754b9d0c38dc5df785e1f62ead683c6f6be698cd4574e7d9192d1608e4a485e",
+  "documents_sha256": "3754b9d0c38dc5df785e1f62ead683c6f6be698cd4574e7d9192d1608e4a485e"
+}

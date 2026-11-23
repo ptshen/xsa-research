@@ -1,0 +1,13 @@
+{
+  "config": "configs/pilot.json",
+  "paired_seeds": [
+    17,
+    29,
+    43
+  ],
+  "attention_types": [
+    "sa",
+    "xsa"
+  ],
+  "launch_authorized": false
+}

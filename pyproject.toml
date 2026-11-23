@@ -1,0 +1,20 @@
+[project]
+name = "xsa-insomnia"
+version = "0.1.0"
+requires-python = ">=3.11"
+dependencies = ["torch==2.9.1", "numpy==2.3.5", "tiktoken==0.9.0", "matplotlib==3.10.5", "huggingface-hub==0.36.0", "pyarrow==22.0.0"]
+
+[project.optional-dependencies]
+test = ["pytest==8.4.1"]
+downstream = ["lm_eval @ git+https://github.com/EleutherAI/lm-evaluation-harness.git@ad3f4d0cad1cfcdb815f1e795f7947e49ed9f2e9"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+[build-system]
+requires = ["setuptools==80.9.0"]
+build-backend = "setuptools.build_meta"
+
+
+[tool.setuptools.packages.find]
+include = ["xsa*"]

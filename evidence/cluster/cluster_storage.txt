@@ -1,0 +1,377 @@
+total 155
+drwxr-s---   31 root somedu  4096 Nov 19 11:59 .
+drwxr-xr-x   60 root root    4096 Oct  6 20:01 ..
+drwxr-sr-x   29 root somedu  4096 Apr 24  2026 6998_Spring26
+drwxr-sr-x   17 root somedu  4096 Jan 26  2026 APMA-E4302_2026-01
+drwxr-sr-x   10 root somedu  4096 Mar 12  2025 BIOLBC3141
+drwxr-sr-x    8 root somedu  4096 Nov  5  2025 BIOLBC3141_Fall2025
+drwxr-sr-x   11 root somedu  4096 Nov  6 09:14 BIOLBC3141_Fall2026
+drwxr-sr-x   12 root somedu  4096 Apr  7  2026 BIOLBC3141-Spring2026
+drwxr-sr-x   50 root somedu  4096 Feb 26  2026 CHEN-E4880
+drwxr-sr-x    6 root somedu  4096 Apr  8  2026 COMS4232-Spring2026
+drwxr-sr-x    7 root somedu  4096 Apr 28  2026 COMS_4995-001_Spring26
+drwxr-sr-x   40 root somedu  4096 Oct 15 09:00 COMS_6975_Fall2026
+drwxr-sr-x.  93 root somedu  4096 Apr 30  2025 COMSE6998
+drwxr-sr-x  198 root somedu 16384 Sep 29 11:58 COMSE6998_006_2026_3
+drwxr-sr-x   42 root somedu  4096 Sep 29 12:01 COMSE6998_008_2026_3
+drwxr-sr-x  127 root somedu 16384 Sep 28  2025 COMS-E6998-012
+drwxr-sr-x   41 root somedu  4096 Nov 17  2025 COMS-E6998-015
+drwxr-sr-x   38 root somedu  4096 Oct 26 11:28 COMS-E6998_Fall2026
+drwxr-sr-x  141 root somedu 16384 Feb 18  2026 COMS-E6998_Spring2026
+drwxr-sr-x   12 root somedu  4096 Nov 19 11:59 E6617_Fall2026
+drwxr-sr-x   12 root somedu  4096 Apr  7  2025 EEEB_G4050
+drwxr-sr-x    6 root somedu  4096 May  6  2025 ENG-E4800
+drwxr-sr-x    8 root somedu  4096 Apr 10  2025 ENGE4800
+drwxr-sr-x    3 root somedu  4096 Apr 10  2025 IEOR4573
+drwxr-sr-x   76 root somedu  4096 Oct 26 11:16 Linux-Ess-F2026
+drwxr-sr-x   17 root somedu  4096 Oct 26 10:57 PSYCGU4930_Fall2026
+drwxr-sr-x    7 root somedu  4096 Apr  7  2026 QMSS5052-Spring2026
+drwxr-sr-x    9 root somedu  4096 Mar 11  2025 QMSS-GR5052
+drwxr-sr-x   84 root somedu  4096 Oct 14  2025 QMSSGR5052
+drwxr-sr-x   19 root somedu  4096 Feb  5  2026 STAT6104
+drwxrws---  142 root somedu 16384 Nov 23 01:42 users
+total 2
+drwxr-x---  2 pts2125 user 4096 Nov 23 15:35 .
+drwx------ 12 pts2125 user 4096 Nov 23 15:36 ..
+total 34
+drwxr-x---  3 pts2125 user  4096 Nov 23 15:35 .
+drwx------ 12 pts2125 user  4096 Nov 23 15:36 ..
+drwxr-x--- 14 pts2125 user 16384 Nov 18 17:32 dust
+/usr/lpp/mmfs/bin/mmlsquota
+                         Block Limits                                               |     File Limits
+Filesystem Fileset    type             KB      quota      limit   in_doubt    grace |    files   quota    limit in_doubt    grace  Remarks
+insomnia   home       USR        28657104   52428800   52428800     501856     none |    80834  153600   153600       27     none insomnia.ins
+insomnia   edu        USR               0          0          0          0     none |        4       0        0        0     none insomnia.ins
+
+Disk quotas for group somedu (gid 59795):
+                         Block Limits                                               |     File Limits
+Filesystem Fileset    type             KB      quota      limit   in_doubt    grace |    files   quota    limit in_doubt    grace  Remarks
+insomnia   home       GRP        47460832          0          0          0     none |    17052       0        0        0     none insomnia.ins
+insomnia   edu        GRP      9233885136          0          0   10248048     none | 30101023       0        0      819     none insomnia.ins
+insomnia   introseries GRP              16          0          0          0     none |        5       0        0        0     none insomnia.ins
+insomnia   sata2-insomnia GRP       761457952          0          0          0     none |  5700326       0        0        0     none insomnia.ins
+insomnia   sata2-pmg  GRP               0          0          0          0     none |        2       0        0        0     none insomnia.ins
+insomnia   urbangroup GRP         6470944          0          0          0     none |    51043       0        0        0     none insomnia.ins
+NODELIST STATE GRES
+ins001 drain (null)
+ins002 mix- (null)
+ins003 mix- (null)
+ins004 mix- (null)
+ins005 mix- (null)
+ins006 mix- (null)
+ins007 mix- (null)
+ins008 mix- (null)
+ins009 mix- (null)
+ins010 alloc (null)
+ins011 mix- (null)
+ins012 mix- (null)
+ins013 mix- (null)
+ins014 mix- (null)
+ins015 mix- (null)
+ins016 mix- (null)
+ins017 mix- (null)
+ins018 mix- (null)
+ins019 mix- (null)
+ins020 mix- (null)
+ins021 mix- (null)
+ins022 mix- (null)
+ins023 mix- (null)
+ins024 mix- (null)
+ins025 alloc (null)
+ins026 alloc (null)
+ins027 alloc (null)
+ins028 alloc (null)
+ins029 alloc (null)
+ins030 mix- (null)
+ins031 mix- (null)
+ins032 alloc (null)
+ins033 alloc (null)
+ins034 alloc (null)
+ins035 mix- gpu:l40:2
+ins036 mix- gpu:l40:2
+ins037 mix- gpu:l40:2
+ins038 mix- gpu:l40s:2
+ins039 mix- gpu:l40s:2
+ins040 mix- (null)
+ins041 mix- (null)
+ins042 mix- (null)
+ins043 mix- (null)
+ins046 drng gpu:R6000:8
+ins047 drain* gpu:R6000:8
+ins048 mix- gpu:h100:2
+ins050 mix- gpu:h100:2
+ins051 alloc (null)
+ins052 mix- (null)
+ins053 mix- (null)
+ins054 alloc (null)
+ins055 alloc (null)
+ins056 mix- gpu:l40s:2
+ins057 alloc gpu:l40s:2
+ins058 drain* gpu:l40s:2
+ins059 alloc gpu:l40s:2
+ins060 mix- gpu:l40s:2
+ins061 mix- gpu:l40s:2
+ins062 alloc (null)
+ins064 mix- (null)
+ins065 plnd (null)
+ins066 mix- (null)
+ins067 mix- (null)
+ins068 mix- (null)
+ins069 mix- (null)
+ins070 mix- (null)
+ins071 alloc (null)
+ins072 mix- (null)
+ins073 alloc (null)
+ins074 mix- (null)
+ins075 mix- (null)
+ins076 alloc (null)
+ins077 alloc (null)
+ins078 mix- (null)
+ins080 mix- gpu:A6000:8
+ins081 mix- gpu:A6000:8
+ins082 drain* gpu:A6000:8
+ins083 mix- gpu:A6000:8
+ins084 mix- gpu:A6000:8
+ins085 mix- gpu:A6000:8
+ins086 mix- gpu:A6000:8
+ins087 mix- gpu:A6000:8
+ins088 mix- gpu:A6000:8
+ins089 alloc gpu:A6000:8
+ins090 mix- gpu:A6000:8
+ins091 mix- gpu:A6000:8
+ins092 mix- gpu:A6000:8
+ins093 mix- gpu:A6000:4
+ins094 mix- gpu:A6000:4
+ins095 alloc (null)
+ins096 alloc (null)
+==
+add_group_contact.sh
+add_slurm_group.sh
+add_users_to_mailing_list-OLD_MOTO.sh
+add_users_to_mailing_list.sh
+_ALL_SCRIPTS_ARE_FOR_TERREMOTO_UNLESS_NOTED_check_contents.txt
+al_pmg_quota_report.pl
+archive
+benchmark.sh
+block_check.sh.new
+check-down-nodes.sh
+check-down-single_node.sh
+check-down-single_node.sh~
+check_pixstor_space.sh
+classuser.sh
+class_welcome_email.pl
+cleanup.sh
+cloud-mysql-dumps.pl
+clusterhours_percentage.sh
+clusterhours_percentage.sh~
+clusterhours_seconds.sh
+clusterhours_seconds.sh~
+collective_show.sh
+completed_jobs.pl
+corrected_sacct_output.csv
+create-group-directory-OLD_MOTO.sh
+create-group-directory.sh
+create-group-directory.sh-BAK
+create_snapshot.sh
+create_users.sh
+cron_sinfo.sh
+cron_sinfo.sh-OLD_MOTO
+date_range.csv
+dev-shm-ar.sh
+dev-shm-ar.sh~
+dev-shm.sh
+dev-shm.sh.bu
+dgemm_cu
+email_completed_job_count.pl
+email_completed_job_count.pl_backup
+email_completed_job_count.pl_backup2
+email_completed_job_count.pl_backups
+email_completed_job_count.pl_working_removed_black_line
+emergency_shutdown
+epilog
+fail_benchmark.py
+flip
+gold.pl
+gpfs_waiters.csv
+gpu_date_range_ueil1.csv
+gpu_date_range_ueil.csv
+gpu_partition_data_ueil1.csv
+gpu_partition_data_ueil.csv
+gpu_short_partition_data_ueil1.csv
+gpu_short_partition_data_ueil.csv
+grab_image.pl
+group_contacts_bak-2025-10-03.csv
+group_contacts.csv
+group_contacts.csv.back20251201
+group_contacts.csv.bak-2026-11-02
+group_contacts.csv-BAK-2026-11-16
+group_contacts.csv.before-arjun-20260922
+group_contacts_max_shortte.csv
+group_quotas_exceeding_90_BAK-05-08-25.pl
+group_quotas_exceeding_90.pl
+group_quotas_exceeding_90.pl_07_13_23
+group_quotas_exceeding_90.pl-BAK-2026-06-29
+group_quotas_exceeding_90.pl-BAK-2026-09-29
+group_quotas_exceeding_90.pl_without_checks
+group_quotas_exceeding_90_test.pl
+hardware_check
+health_report.sh
+health_report.sh~
+ib_counters
+IB_counters_poll_reset.pl
+IB_counters_poll_reset.pl_version_1
+inode_check.sh.new
+insomnia_FREE_USER_welcome_email.pl
+insomnia_FREE_USER_welcome_email.pl_BAK_2025-06-25
+insomnia_FREE_USER_welcome_email.pl_test
+Insomnia_Redundancy_Status.pl
+insomnia_SEED_welcome_email.pl
+insomnia_welcome_email-debug.pl
+insomnia_welcome_email-ONEOFF.pl
+insomnia_welcome_email.pl
+insomnia_welcome_email.pl_backup
+insomnia_welcome_email.pl_BAK_2025-06-25
+insomnia_welcome_email.pl.bak-3-27-26
+insomnia_welcome_email.pl.bak-4-1-26
+insomnia_welcome_email.pl_gold
+insomnia_welcome_email.pl_gold_2
+insomnia_welcome_email.pl_green_working
+insomnia_welcome_email.pl_test
+kick-user.sh
+kill-user-sessions.sh
+lmutil
+load_monitoring.sh
+load_monitoring.sh~
+logs
+manitou_skipped_unis.txt
+manitou_temperature_script_daily_report.pl
+mllicensecheck.cron
+ml-license-check.sh
+ml-license-check.sh~
+moto_clusterhours_seconds.sh
+moto_clusterhours_seconds.sh~
+moto_cron.sh.new
+motofs
+moto-iitems
+moto-items
+moto_modulefiles.tar
+moto_temperature_script_daily_report.pl
+moto_welcome_email.pl
+mount_sweep.sh
+mount_sweep_v2.sh
+msph
+MSPH_cpu_count_pull_new.pl
+MSPH_cpu_count_pull.pl
+msph_date_range_job_count.csv
+MSPH_email_cpu_count_pull.pl
+MSPH_email_mem_count_pull.pl
+MSPH_email_total_job_count.pl
+msph_filtered_user_results.csv
+MSPH_gpu_count_pull.pl
+MSPH_mem_count_pull_new.pl
+MSPH_mem_count_pull.pl
+msph_partition_total_cpu_count.csv
+msph_partition_total_mem_count.csv
+MSPH_quotas_exceeding_90.pl
+MSPH_total_job_count_new.pl
+MSPH_total_job_count.pl
+msph_user_cpu_count.csv
+msph_user_mem_count.csv
+msph_user_results.csv
+mysql_dump
+mysql_master_status.sh
+mysql_slave_status.sh
+network_health_check.pl
+old-unused_from_moto
+old_versions
+onboard_group_accounts-folders2.sh
+onboard_group_accounts-folders.sh
+one_off_to_add_free_users.sh
+partition_completed_job_totals_1.csv
+partition_completed_job_totals_msph.csv
+partition_resource_usage.csv
+pass_benchmark.py
+pmglocal_cleanup.sh
+purge-dev-shm.sh
+purge-dev-shm.sh.ab
+purge-dev-shm.sh.bu
+quota_report.csv
+redun.pl
+restricted_perms.sh
+rsync_backups_moto_haba.pl
+runuser-l
+sacc_gpu_stats
+sacc_stats
+sacct_output_1.txt
+sacct_output_5sigma1.txt
+sacct_output.csv
+sacct_output_ueil1.txt
+sacct_output_ueil.txt
+sinfo_v2.pl
+sinfo_v2.pl-OLD-MOTO
+slurm450.pl
+slurm_acct_db.sql
+somuser.BAK
+somuser-BETA.sh
+somusercumc.sh
+somuser.sh
+somuser.sh.OLD
+somuser.sh.OLDER
+sshd
+sssd-check-date.sh
+sssd-check.sh
+sssd-check.sh~
+stats
+stats_date_range_job_count.csv
+storage_check
+sub-reg.sh
+task_cgroup_check.sh
+task_cgroup_check.sh~
+terminal_latency.py
+terremoto.scripts.tar.gz
+testing.pl
+test.pl
+top_resource_usage.csv
+total_time_and_cpu.csv
+total_user_count.py
+ueil1_filtered_user_results.csv
+ueil1_partition_total_cpu_count.csv
+ueil1_partition_total_mem_count.csv
+ueil1_user_cpu_count.csv
+ueil1_user_mem_count.csv
+ueil1_user_results.csv
+ueil_date_range_job_count.csv
+UEIL_email_cpu_results.pl
+UEIL_email_gpu_count_pull.pl
+UEIL_email_gpu_results.pl
+UEIL_email_mem_results.pl
+ueil_filtered_user_results.csv
+UEIL_mem_count_pull.pl_backup
+ueil_partition_total_cpu_count.csv
+ueil_partition_total_mem_count.csv
+UEIL_sacc_email_total_jobs_results.pl
+UEIL_statistic_email.pl
+UEIL_stats_email.pl
+ueil_user_cpu_count.csv
+ueil_user_mem_count.csv
+ueil_user_results.csv
+user_add_statistics.sh
+User_Add_Statisticts_feb_beta.py
+User_Add_Statisticts.py
+User_Add_Statisticts.py~
+user_completed_job_totals_1.csv
+user_completed_job_totals_5sigma1.csv
+user_completed_job_totals_msph.csv
+user_completed_job_totals_ueil1.csv
+user_completed_job_totals_ueil.csv
+user_gpu_counts_ueil1.csv
+user_gpu_counts_ueil.csv
+user_resource_usage.csv
+user_usage_report.csv
+verinux.sh
+waiters_new_local_calls.pl
+waiters.pl
+waiters.pl_v1
+waiters.pl_v2
+waiters_production_script.pl
+wall_message11022023.sh

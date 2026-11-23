@@ -1,0 +1,37 @@
+{
+  "pilot_measurement_job": "14072292",
+  "gpu": "NVIDIA RTX A6000",
+  "pilot_compute_only_pair_hours": 0.2954045079814063,
+  "suggested_pair_reservation_gpu_hours": 1.0,
+  "suggested_pilot_storage_GiB": 5,
+  "full_run_proxy_warning": "Not a billion-parameter benchmark. Parameter-times-token scaling of small-model measured throughput assumes identical effective FLOP efficiency, ignores context attention cost and memory changes, and can be wrong by large factors. Do not use as launch authorization.",
+  "paper_models": [
+    {
+      "config": "paper_0.7b",
+      "unique_parameters": 756820992,
+      "total_tokens": 104857600000,
+      "sa_proxy_gpu_hours": 5489.34007843942,
+      "xsa_proxy_gpu_hours": 6178.590492387485,
+      "one_checkpoint_GiB": 8.458133697509766,
+      "latest_previous_temporary_peak_GiB": 25.374401092529297
+    },
+    {
+      "config": "paper_1.4b",
+      "unique_parameters": 1512411136,
+      "total_tokens": 104857600000,
+      "sa_proxy_gpu_hours": 10969.752625364405,
+      "xsa_proxy_gpu_hours": 12347.132497971932,
+      "one_checkpoint_GiB": 16.902511596679688,
+      "latest_previous_temporary_peak_GiB": 50.70753479003906
+    },
+    {
+      "config": "paper_2.7b",
+      "unique_parameters": 2813301760,
+      "total_tokens": 104857600000,
+      "sa_proxy_gpu_hours": 20405.31415903453,
+      "xsa_proxy_gpu_hours": 22967.438390705975,
+      "one_checkpoint_GiB": 31.441097259521484,
+      "latest_previous_temporary_peak_GiB": 94.32329177856445
+    }
+  ]
+}

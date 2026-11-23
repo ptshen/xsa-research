@@ -1,0 +1,148 @@
+{
+  "config": {
+    "label": "scaled-down pilot; one exploratory paired seed",
+    "seed": 17,
+    "data_seed": 1017,
+    "eval_seed": 2017,
+    "data_kind": "fineweb",
+    "model": {
+      "vocab_size": 50304,
+      "n_layers": 6,
+      "d_model": 384,
+      "n_heads": 6,
+      "head_dim": 64,
+      "seq_len": 512,
+      "attention_type": "sa",
+      "dropout": 0.0,
+      "bias": false,
+      "rope_base": 10000.0,
+      "projection_eps": 1e-12,
+      "projection_precision": "float32",
+      "backend": "sdpa"
+    },
+    "train": {
+      "updates": 2048,
+      "microbatch_sequences": 8,
+      "accumulation_steps": 8,
+      "learning_rate": 0.0006,
+      "min_lr_ratio": 0.1,
+      "warmup_updates": 64,
+      "weight_decay": 0.1,
+      "betas": [
+        0.9,
+        0.95
+      ],
+      "grad_clip": 1.0,
+      "precision": "bfloat16",
+      "eval_interval": 128,
+      "eval_windows": 64,
+      "checkpoint_interval": 64
+    }
+  },
+  "software": {
+    "python": "3.11.5",
+    "packages": {
+      "torch": "2.10.0+cu128",
+      "numpy": "2.4.6",
+      "tiktoken": "0.9.0",
+      "matplotlib": "3.10.5",
+      "pytest": "9.2.0",
+      "huggingface-hub": "1.33.0",
+      "pyarrow": "26.0.1"
+    },
+    "cuda": "12.8",
+    "gpu": "NVIDIA RTX A6000"
+  },
+  "results": [
+    {
+      "attention": "sa",
+      "scope": "full_model",
+      "batch": 8,
+      "context": 512,
+      "parameters": 29938944,
+      "precision": "bfloat16; fp32 XSA projection",
+      "attention_backend": "pytorch SDPA automatic dispatch",
+      "compiled": false,
+      "first_step_seconds": 0.19856269587762654,
+      "compilation_including_first_step_seconds": 0.0,
+      "warmup_steps": 3,
+      "measured_steps": 12,
+      "step_seconds": [
+        0.03137270687147975,
+        0.03128099301829934,
+        0.031043329974636436,
+        0.030959730967879295,
+        0.03099927701987326,
+        0.030927469953894615,
+        0.03093232912942767,
+        0.030894387047737837,
+        0.030922611011192203,
+        0.03095529298298061,
+        0.030875341035425663,
+        0.030883856816217303
+      ],
+      "mean_forward_backward_seconds": 0.031003943819087,
+      "optimizer_step_seconds": 0.003589583250383536,
+      "forward_backward_tokens_per_second": 132112.22494469798,
+      "estimated_config_update_seconds": 0.24319040263071656,
+      "measured_full_update_seconds": [
+        0.24300666991621256,
+        0.24299932504072785,
+        0.24356521293520927
+      ],
+      "estimated_run_gpu_hours": 0.13834831794102986,
+      "peak_allocated_bytes": 3877071872,
+      "peak_reserved_bytes": 4387241984,
+      "timing_excludes": "data I/O, evaluation, checkpoints; no diagnostic matrices; compilation separately reported"
+    },
+    {
+      "attention": "xsa",
+      "scope": "full_model",
+      "batch": 8,
+      "context": 512,
+      "parameters": 29938944,
+      "precision": "bfloat16; fp32 XSA projection",
+      "attention_backend": "pytorch SDPA automatic dispatch",
+      "compiled": false,
+      "first_step_seconds": 0.042290335055440664,
+      "compilation_including_first_step_seconds": 0.0,
+      "warmup_steps": 3,
+      "measured_steps": 12,
+      "step_seconds": [
+        0.03445699694566429,
+        0.03447645413689315,
+        0.03448619204573333,
+        0.03453666903078556,
+        0.03449270501732826,
+        0.03448269609361887,
+        0.03444487298838794,
+        0.03443722985684872,
+        0.03447735612280667,
+        0.034472627099603415,
+        0.03447693516500294,
+        0.034473758889362216
+      ],
+      "mean_forward_backward_seconds": 0.03447620778266961,
+      "optimizer_step_seconds": 0.0035920646623708308,
+      "forward_backward_tokens_per_second": 118806.57019531493,
+      "estimated_config_update_seconds": 0.2738889236158381,
+      "measured_full_update_seconds": [
+        0.27391785895451903,
+        0.27388516580685973,
+        0.2738637460861355
+      ],
+      "estimated_run_gpu_hours": 0.1558123654347879,
+      "peak_allocated_bytes": 4521738752,
+      "peak_reserved_bytes": 5148508160,
+      "timing_excludes": "data I/O, evaluation, checkpoints; no diagnostic matrices; compilation separately reported"
+    }
+  ],
+  "scientific_result": false,
+  "projection_precision_effect": {
+    "native_max_abs_error_vs_fp32": 0.016069889068603516,
+    "safe_max_abs_error_vs_fp32": 0.015180110931396484,
+    "native_max_abs_cosine": 0.002591595519334078,
+    "safe_max_abs_cosine": 0.000824387650936842
+  },
+  "estimate_assumptions": "same GPU and microbatch as measured; linear accumulation extrapolation; add overhead/contingency; pilot throughput is not a billion-parameter measurement"
+}

@@ -1,0 +1,35 @@
+{
+  "attention": "xsa",
+  "seed": 17,
+  "tokens": 1024,
+  "update": 8,
+  "cross_entropy": 10.681813955307007,
+  "perplexity": 43556.48825857365,
+  "window_losses": [
+    10.684713363647461,
+    10.69188117980957,
+    10.675178527832031,
+    10.675482749938965
+  ],
+  "evaluated_tokens": 128,
+  "checkpoint_sha256": "c61fe9d9b9ef48fffe510106d3ff962289972b4cb7eb8f61678b40f6bf1491ff",
+  "data_manifest_sha256": "2c1bc0fa9cb6b0066992e267b94685758935f978ab48d680426e562b5e99c08f",
+  "evaluation_windows_sha256": "b23df2b3f9f10015f0ef1f265096b35c37bfe507c4a605328d32b594380974f1",
+  "initial_state_sha256": "d52111e2fa5ec05d6adc3afc99ceb12f130c5f6fbc6b36e8abf32160b4029782",
+  "comparison_config_sha256": "1e4599aa85c6e6736f2f229e46945c44dc50dd7f76b850bc6aec6698626b6142",
+  "scientific_result": false,
+  "software": {
+    "python": "3.11.5",
+    "packages": {
+      "torch": "2.10.0+cu128",
+      "numpy": "2.4.6",
+      "tiktoken": "0.9.0",
+      "matplotlib": "3.10.5",
+      "pytest": "9.2.0",
+      "huggingface-hub": "1.33.0",
+      "pyarrow": "26.0.1"
+    },
+    "cuda": "12.8",
+    "gpu": "NVIDIA RTX A6000"
+  }
+}

@@ -1,0 +1,279 @@
+FF                                                                       [100%]
+=================================== FAILURES ===================================
+____________ test_corrupt_latest_checkpoint_uses_preserved_previous ____________
+
+tmp_path = PosixPath('/private/var/folders/x3/40vnrw8d4fz2ns5khjmvbp380000gn/T/pytest-of-patrick/pytest-4/test_corrupt_latest_checkpoint0')
+
+    def test_corrupt_latest_checkpoint_uses_preserved_previous(tmp_path):
+        path=tiny_data(tmp_path/'data'); c=config()
+        t=Trainer(c,path,tmp_path/'run',device='cpu'); t.run(stop_after=2)
+        (tmp_path/'run'/'checkpoint.pt').write_bytes(b'corrupt checkpoint')
+>       restored=Trainer(c,path,tmp_path/'run',device='cpu',resume=True)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_pipeline.py:108: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+xsa/train.py:96: in __init__
+    self.restore()
+xsa/train.py:152: in restore
+    state = load_checkpoint(self.checkpoint_path)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+xsa/train.py:60: in load_checkpoint
+    return torch.load(path, map_location=device, weights_only=False)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/torch/serialization.py:1554: in load
+    return _legacy_load(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+f = <_io.BufferedReader name='/private/var/folders/x3/40vnrw8d4fz2ns5khjmvbp380000gn/T/pytest-of-patrick/pytest-4/test_corrupt_latest_checkpoint0/run/checkpoint.pt'>
+map_location = 'cpu'
+pickle_module = <module 'pickle' from '/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/pickle.py'>
+pickle_load_args = {'encoding': 'utf-8'}
+legacy_load = <function _legacy_load.<locals>.legacy_load at 0x10ff418a0>
+persistent_load = <function _legacy_load.<locals>.persistent_load at 0x10ff41940>
+f_should_read_directly = True
+
+    def _legacy_load(f, map_location, pickle_module, **pickle_load_args):
+        deserialized_objects: dict[int, Any] = {}
+    
+        restore_location = _get_restore_location(map_location)
+    
+        class UnpicklerWrapper(pickle_module.Unpickler):  # type: ignore[name-defined]
+            def find_class(self, mod_name, name):
+                if type(name) is str and "Storage" in name:
+                    try:
+                        return StorageType(name)
+                    except KeyError:
+                        pass
+                return super().find_class(mod_name, name)
+    
+        def _check_container_source(container_type, source_file, original_source):
+            try:
+                current_source = "".join(get_source_lines_and_file(container_type)[0])
+            except Exception:  # saving the source is optional, so we can ignore any errors
+                warnings.warn(
+                    "Couldn't retrieve source code for container of "
+                    "type " + container_type.__name__ + ". It won't be checked "
+                    "for correctness upon loading."
+                )
+                return
+            if original_source != current_source:
+                if container_type.dump_patches:
+                    file_name = container_type.__name__ + ".patch"
+                    diff = difflib.unified_diff(
+                        current_source.split("\n"),
+                        original_source.split("\n"),
+                        source_file,
+                        source_file,
+                        lineterm="",
+                    )
+                    lines = "\n".join(diff)
+                    try:
+                        with open(file_name, "a+") as f:
+                            file_size = f.seek(0, 2)
+                            f.seek(0)
+                            if file_size == 0:
+                                f.write(lines)
+                            elif file_size != len(lines) or f.read() != lines:
+                                raise OSError
+                        msg = (
+                            "Saved a reverse patch to " + file_name + ". "
+                            "Run `patch -p0 < " + file_name + "` to revert your "
+                            "changes."
+                        )
+                    except OSError:
+                        msg = (
+                            "Tried to save a patch, but couldn't create a "
+                            "writable file " + file_name + ". Make sure it "
+                            "doesn't exist and your working directory is "
+                            "writable."
+                        )
+                else:
+                    msg = (
+                        "you can retrieve the original source code by "
+                        "accessing the object's source attribute or set "
+                        "`torch.nn.Module.dump_patches = True` and use the "
+                        "patch tool to revert the changes."
+                    )
+                msg = f"source code of class '{torch.typename(container_type)}' has changed. {msg}"
+                warnings.warn(msg, SourceChangeWarning)
+    
+        def legacy_load(f):
+            deserialized_objects: dict[int, Any] = {}
+    
+            def persistent_load(saved_id):
+                if isinstance(saved_id, tuple):
+                    # Ignore containers that don't have any sources saved
+                    if all(saved_id[1:]):
+                        _check_container_source(*saved_id)
+                    return saved_id[0]
+                return deserialized_objects[int(saved_id)]
+    
+            with (
+                closing(
+                    tarfile.open(fileobj=f, mode="r:", format=tarfile.PAX_FORMAT)
+                ) as tar,
+                mkdtemp() as tmpdir,
+            ):
+                if pickle_module is _weights_only_unpickler:
+                    raise RuntimeError(
+                        "Cannot use ``weights_only=True`` with files saved in the "
+                        "legacy .tar format. " + UNSAFE_MESSAGE
+                    )
+                tar.extract("storages", path=tmpdir)
+                with open(os.path.join(tmpdir, "storages"), "rb", 0) as f:
+                    num_storages = pickle_module.load(f, **pickle_load_args)
+                    for _ in range(num_storages):
+                        args = pickle_module.load(f, **pickle_load_args)
+                        key, location, storage_type = args
+                        dtype = storage_type._dtype
+                        obj = cast(Storage, torch.UntypedStorage)._new_with_file(
+                            f, torch._utils._element_size(dtype)
+                        )
+                        obj = restore_location(obj, location)
+                        # TODO: Once we decide to break serialization FC, we can
+                        # stop wrapping with TypedStorage
+                        deserialized_objects[key] = torch.storage.TypedStorage(
+                            wrap_storage=obj, dtype=dtype, _internal=True
+                        )
+    
+                    storage_views = pickle_module.load(f, **pickle_load_args)
+                    for target_cdata, root_cdata, offset, numel in storage_views:
+                        root = deserialized_objects[root_cdata]
+                        element_size = torch._utils._element_size(root.dtype)
+                        offset_bytes = offset * element_size
+                        # TODO: Once we decide to break serialization FC, we can
+                        # stop wrapping with TypedStorage
+                        deserialized_objects[target_cdata] = torch.storage.TypedStorage(
+                            wrap_storage=root._untyped_storage[
+                                offset_bytes : offset_bytes + numel * element_size
+                            ],
+                            dtype=root.dtype,
+                            _internal=True,
+                        )
+    
+                tar.extract("tensors", path=tmpdir)
+                with open(os.path.join(tmpdir, "tensors"), "rb", 0) as f:
+                    num_tensors = pickle_module.load(f, **pickle_load_args)
+                    for _ in range(num_tensors):
+                        args = pickle_module.load(f, **pickle_load_args)
+                        key, storage_id, _original_tensor_type = args
+                        storage = deserialized_objects[storage_id]
+                        (ndim,) = struct.unpack("<i", f.read(4))
+                        # skip next 4 bytes; legacy encoding treated ndim as 8 bytes
+                        f.read(4)
+                        numel = struct.unpack(f"<{ndim}q", f.read(8 * ndim))
+                        stride = struct.unpack(f"<{ndim}q", f.read(8 * ndim))
+                        (storage_offset,) = struct.unpack("<q", f.read(8))
+                        tensor = torch.empty((0,), dtype=storage.dtype).set_(
+                            storage._untyped_storage, storage_offset, numel, stride
+                        )
+                        deserialized_objects[key] = tensor
+    
+                pickle_file = tar.extractfile("pickle")
+                unpickler = UnpicklerWrapper(pickle_file, **pickle_load_args)
+                unpickler.persistent_load = persistent_load
+                result = unpickler.load()
+                return result
+    
+        deserialized_objects = {}
+    
+        def persistent_load(saved_id):
+            assert isinstance(saved_id, tuple)
+            typename = _maybe_decode_ascii(saved_id[0])
+            data = saved_id[1:]
+    
+            if typename == "module":
+                # Ignore containers that don't have any sources saved
+                if all(data[1:]):
+                    _check_container_source(*data)
+                return data[0]
+            elif typename == "storage":
+                storage_type, root_key, location, numel, view_metadata = data
+                location = _maybe_decode_ascii(location)
+                dtype = storage_type.dtype
+    
+                nbytes = numel * torch._utils._element_size(dtype)
+    
+                if root_key not in deserialized_objects:
+                    if torch._guards.active_fake_mode() is not None:
+                        obj = cast(Storage, torch.UntypedStorage(nbytes, device="meta"))
+                    elif _serialization_tls.skip_data:
+                        obj = cast(Storage, torch.UntypedStorage(nbytes))
+                        obj = restore_location(obj, location)
+                    else:
+                        obj = cast(Storage, torch.UntypedStorage(nbytes))
+                        obj._torch_load_uninitialized = True
+                        obj = restore_location(obj, location)
+                    # TODO: Once we decide to break serialization FC, we can
+                    # stop wrapping with TypedStorage
+                    typed_storage = torch.storage.TypedStorage(
+                        wrap_storage=obj, dtype=dtype, _internal=True
+                    )
+                    deserialized_objects[root_key] = typed_storage
+                else:
+                    typed_storage = deserialized_objects[root_key]
+                    if typed_storage._data_ptr() == 0:
+                        typed_storage = torch.storage.TypedStorage(
+                            device=typed_storage._untyped_storage.device,
+                            dtype=dtype,
+                            _internal=True,
+                        )
+    
+                if view_metadata is not None:
+                    view_key, offset, view_size = view_metadata
+                    offset_bytes = offset * torch._utils._element_size(dtype)
+                    view_size_bytes = view_size * torch._utils._element_size(dtype)
+                    if view_key not in deserialized_objects:
+                        # TODO: Once we decide to break serialization FC, we can
+                        # stop wrapping with TypedStorage
+                        deserialized_objects[view_key] = torch.storage.TypedStorage(
+                            wrap_storage=typed_storage._untyped_storage[
+                                offset_bytes : offset_bytes + view_size_bytes
+                            ],
+                            dtype=dtype,
+                            _internal=True,
+                        )
+                    res = deserialized_objects[view_key]
+    
+                else:
+                    res = typed_storage
+                return res
+            else:
+                raise RuntimeError(f"Unknown saved id type: {saved_id[0]}")
+    
+        _check_seekable(f)
+        f_should_read_directly = _should_read_directly(f)
+    
+        if f_should_read_directly and f.tell() == 0:
+            # legacy_load requires that f has fileno()
+            # only if offset is zero we can attempt the legacy tar file loader
+            try:
+                return legacy_load(f)
+            except tarfile.TarError:
+                if _is_zipfile(f):
+                    # .zip is used for torch.jit.save and will throw an un-pickling error here
+                    raise RuntimeError(
+                        f"{f.name} is a zip archive (did you mean to use torch.jit.load()?)"
+                    ) from None
+                # if not a tarfile, reset file offset and proceed
+                f.seek(0)
+    
+>       magic_number = pickle_module.load(f, **pickle_load_args)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       _pickle.UnpicklingError: pickle data was truncated
+
+/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/torch/serialization.py:1802: UnpicklingError
+----------------------------- Captured stdout call -----------------------------
+{"config": {"label": "smoke fixture; execution only", "seed": 17, "data_seed": 1017, "eval_seed": 2017, "data_kind": "fixture", "model": {"vocab_size": 50304, "n_layers": 1, "d_model": 16, "n_heads": 2, "head_dim": 8, "seq_len": 8, "attention_type": "sa", "dropout": 0.1, "bias": false, "rope_base": 10000.0, "projection_eps": 1e-12, "projection_precision": "float32", "backend": "sdpa"}, "train": {"updates": 4, "microbatch_sequences": 2, "accumulation_steps": 2, "learning_rate": 0.0006, "min_lr_ratio": 0.1, "warmup_updates": 1, "weight_decay": 0.1, "betas": [0.9, 0.95], "grad_clip": 1.0, "precision": "float32", "eval_interval": 2, "eval_windows": 2, "checkpoint_interval": 2}}, "parameter_counts": {"total_unique": 808000, "token_embedding_tied_head": 804864, "non_embedding": 3136}, "initial_state_sha256": "578c21105406eb6bbec9f4b57fb53525cb3bb7d67de523482ae80dc78883da9e", "data_manifest_sha256": "f1350b4561e87fa2aace88f964a506a171aaf85882c819d76c1b3648edd9505f", "evaluation_windows_sha256": "00bce8f3c90c322551ae7c180ec6583f3384aca5f9383e6a4046f22abcb4c331", "tokens_per_update": 32, "total_tokens": 128, "software": {"python": "3.13.5", "packages": {"torch": "2.9.1", "numpy": "2.4.4", "tiktoken": "0.9.0", "matplotlib": "3.10.5", "pytest": "8.4.1", "huggingface-hub": "0.36.0", "pyarrow": "22.0.0"}, "cuda": null, "gpu": null}, "slurm_job_id": null, "scientific_result": false, "session": "f0345a9f577b4f43bf8855cc762cd745"}
+______________ test_resumed_curve_discards_abandoned_future_rows _______________
+
+    def test_resumed_curve_discards_abandoned_future_rows():
+>       from xsa.collect import committed_evaluations
+E       ImportError: cannot import name 'committed_evaluations' from 'xsa.collect' (/Users/patrick/Documents/school/algos for llms/capstone/xsa/collect.py)
+
+tests/test_analysis.py:52: ImportError
+=========================== short test summary info ============================
+FAILED tests/test_pipeline.py::test_corrupt_latest_checkpoint_uses_preserved_previous
+FAILED tests/test_analysis.py::test_resumed_curve_discards_abandoned_future_rows
+2 failed in 2.15s

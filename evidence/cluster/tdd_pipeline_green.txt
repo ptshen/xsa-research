@@ -1,0 +1,17 @@
+.F....                                                                   [100%]
+=================================== FAILURES ===================================
+______________________ test_token_accounting_and_schedule ______________________
+
+    def test_token_accounting_and_schedule():
+        c=config(); t=c['train']
+        assert tokens_per_update(c)==32
+        assert tokens_per_update(c,world_size=2)==64
+        assert learning_rate(0,t)==0
+>       assert learning_rate(1,t)==t['learning_rate']
+E       AssertionError: assert 0.0005999999999999998 == 0.0006
+E        +  where 0.0005999999999999998 = learning_rate(1, {'accumulation_steps': 2, 'betas': [0.9, 0.95], 'checkpoint_interval': 2, 'eval_interval': 2, ...})
+
+tests/test_pipeline.py:53: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_pipeline.py::test_token_accounting_and_schedule - Assertion...
+1 failed, 5 passed in 7.86s

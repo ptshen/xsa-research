@@ -1,0 +1,7 @@
+{
+  "passed": true,
+  "scientific_result": false,
+  "total_wall_seconds": 23.02901510382071,
+  "slurm_job_id": "14072282",
+  "budget_policy": "whole job hard walltime reserved in evidence/job_ledger.json"
+}
