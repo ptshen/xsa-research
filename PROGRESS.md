@@ -102,3 +102,9 @@ Next: push the code and compact evidence to the user's GitHub repository, verify
 - All implementation and verification work is complete. Final documentation/log delivery is being committed on top of the source commit; the repository's `main` is the delivery branch.
 
 **Next action:** review REPORT and authorize, if desired, one A6000 GPU-hour total, bounded CPU data preparation and 5 GiB for the seed-17 pilot pair. The handoff requires separate authorization for that longer stage. No active project jobs or long training launches remain.
+
+## Final state — verified delivery
+
+- Delivery commit **b86a31be5f37e544d81531e12e8314345f90669b** is present on GitHub `main`; remote `git ls-remote` matched it. Both local and Insomnia worktrees were synchronized and clean.
+- Final artifact audit passed against the actual files: all recorded model/config source SHA256 values match; final run, pairing and resume checks pass; 26 cluster tests pass; independent data checksums and pinned harness integration pass; required reports/manifests exist; 49 actual smoke/profile seconds remain below 600; no active user jobs remain.
+- The requested Part 1 pipeline and GitHub delivery are **complete**. Only the separately authorized next training stage remains a future action. Checkpoints and logs are preserved; no cleanup or long run was performed.
