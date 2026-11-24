@@ -173,3 +173,11 @@ Next: commit the verified implementation, submit only tau=0.25 with a 30-minute 
 - Connectivity interruption after job 14072518 started: ordinary SSH, bounded keepalive SSH and a fresh non-multiplexed connection all timed out on port 22. Last successful job observation: RUNNING on ins093 at update 246 / 8,060,928 tokens, finite loss/gradients. No evidence of job failure and no duplicate/retry submitted. The documentation SCP failed before the subsequent status query; local documentation is retained. Next: restore/read-only connectivity, inspect existing 14072518 and its artifacts, then continue the remaining thresholds only after successful full completion.
 
 - Independent local audit confirms all numerical/config hashes still match the successful CUDA proof and both baseline re-evaluations have **maximum per-window difference 0.0**. General internet and GitHub SSH remain reachable; only Insomnia port 22 times out. Publishing protocol/status documentation from the local checkout while cluster access is unavailable. No additional Slurm submission or model change.
+
+## Connectivity recheck — continuation 2
+
+- Fresh bounded SSH retry again timed out. Existing job **14072518** remains unverified; no additional jobs submitted.
+- Reconciled the local/GitHub stage ledger with the already-confirmed 14072518 submission and its 1800-second reservation, using the captured successful `sbatch` response. Total recorded reservation is **1980 GPU seconds**. Current outcome is explicitly unknown. The remote ledger must be read and preserved before synchronizing on reconnection.
+- Added an explicitly incomplete DIRECTION_A_REPORT.md containing verified tests, measured five-method profiling, known resource estimates and exact outstanding work. This does not claim the screen is complete.
+
+Next action: restore Insomnia reachability and inspect 14072518 before proceeding. Independent implementation, tests, measured profiling and interim reporting are finished; remaining training and final collection require cluster access.
