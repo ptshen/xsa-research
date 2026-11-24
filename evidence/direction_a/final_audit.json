@@ -1,0 +1,22 @@
+{
+  "passed": true,
+  "updates_per_method": 2048,
+  "tokens_per_method": 67108864,
+  "methods": 5,
+  "all_batch_hashes_identical": true,
+  "configs_match_except_method_threshold_label": true,
+  "software_and_parameter_counts_identical": true,
+  "finite_training_metrics": true,
+  "means_perplexities_and_summary_reproduced": true,
+  "diagnostic_shapes_and_values_checked": true,
+  "numerical_source_matches_cuda_gate": true,
+  "cuda_tests_passed": 49,
+  "cuda_tests_skipped": 0,
+  "checkpoint_identity_source": "successful CPU collector 14074923; actual checkpoint loading and checksums",
+  "gpu_seconds": 2049,
+  "cpu_collection_seconds": 36,
+  "sequential_allocations_verified": true,
+  "original_smoke_seconds_unchanged": 49,
+  "project_bytes_at_collection": 7195200663,
+  "full_and_zoom_plots_visually_verified": true
+}

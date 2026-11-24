@@ -24,7 +24,9 @@
     "state": "completed",
     "actual_elapsed_seconds": 38,
     "exit_code": "0:0",
-    "current_state_verified": true
+    "current_state_verified": true,
+    "start": "2026-11-23T17:34:27",
+    "end": "2026-11-23T17:35:05"
   },
   {
     "key": "direction-a-tau025-v1",
@@ -56,7 +58,9 @@
     },
     "current_state_verified": true,
     "actual_elapsed_seconds": 663,
-    "exit_code": "0:0"
+    "exit_code": "0:0",
+    "start": "2026-11-23T17:37:27",
+    "end": "2026-11-23T17:48:30"
   },
   {
     "key": "direction-a-tau050-v1",
@@ -83,7 +87,9 @@
     "state": "completed",
     "actual_elapsed_seconds": 690,
     "exit_code": "0:0",
-    "current_state_verified": true
+    "current_state_verified": true,
+    "start": "2026-11-24T00:52:25",
+    "end": "2026-11-24T01:03:55"
   },
   {
     "key": "direction-a-tau075-v1",
@@ -107,6 +113,39 @@
       "--mem=32G",
       "slurm/direction_a_train.sbatch"
     ],
-    "state": "submitted"
+    "state": "completed",
+    "actual_elapsed_seconds": 658,
+    "exit_code": "0:0",
+    "current_state_verified": true,
+    "start": "2026-11-24T01:05:27",
+    "end": "2026-11-24T01:16:25"
+  },
+  {
+    "key": "direction-a-collect-v1",
+    "kind": "collect",
+    "seconds": 300,
+    "tag": null,
+    "resume": false,
+    "job_id": "14074923",
+    "submitted_at": 1795501034.5649524,
+    "command": [
+      "sbatch",
+      "--parsable",
+      "--no-requeue",
+      "--account=edu",
+      "--partition=short",
+      "--job-name=xsa-a-collect",
+      "--time=00:05:00",
+      "--output=logs/direction-a-collect-v1-%j.log",
+      "--cpus-per-task=2",
+      "--mem=8G",
+      "slurm/direction_a_collect.sbatch"
+    ],
+    "state": "completed",
+    "actual_elapsed_seconds": 36,
+    "exit_code": "0:0",
+    "current_state_verified": true,
+    "start": "2026-11-24T01:17:27",
+    "end": "2026-11-24T01:18:03"
   }
 ]

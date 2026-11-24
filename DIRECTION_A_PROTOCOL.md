@@ -1,5 +1,7 @@
 # Direction A implementation and execution protocol
 
+The screen is complete; see [DIRECTION_A_REPORT.md](DIRECTION_A_REPORT.md). Commands below record the executed workflow. Existing submission keys must not be repeated.
+
 The `alignment_cap` method limits the magnitude of cosine alignment between a token's attention aggregate and its own value. Each head computes the original causal SDPA aggregate, splits it into perpendicular and parallel components, clips the parallel coefficient using the model-wide `alignment_tau`, then concatenates heads and applies the existing output projection. No trainable parameters are added.
 
 ## Numerical conventions
@@ -28,7 +30,7 @@ ssh insomnia
 cd ~/algollms/xsa
 cat evidence/direction_a/job_ledger.json
 squeue --me
-sacct -X -j 14072510,14072518 -o JobID,State,Elapsed,ExitCode
+sacct -X -j 14072510,14072518,14074753,14074780,14074923 -o JobID,State,Elapsed,ExitCode
 ```
 
 The executed verification command was:

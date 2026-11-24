@@ -1,0 +1,67 @@
+[
+  {
+    "run": "runs/pilot-sa-s17",
+    "training_loop_seconds": 582.2252516900189,
+    "training_loop_tokens_per_second": 115262.71628584269,
+    "peak_training_allocated_bytes": null,
+    "runtime_sessions": []
+  },
+  {
+    "run": "runs/pilot-xsa-s17",
+    "training_loop_seconds": 640.6024811069947,
+    "training_loop_tokens_per_second": 104758.98233180796,
+    "peak_training_allocated_bytes": null,
+    "runtime_sessions": []
+  },
+  {
+    "run": "runs/direction-a-tau025-s17",
+    "training_loop_seconds": 652.7950820829719,
+    "training_loop_tokens_per_second": 102802.34309649761,
+    "peak_training_allocated_bytes": 4029444096,
+    "runtime_sessions": [
+      {
+        "session": "d94d2cecfb1b434c88afdae00be2e9f1",
+        "attention": "alignment_cap",
+        "alignment_tau": 0.25,
+        "session_tokens": 67108864,
+        "session_seconds_including_final_evaluation_and_saves": 653.465632018866,
+        "peak_allocated_bytes": 4029444096,
+        "peak_reserved_bytes": 4521459712
+      }
+    ]
+  },
+  {
+    "run": "runs/direction-a-tau050-s17",
+    "training_loop_seconds": 659.2204616179224,
+    "training_loop_tokens_per_second": 101800.33525551521,
+    "peak_training_allocated_bytes": 4029444096,
+    "runtime_sessions": [
+      {
+        "session": "d7ba3b9771cf4d7b9da0f8aaa92a57b7",
+        "attention": "alignment_cap",
+        "alignment_tau": 0.5,
+        "session_tokens": 67108864,
+        "session_seconds_including_final_evaluation_and_saves": 663.0377335350495,
+        "peak_allocated_bytes": 4029444096,
+        "peak_reserved_bytes": 4521459712
+      }
+    ]
+  },
+  {
+    "run": "runs/direction-a-tau075-s17",
+    "training_loop_seconds": 646.337646863889,
+    "training_loop_tokens_per_second": 103829.4215502077,
+    "peak_training_allocated_bytes": 4029444096,
+    "runtime_sessions": [
+      {
+        "session": "1aec8eef4d58489b8d6671dd38546395",
+        "attention": "alignment_cap",
+        "alignment_tau": 0.75,
+        "session_tokens": 67108864,
+        "session_seconds_including_final_evaluation_and_saves": 647.0220850589685,
+        "peak_allocated_bytes": 4029444096,
+        "peak_reserved_bytes": 4521459712
+      }
+    ]
+  }
+]

@@ -1,13 +1,17 @@
-# Direction A screen in progress
+# Direction A screen complete
 
-Implementation commit: `57aa6e2`. GPU correctness/profile job **14072510 completed in 38 s**, with **49 passing tests and zero skips**. The preserved SA/XSA evaluations and initial state passed rechecks.
+All three thresholds completed 2048 updates / 67,108,864 tokens and passed the full checkpoint/pairing audit. No tested cap improved on XSA in this one-seed validation screen.
 
-| Threshold | Job | State |
-|---|---|---|
-| 0.25 | 14072518 | COMPLETED; CE 4.82149275; 663 seconds |
-| 0.50 | 14074753 | COMPLETED; CE 4.81451356; 690 seconds |
-| 0.75 | 14074780 | Submitted; inspect scheduler for current state |
+| Work | Job | Final state | Allocated time |
+|---|---|---|---:|
+| CUDA verification/profile | 14072510 | COMPLETED | 38 s GPU |
+| τ=0.25 | 14072518 | COMPLETED | 663 s GPU |
+| τ=0.50 | 14074753 | COMPLETED | 690 s GPU |
+| τ=0.75 | 14074780 | COMPLETED | 658 s GPU |
+| Checkpoint validation/collection | 14074923 | COMPLETED | 36 s CPU |
 
-The stage ledger is `evidence/direction_a/job_ledger.json`. Inspect those IDs before submitting anything again. Existing seed-17 baselines are reused. No other research direction, extra seed or downstream benchmark is launched.
+All exit codes are 0:0. Stage GPU allocation: **2049 seconds**, within 7200. Storage at collection: **6.701 GiB**, within 8 GiB. Logs and latest/previous checkpoints remain on Insomnia under `~/algollms/xsa`.
 
-Next action: verify full completion/evaluation/diagnostics for job 14074780, then run the bounded CPU collector and independent final audit. No additional training is planned.
+See [DIRECTION_A_REPORT.md](DIRECTION_A_REPORT.md), [DIRECTION_A_MANIFEST.json](DIRECTION_A_MANIFEST.json), and [the completion audit](DIRECTION_A_COMPLETION_AUDIT.md).
+
+Next action: review the exploratory findings before choosing any separately authorized control or fresh-seed study. No further experiment is scheduled.

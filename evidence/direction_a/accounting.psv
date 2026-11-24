@@ -1,0 +1,6 @@
+JobID|JobName|State|ElapsedRaw|ExitCode|NodeList|AllocTRES
+14072510|xsa-a-verify|COMPLETED|38|0:0|ins093|billing=8,cpu=8,gres/gpu:a6000=1,gres/gpu=1,mem=32G,node=1
+14072518|xsa-a-train|COMPLETED|663|0:0|ins093|billing=8,cpu=8,gres/gpu:a6000=1,gres/gpu=1,mem=32G,node=1
+14074753|xsa-a-train|COMPLETED|690|0:0|ins093|billing=8,cpu=8,gres/gpu:a6000=1,gres/gpu=1,mem=32G,node=1
+14074780|xsa-a-train|COMPLETED|658|0:0|ins093|billing=8,cpu=8,gres/gpu:a6000=1,gres/gpu=1,mem=32G,node=1
+14074923|xsa-a-collect|RUNNING|22|0:0|ins069|billing=2,cpu=2,mem=8G,node=1

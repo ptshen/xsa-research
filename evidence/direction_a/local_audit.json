@@ -7,5 +7,7 @@
   "last_observed_training_job": "14072518",
   "last_observed_training_update": 246,
   "current_cluster_state": "unverified: SSH connection timeout",
-  "additional_training_submitted": false
+  "additional_training_submitted": false,
+  "historical_snapshot": true,
+  "superseded_by": "evidence/direction_a/final_audit.json"
 }

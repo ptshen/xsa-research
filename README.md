@@ -1,19 +1,19 @@
 # SA / XSA on Insomnia
 
-Direction A is implemented and its bounded three-threshold screen has resumed after SSH access was restored. See [DIRECTION_A_STATUS.md](DIRECTION_A_STATUS.md) and [DIRECTION_A_PROTOCOL.md](DIRECTION_A_PROTOCOL.md).
+Direction A is complete: all three thresholds were trained and verified. See [DIRECTION_A_REPORT.md](DIRECTION_A_REPORT.md) for the full comparison and limitations. See [DIRECTION_A_STATUS.md](DIRECTION_A_STATUS.md) and [DIRECTION_A_PROTOCOL.md](DIRECTION_A_PROTOCOL.md).
 
 The **approved one-seed pilot is complete**. See [PILOT_REPORT.md](PILOT_REPORT.md) for results, [PILOT_MANIFEST.json](PILOT_MANIFEST.json) for paired checks and budgets, and [PILOT_STATUS.md](PILOT_STATUS.md) for completion status. The Part 1 report records the earlier verification stage.
 
 A matched, resumable PyTorch baseline for Part 1 of `XSA_Insomnia_complete_handoff.md`. Start with [REPORT.md](REPORT.md) for actual results and [PROGRESS.md](PROGRESS.md) for jobs, failures and the next action. [REPRODUCTION_SPEC.md](REPRODUCTION_SPEC.md) distinguishes paper settings, upstream inheritance and assumptions.
 
-Remote root: **`~/algollms/xsa`**. GitHub: https://github.com/ptshen/xsa-research. All remote commands below start there. The exploratory pilot is complete; the paper-scale training matrix remains unlaunched. Extensions A/B/C are not implemented.
+Remote root: **`~/algollms/xsa`**. GitHub: https://github.com/ptshen/xsa-research. All remote commands below start there. The exploratory pilot is complete; the paper-scale training matrix remains unlaunched. Direction A is implemented and screened; Directions B and C remain unimplemented.
 
 ## Layout
 
-- `xsa/model.py`: one model, `attention_type=sa|xsa`, independent head width, RoPE, embedding LayerNorm, tied head.
+- `xsa/model.py`: one model, `attention_type=sa|xsa|alignment_cap`, independent head width, RoPE, embedding LayerNorm, tied head.
 - `xsa/data.py`, `config.py`, `initialize.py`, `train.py`: pinned document preparation, exact budgets, shared initialization, independent RNG streams, periodic/signal checkpoints and resume.
 - `xsa/evaluate.py`, `diagnostics.py`, `benchmark.py`, `collect.py`, `downstream.py`: fixed held-out evaluation, bounded matrices, synchronized timing, paired summaries/plots, pinned harness adapter.
-- `configs/`: smoke, 29.94M pilot, Table 1 architectures, three-paired-seed confirmation and constant-token context sweep.
+- `configs/`: smoke, 29.94M pilot, three Direction A thresholds, Table 1 architectures, three-paired-seed confirmation and constant-token context sweep.
 - `slurm/`, `xsa/submission.py`: actual `edu/short` resources, one GPU, duplicate checks and persistent 600-second smoke reservation guard.
 - `tests/`, `evidence/`: numerical/integration tests, red/green evidence, scheduler/environment records and compact results. Checkpoints remain under remote `runs/`.
 
