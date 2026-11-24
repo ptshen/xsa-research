@@ -1,0 +1,6 @@
+{
+  "gpu_seconds": 14400,
+  "verification_gpu_seconds": 600,
+  "cpu_seconds": 1800,
+  "project_bytes": 12884901888
+}

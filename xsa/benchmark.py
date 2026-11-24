@@ -9,7 +9,7 @@ import torch
 from torch.nn import functional as F
 
 from .config import load_config, tokens_per_update
-from .model import GPT, ModelConfig, Block, project
+from .model import GPT, ModelConfig, Block, project, operator_metadata
 from .train import software
 
 
@@ -19,13 +19,17 @@ def benchmark(cfg, batch, warmup, iterations, compile_model=False, block_only=Fa
     if min(batch, warmup, iterations) < 1:
         raise ValueError("positive batch, warmup and iteration counts required")
     results = []
-    for kind, tau in (variants or [("sa", None), ("xsa", None)]):
+    for variant in (variants or [("sa", None), ("xsa", None)]):
         torch.manual_seed(cfg["seed"])
-        settings = dict(cfg['model'], attention_type=kind, alignment_tau=tau)
+        overrides = variant if isinstance(variant,dict) else dict(attention_type=variant[0],alignment_tau=variant[1])
+        settings = dict(cfg['model']); settings.update(overrides)
         mc = ModelConfig(**settings)
         model = (Block(mc) if block_only else GPT(mc)).cuda().train()
         params = sum(p.numel() for p in model.parameters())
-        optimizer = torch.optim.AdamW(model.parameters(), lr=cfg["train"]["learning_rate"], betas=tuple(cfg["train"]["betas"]))
+        optimizer = torch.optim.AdamW([
+            {'params':[p for p in model.parameters() if p.ndim>=2], 'weight_decay':cfg['train']['weight_decay']},
+            {'params':[p for p in model.parameters() if p.ndim<2], 'weight_decay':0.}],
+            lr=cfg["train"]["learning_rate"], betas=tuple(cfg["train"]["betas"]), eps=1e-8)
         x = torch.randn(batch, mc.seq_len, mc.d_model, device="cuda") if block_only else torch.randint(50257, (batch,mc.seq_len),device="cuda")
         targets = None if block_only else torch.randint(50257,(batch,mc.seq_len),device="cuda")
         compilation_seconds = 0.0
@@ -70,9 +74,14 @@ def benchmark(cfg, batch, warmup, iterations, compile_model=False, block_only=Fa
                 torch.nn.utils.clip_grad_norm_(model.parameters(),cfg['train']['grad_clip'],error_if_nonfinite=True)
                 optimizer.step();torch.cuda.synchronize();full_update_seconds.append(time.perf_counter()-start)
             estimated_update_seconds=sum(full_update_seconds)/len(full_update_seconds)
-        results.append({"attention":kind,"alignment_tau":tau,"scope":"attention_plus_ffn_block" if block_only else "full_model",
-                        "batch":batch,"context":mc.seq_len,"parameters":params,"precision":"bfloat16; fp32 XSA projection",
-                        "attention_backend":"pytorch SDPA automatic dispatch","compiled":compile_model,
+        # An extra untimed step identifies real dispatch, independently of config labels.
+        with torch.profiler.profile(activities=[torch.profiler.ProfilerActivity.CPU]) as trace:
+            step()
+        dispatched = sorted({event.key for event in trace.key_averages()
+                             if 'scaled_dot_product' in event.key or event.key in ('aten::bmm','aten::_softmax')})
+        results.append({**operator_metadata(mc),"dispatched_operators":dispatched,"scope":"attention_plus_ffn_block" if block_only else "full_model",
+                        "batch":batch,"context":mc.seq_len,"parameters":params,"precision":"bfloat16; fp32 operator reductions",
+                        "compiled":compile_model,
                         "first_step_seconds":first_step_seconds,"compilation_including_first_step_seconds":compilation_seconds,
                         "warmup_steps":warmup,"measured_steps":iterations,"step_seconds":durations,
                         "mean_forward_backward_seconds":forward_backward_seconds,"optimizer_step_seconds":optimizer_seconds,

@@ -228,3 +228,18 @@ Next action: push the completed report/artifacts and verify GitHub branch equali
 - The full authorized Direction A goal is achieved: implementation, correctness, profiling, all three full-budget threshold runs, five-method evaluation/diagnostics/collection, resource accounting and GitHub delivery are verified.
 
 Next action: review DIRECTION_A_REPORT.md before choosing any separately authorized follow-up. No additional training, controls, seeds or downstream tasks are scheduled.
+
+## Directions B/C — authorized stage, 2026-11-24
+
+- Read the full goal attachment, handoff, reproduction specification, previous protocol/report/manifests and job ledgers. Local, Insomnia and GitHub HEAD all match `8a1093a`; both working trees are clean. Prior training/collection IDs are COMPLETED and `squeue --me` is empty. No submission made.
+- New scope: B lambda 0.1/0.5/1.0 and C, same seed-17 2048-update pilot, combined nine-method comparison. Separate caps: 14400 GPU seconds, 600 verification/profile GPU seconds within it, 1800 CPU-only allocated seconds, 12 GiB total project including atomic-write headroom. Historical budgets remain unchanged.
+- Current project size 7,196,015,435 bytes. `edu/short` and A6000 inventory remain available; partition maximum is 12 hours. `quota -s` gave no output and `lfs` is unavailable; determine the existing filesystem-specific quota command before launch.
+- Saved the pre-change model for exact SA/XSA/A regression tests. User-supplied AGENTS instructions apply; ancestor Prime-lab guidance describes a different project type and is not applicable to this existing PyTorch experiment.
+
+Next: write failing numerical and resume tests, implement both operators, then complete diagnostics, strict collection and the bounded GPU gate before any screening.
+
+- B/C implementation and metadata/diagnostics/collection TDD are green: **77 local passed / 10 CUDA-only skipped**. Frozen-source SA/XSA/A outputs and gradients match exactly. New CPU tests cover formulas, fp64 gradients, causal chunk boundaries, output-head slicing, degeneracies and exact model/optimizer/data resume.
+- Implemented conservative standard-library-only B/C submission guards, separate ledger, configurable Slurm resources, strict nine-method collector, independent full-checkpoint audit, and frozen protocol. The filesystem quota command is `/usr/lpp/mmfs/bin/mmlsquota -u "$USER" insomnia`: 36,217,120 KiB used of 52,428,800 KiB; current in-doubt blocks are also subtracted during the gate.
+- Before launch: all historical IDs, including the old intentionally cancelled data-preparation attempt, were checked and are terminal. No active jobs. Numerical source and configs will freeze after the allocated verification/profile gate.
+
+Next: publish implementation, run a 300-second maximum A6000 correctness/profile allocation, inspect actual proof and frozen full-screen estimate, then train only if all gates pass.

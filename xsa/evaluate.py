@@ -11,7 +11,7 @@ import torch
 from torch.nn import functional as F
 
 from .data import TokenData, checksum, validate_manifest
-from .model import GPT, ModelConfig
+from .model import GPT, ModelConfig, operator_metadata
 from .train import load_checkpoint, software
 
 
@@ -27,6 +27,9 @@ def comparison_hash(cfg, across_seeds=False):
     ModelConfig(**cfg['model'])
     if cfg['model']['attention_type'] == 'alignment_cap':
         cfg['model'].pop('alignment_tau')
+    if cfg['model']['attention_type'] == 'value_penalty':
+        cfg['model'].pop('similarity_lambda')
+        cfg['model'].pop('query_chunk_size', None)
     cfg["model"].pop("attention_type")
     cfg.pop("label", None)
     if across_seeds:
@@ -57,6 +60,7 @@ def evaluate(checkpoint, data, device="cpu"):
         losses.append(float(nll) / y.numel())
     ce = float(np.mean(losses))
     return {"attention": cfg["model"]["attention_type"], "alignment_tau": cfg['model'].get('alignment_tau'),
+            **operator_metadata(cfg['model']),
             "seed": cfg["seed"], "tokens": state["tokens_seen"],
             "update": state["update"], "cross_entropy": ce, "perplexity": math.exp(ce), "window_losses": losses,
             "evaluated_tokens": len(losses) * cfg["model"]["seq_len"], "checkpoint_sha256": checksum(checkpoint),

@@ -1,0 +1,5 @@
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+                         Block Limits                                               |     File Limits
+Filesystem Fileset    type             KB      quota      limit   in_doubt    grace |    files   quota    limit in_doubt    grace  Remarks
+insomnia   home       USR        36217120   52428800   52428800     463136     none |   118827  153600   153600       40     none insomnia.ins
+insomnia   edu        USR               0          0          0          0     none |        4       0        0        0     none insomnia.ins

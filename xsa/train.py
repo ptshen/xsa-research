@@ -20,7 +20,7 @@ from torch.nn import functional as F
 
 from .config import load_config, learning_rate, tokens_per_update
 from .data import BatchStream, TokenData, checksum, validate_manifest
-from .model import GPT, ModelConfig
+from .model import GPT, ModelConfig, operator_metadata
 from .initialize import architecture
 
 
@@ -122,7 +122,7 @@ class Trainer:
 
     def log(self, event):
         event.update(update=self.update, tokens=self.tokens_seen, elapsed_seconds=self.elapsed, session=self.session)
-        event.update(attention=self.cfg['model']['attention_type'], alignment_tau=self.cfg['model'].get('alignment_tau'))
+        event.update(operator_metadata(self.cfg['model']))
         with (self.output / "metrics.jsonl").open("a") as f:
             f.write(json.dumps(event) + "\n"); f.flush()
 
@@ -220,6 +220,7 @@ class Trainer:
         self.save()
         result = self.evaluate()
         runtime = {'session': self.session, 'attention': self.cfg['model']['attention_type'],
+                   **operator_metadata(self.cfg['model']),
                    'alignment_tau': self.cfg['model'].get('alignment_tau'),
                    'session_tokens': self.tokens_seen - initial_tokens,
                    'session_seconds_including_final_evaluation_and_saves': time.monotonic() - start,
@@ -232,7 +233,7 @@ class Trainer:
 def main():
     p = argparse.ArgumentParser()
     p.add_argument("--config", required=True); p.add_argument("--data", required=True); p.add_argument("--output", required=True)
-    p.add_argument("--attention", choices=("sa", "xsa", "alignment_cap")); p.add_argument("--seed", type=int)
+    p.add_argument("--attention", choices=("sa", "xsa", "alignment_cap", "value_penalty", "output_geometry")); p.add_argument("--seed", type=int)
     p.add_argument("--device", default="cuda"); p.add_argument("--resume", action="store_true")
     p.add_argument("--stop-after", type=int); p.add_argument("--max-seconds", type=float)
     p.add_argument('--initial-state')
