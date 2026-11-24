@@ -6,16 +6,16 @@
     1200
   ],
   "compute_only_seconds": [
-    1057.556578318278,
-    1059.7749365170796,
-    1059.8631394704182,
-    580.6509235699972
+    1061.5871597925823,
+    1061.7596615155537,
+    1060.2841928799946,
+    587.748611609141
   ],
-  "project_peak_bytes": 11041321929,
+  "project_peak_bytes": 12238243995,
   "verification_reserved_allowance": 600,
   "fits": true,
   "assumptions": "Same A6000, batch/accumulation/precision; 50% compute margin +120s per run; four latest/previous pairs, one atomic temporary, 128MiB metadata/test allowance. Queue time excluded; peak disk is a conservative estimate, not continuous sampling.",
-  "home_quota_free_bytes": 13958742016,
+  "home_quota_free_bytes": 12940689408,
   "configs": [
     {
       "label": "Direction b010: matched seed-17 screening",

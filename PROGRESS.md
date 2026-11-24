@@ -275,3 +275,14 @@ Next: inspect 14076378 at completion, record its actual outcome, then synchroniz
 - Stage actual GPU time so far **1177 seconds** (59 verification +1118 training), reservation **2040 seconds**. No job is active. The C fix was published separately as **4b6ceec**, but has not yet been deployed to Insomnia.
 
 Next: preserve/reconcile the authoritative remote ledger, fast-forward the idle remote checkout, and submit the second 300-second verification gate. No additional screening run may start until it passes.
+
+- Preserved the authoritative remote v1 gate/ledger and local progress in Git stash **0c37e7478e0e1f71c99b0b1987db5f9480cd63c5** before fast-forwarding the idle remote checkout to **a752a9d**. Completed B 0.1 results and reconciled terminal ledger are published; no data/checkpoint was removed or overwritten.
+- Submitted hardened verification **14076777**, key `direction-bc-verify-v2`, 300-second A6000 cap. Total stage reservations **2340/14400 GPU seconds**, including **600/600 verification seconds**. Prior actual GPU time remains **1177 s** until this allocation is terminal.
+
+Next: inspect 14076777, require all 92 CUDA tests, preserved baseline rechecks and updated resource fit, then continue B 0.5 only if the gate passes.
+
+- Hardened verification **14076777 COMPLETED**, exit 0, **104 GPU seconds** on **ins083 RTX A6000**. **92 passed / zero failures or skips**, 42.10 s. All five preserved evaluations still match exactly. Both B zero-strength fp32/bf16 output/gradient comparisons and C fp32 null-space regression/bf16 written-space checks passed.
+- Final frozen plan keeps B caps **1740 s each**, C **1200 s**. Current project **8,868,676,864 bytes**; conservative peak **12,238,243,995 bytes (11.40 GiB)**, below 12 GiB and quota. This estimate conservatively still includes four new pairs although B 0.1 already exists. Verification totals: **163 actual / 600 reserved seconds**, both within 600; no more profiling planned.
+- Submitted **B lambda 0.5 / job 14076783**, key `direction-bc-b050-v1`, same edu/short A6000/8 CPUs/32 GiB, 1740-second cap. Source **a752a9d**. Cumulative GPU reservation **4080/14400 s**; confirmed completed actual GPU time **1281 s** plus this live job.
+
+Next action: inspect **14076783** with squeue/sacct and its existing artifacts. Once terminal and fully verified, submit **b100** for 1740 s, then **c** for 1200 s, sequentially using `xsa.bc_submission`. Do not repeat B 0.1 or either verification job. Then run the 300-second CPU collector/independent checkpoint audit, inspect plots and final accounting, finish the nine-method report/completion audit, publish and verify GitHub. No source change or remote sync during the live run.

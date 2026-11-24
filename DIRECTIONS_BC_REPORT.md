@@ -1,6 +1,6 @@
 # Directions B/C screening — in progress
 
-The goal is incomplete. Both operators are implemented, the original 87-test CUDA gate passed, and B lambda 0.1 completed as job **14076378**, reaching 2048 updates / 67,108,864 tokens in 1118 allocated GPU seconds. Its validation cross-entropy is **4.8848455101** (SA 4.89046994; XSA 4.80333272). Additional numerical review exposed and locally fixed a C near-null denominator defect; the hardened source still requires its allocated GPU gate before further training. No C model has been trained. See PROGRESS.md for the latest job observations.
+The goal is incomplete. Both operators are implemented, the hardened 92-test CUDA gate passed, and B lambda 0.1 completed as job **14076378**, reaching 2048 updates / 67,108,864 tokens in 1118 allocated GPU seconds. Its validation cross-entropy is **4.8848455101** (SA 4.89046994; XSA 4.80333272). Additional numerical review exposed and fixed a C near-null denominator defect; the hardened source passed its second allocated GPU gate. B lambda 0.5 is running as job 14076783. No C model has been trained. See PROGRESS.md for the latest job observations.
 
 ## Implemented methods
 
@@ -16,7 +16,7 @@ All runs retain the seed-17, 29,938,944-parameter pilot, six layers/384 width/si
 - All five existing models re-evaluated exactly: maximum per-window loss difference **0.0**. Initialization and ordered baseline batch histories match.
 - Subsequent fp32 rank-one stress found a Gram denominator corrupted by cancellation: computed written-value norm zero, but corrected head-space norm 313.35 from an aggregate norm 0.7993. A failing test is preserved in `evidence/direction_bc/geometry_guard_red.txt`.
 - C now requires its denominator to exceed both the absolute epsilon-squared floor and a dtype/dimension/value/weight-scaled roundoff threshold. The inactive branch uses a safe denominator before division. No ridge is added. B's implementation is unchanged, verified by AST equality and exact forward/gradient regression against its original source.
-- The first gate/profile/plan is archived under `evidence/direction_bc/verification_v1/`. The second allocated gate and all remaining runs are pending. Current local suite: **79 passed / 13 CUDA-only skipped**.
+- The first gate/profile/plan is archived under `evidence/direction_bc/verification_v1/`. The second allocated gate **14076777 COMPLETED in 104 GPU seconds on ins083**, with **92 passed / zero failures or skips** (42.10 s). All five old checkpoints again re-evaluated exactly. Local suite: **79 passed / 13 CUDA-only skipped**.
 
 The same initialization file and every latest/previous checkpoint are preserved. The independent collector will load both checkpoint generations and check finite model/optimizer state, complete batch histories, data/config/software identities and independently recomputed results.
 

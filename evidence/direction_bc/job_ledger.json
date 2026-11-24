@@ -52,5 +52,57 @@
     "actual_elapsed_seconds": 1118,
     "exit_code": "0:0",
     "source_commit": "1db7eff4ff61ade882e3dc0c3369e817fbc066f6"
+  },
+  {
+    "key": "direction-bc-verify-v2",
+    "kind": "verify",
+    "seconds": 300,
+    "tag": null,
+    "resume": false,
+    "source_commit": "a752a9da4a790f6483816c5c1f0cbe14fe5b4b4e",
+    "job_id": "14076777",
+    "submitted_at": 1795508933.1467931,
+    "command": [
+      "sbatch",
+      "--parsable",
+      "--no-requeue",
+      "--account=edu",
+      "--partition=short",
+      "--job-name=xsa-bc-verify",
+      "--time=00:05:00",
+      "--output=logs/direction-bc-verify-v2-%j.log",
+      "--cpus-per-task=8",
+      "--mem=32G",
+      "--gres=gpu:A6000:1",
+      "slurm/direction_bc_verify.sbatch"
+    ],
+    "state": "completed",
+    "actual_elapsed_seconds": 104,
+    "exit_code": "0:0"
+  },
+  {
+    "key": "direction-bc-b050-v1",
+    "kind": "train",
+    "seconds": 1740,
+    "tag": "b050",
+    "resume": false,
+    "source_commit": "a752a9da4a790f6483816c5c1f0cbe14fe5b4b4e",
+    "job_id": "14076783",
+    "submitted_at": 1795509122.7267656,
+    "command": [
+      "sbatch",
+      "--parsable",
+      "--no-requeue",
+      "--account=edu",
+      "--partition=short",
+      "--job-name=xsa-bc-train",
+      "--time=00:29:00",
+      "--output=logs/direction-bc-b050-v1-%j.log",
+      "--cpus-per-task=8",
+      "--mem=32G",
+      "--gres=gpu:A6000:1",
+      "slurm/direction_bc_train.sbatch"
+    ],
+    "state": "submitted"
   }
 ]
