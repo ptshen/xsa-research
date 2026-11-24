@@ -181,3 +181,11 @@ Next: commit the verified implementation, submit only tau=0.25 with a 30-minute 
 - Added an explicitly incomplete DIRECTION_A_REPORT.md containing verified tests, measured five-method profiling, known resource estimates and exact outstanding work. This does not claim the screen is complete.
 
 Next action: restore Insomnia reachability and inspect 14072518 before proceeding. Independent implementation, tests, measured profiling and interim reporting are finished; remaining training and final collection require cluster access.
+
+## Connectivity recheck — continuation 3; blocked audit
+
+- A fresh SSH connection bypassing multiplexing again timed out on port 22 (exit 255). The same access blocker has persisted across three consecutive goal turns. No current scheduler or artifact state can be read.
+- Independent implementation, numerical tests, profiling, provenance checks, protocol documentation and interim reporting are complete and pushed. Remaining requirements depend on Insomnia: determine the outcome of 14072518, finish the remaining thresholds, collect all completed artifacts and verify/publish final results. The goal is incomplete and will be marked blocked on restored cluster access.
+- No duplicate, replacement or additional job was submitted. Reservations remain 1980/7200 GPU seconds, including 180/300 verification seconds. Existing logs/checkpoints are preserved.
+
+Resume action: restore the required network/VPN or cluster availability, then inspect 14072518 with squeue/sacct and read the remote stage ledger before any synchronization or submission. Reconcile the remote ledger with the locally published known submission; do not overwrite newer remote job records.

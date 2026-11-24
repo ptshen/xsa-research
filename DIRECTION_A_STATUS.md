@@ -1,4 +1,4 @@
-# Direction A screen in progress
+# Direction A — access blocked
 
 Implementation commit: `57aa6e2`. GPU correctness/profile job **14072510 completed in 38 s**, with **49 passing tests and zero skips**. The preserved SA/XSA evaluations and initial state passed rechecks.
 
@@ -10,4 +10,4 @@ Implementation commit: `57aa6e2`. GPU correctness/profile job **14072510 complet
 
 The stage ledger is `evidence/direction_a/job_ledger.json`. Inspect those IDs before submitting anything again. Existing seed-17 baselines are reused. No other research direction, extra seed or downstream benchmark is launched.
 
-Next action: verify full-budget completion, evaluation and diagnostics for 0.25, then submit 0.50 within the same cumulative budget.
+Next action: restore Insomnia SSH access, inspect existing job 14072518 and preserve the authoritative remote ledger, then verify full-budget completion/evaluation/diagnostics before submitting 0.50. No training outcome can be inferred from the connection timeout.
