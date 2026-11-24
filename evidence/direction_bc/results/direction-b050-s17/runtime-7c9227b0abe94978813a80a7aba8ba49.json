@@ -1,0 +1,12 @@
+{
+  "session": "7c9227b0abe94978813a80a7aba8ba49",
+  "attention": "value_penalty",
+  "alignment_tau": null,
+  "similarity_lambda": 0.5,
+  "query_chunk_size": 128,
+  "attention_backend": "explicit fp32 query chunks",
+  "session_tokens": 67108864,
+  "session_seconds_including_final_evaluation_and_saves": 1128.6605190320406,
+  "peak_allocated_bytes": 4821374976,
+  "peak_reserved_bytes": 5328863232
+}

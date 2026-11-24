@@ -1,6 +1,6 @@
 # Directions B/C screening — in progress
 
-The goal is incomplete. Both operators are implemented, the hardened 92-test CUDA gate passed, and B lambda 0.1 completed as job **14076378**, reaching 2048 updates / 67,108,864 tokens in 1118 allocated GPU seconds. Its validation cross-entropy is **4.8848455101** (SA 4.89046994; XSA 4.80333272). Additional numerical review exposed and fixed a C near-null denominator defect; the hardened source passed its second allocated GPU gate. B lambda 0.5 is running as job 14076783. No C model has been trained. See PROGRESS.md for the latest job observations.
+The goal is incomplete. Both operators are implemented, the hardened 92-test CUDA gate passed, and B lambda 0.1 completed as job **14076378**, reaching 2048 updates / 67,108,864 tokens in 1118 allocated GPU seconds. Its validation cross-entropy is **4.8848455101** (SA 4.89046994; XSA 4.80333272). Additional numerical review exposed and fixed a C near-null denominator defect; the hardened source passed its second allocated GPU gate. B lambda 0.5 completed as job 14076783 in 1153 GPU seconds, with cross-entropy **4.8804516420**. B lambda 1.0 is now job **14076831**. No C model has been trained. See PROGRESS.md for the latest job observations.
 
 ## Implemented methods
 

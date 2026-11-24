@@ -103,6 +103,33 @@
       "--gres=gpu:A6000:1",
       "slurm/direction_bc_train.sbatch"
     ],
+    "state": "completed",
+    "actual_elapsed_seconds": 1153,
+    "exit_code": "0:0"
+  },
+  {
+    "key": "direction-bc-b100-v1",
+    "kind": "train",
+    "seconds": 1740,
+    "tag": "b100",
+    "resume": false,
+    "source_commit": "a752a9da4a790f6483816c5c1f0cbe14fe5b4b4e",
+    "job_id": "14076831",
+    "submitted_at": 1795510312.7888343,
+    "command": [
+      "sbatch",
+      "--parsable",
+      "--no-requeue",
+      "--account=edu",
+      "--partition=short",
+      "--job-name=xsa-bc-train",
+      "--time=00:29:00",
+      "--output=logs/direction-bc-b100-v1-%j.log",
+      "--cpus-per-task=8",
+      "--mem=32G",
+      "--gres=gpu:A6000:1",
+      "slurm/direction_bc_train.sbatch"
+    ],
     "state": "submitted"
   }
 ]

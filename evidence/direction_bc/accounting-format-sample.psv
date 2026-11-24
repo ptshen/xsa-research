@@ -1,0 +1,4 @@
+JobID|JobName|State|ElapsedRaw|ExitCode|NodeList|AllocTRES|Start|End|TimelimitRaw|Account|Partition
+14076373|xsa-bc-verify|COMPLETED|59|0:0|ins093|billing=8,cpu=8,gres/gpu:a6000=1,gres/gpu=1,mem=32G,node=1|2026-11-24T03:05:28|2026-11-24T03:06:27|5|edu|short
+14076378|xsa-bc-train|COMPLETED|1118|0:0|ins093|billing=8,cpu=8,gres/gpu:a6000=1,gres/gpu=1,mem=32G,node=1|2026-11-24T03:08:28|2026-11-24T03:27:06|29|edu|short
+14076777|xsa-bc-verify|COMPLETED|104|0:0|ins083|billing=8,cpu=8,gres/gpu:a6000=1,gres/gpu=1,mem=32G,node=1|2026-11-24T03:29:23|2026-11-24T03:31:07|5|edu|short

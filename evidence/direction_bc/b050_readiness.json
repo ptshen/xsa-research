@@ -1,0 +1,13 @@
+{
+  "tag": "b050",
+  "job_id": "14076783",
+  "state": "COMPLETED",
+  "elapsed_seconds": 1153,
+  "update": 2048,
+  "tokens": 67108864,
+  "cross_entropy": 4.880451641976833,
+  "perplexity": 131.69012724614353,
+  "all_batch_hashes_match": true,
+  "config_data_initial_eval_software_match": true,
+  "checkpoint_full_audit": "pending CPU collector"
+}
