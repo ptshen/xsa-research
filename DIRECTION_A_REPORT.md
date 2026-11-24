@@ -1,6 +1,6 @@
 # Direction A interim report — screen incomplete
 
-Direction A is implemented and numerically verified. The three-threshold training screen is incomplete because Insomnia SSH is currently unreachable. No final Direction A language-model comparison is available locally.
+Direction A is implemented and numerically verified. Insomnia access was restored on 2026-11-24. Tau 0.25 completed with validation loss 4.82149275 and perplexity 124.15028; tau 0.50 is submitted as job 14074753. The three-threshold screen and final comparison remain incomplete.
 
 ## Verified work
 
@@ -27,13 +27,13 @@ The three cap runs project to about 590 seconds of compute each, before evaluati
 
 | Threshold | Job | Last verified state |
 |---|---|---|
-| 0.25 | 14072518 | Running on ins093 at update 246; current outcome unknown |
-| 0.50 | Not submitted | Unrun |
+| 0.25 | 14072518 | COMPLETED, 663 seconds; 2048 updates / 67,108,864 tokens |
+| 0.50 | 14074753 | Running at the latest observation |
 | 0.75 | Not submitted | Unrun |
 
-Recorded reservations: **1980/7200 GPU seconds**, including **180/300 verification/profile seconds**. The 38-second verification runtime is confirmed; total actual training usage cannot yet be queried. No CPU-only collection job has been submitted.
+Recorded reservations: **3780/7200 GPU seconds**, including **180/300 verification/profile seconds**. Confirmed completed GPU allocations total 701 seconds (38 verification + 663 tau 0.25); the running job adds to this total. No CPU-only collection job has been submitted.
 
-Next: inspect `squeue`/`sacct` for **14072518** and read its final checkpoint/evaluation/diagnostics. Do not resubmit or infer failure from the SSH timeout. After verifying successful full-budget completion, run thresholds 0.50 and 0.75 sequentially, collect all five methods, audit the learning curves/identities/budgets, and publish the completed report.
+Next: inspect existing job **14074753**, verify its full-budget completion, then submit tau 0.75. Finally collect all five methods, audit learning curves/identities/budgets, and publish the completed report. Do not resubmit completed runs.
 
 Until those steps finish, final losses, perplexities, actual training memory/runtime, cap diagnostics and a complete comparison remain unverified. The results will be one-seed validation screening; neither geometric compliance nor a selected validation winner establishes a general quality improvement.
 

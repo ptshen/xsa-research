@@ -1,6 +1,6 @@
 # SA / XSA on Insomnia
 
-Direction A is implemented; completing its bounded three-threshold screen is blocked by Insomnia SSH reachability. See [DIRECTION_A_STATUS.md](DIRECTION_A_STATUS.md) and [DIRECTION_A_PROTOCOL.md](DIRECTION_A_PROTOCOL.md).
+Direction A is implemented and its bounded three-threshold screen has resumed after SSH access was restored. See [DIRECTION_A_STATUS.md](DIRECTION_A_STATUS.md) and [DIRECTION_A_PROTOCOL.md](DIRECTION_A_PROTOCOL.md).
 
 The **approved one-seed pilot is complete**. See [PILOT_REPORT.md](PILOT_REPORT.md) for results, [PILOT_MANIFEST.json](PILOT_MANIFEST.json) for paired checks and budgets, and [PILOT_STATUS.md](PILOT_STATUS.md) for completion status. The Part 1 report records the earlier verification stage.
 

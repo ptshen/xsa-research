@@ -189,3 +189,12 @@ Next action: restore Insomnia reachability and inspect 14072518 before proceedin
 - No duplicate, replacement or additional job was submitted. Reservations remain 1980/7200 GPU seconds, including 180/300 verification seconds. Existing logs/checkpoints are preserved.
 
 Resume action: restore the required network/VPN or cluster availability, then inspect 14072518 with squeue/sacct and read the remote stage ledger before any synchronization or submission. Reconcile the remote ledger with the locally published known submission; do not overwrite newer remote job records.
+
+## Access restored — 2026-11-24
+
+- Insomnia SSH is reachable. Read the authoritative remote ledger and preserved it as `evidence/direction_a/ledger-before-reconnect-20261124.json` and a named Git stash before fast-forwarding documentation. Reconciled all existing IDs without discarding records.
+- **14072518 COMPLETED**, exit 0, **663 seconds**. Tau 0.25 reached 2048 updates / 67,108,864 tokens; validation CE **4.8214927465**, perplexity **124.1502774**. Evaluation/diagnostics and latest/previous checkpoints exist. All 2048 ordered batch hashes and config/data/initialization/evaluation identities match the baseline. No retry was needed.
+- Rechecked no active project jobs and quota: 34,805,936 KiB used of 52,428,800 KiB. Project **5,751,180,272 bytes**; remaining checkpoint pairs plus atomic-write allowance keep projected peak near 7.06 GiB, below 8 GiB.
+- Submitted tau **0.50 job 14074753**, A6000/edu/short, 8 CPUs/32 GiB, 1800-second cap. Stage reservation **3780/7200 GPU seconds**, including 180/300 verification seconds. Confirmed actual elapsed so far is 38+663=**701 GPU seconds**, plus the new job when allocated. Tau 0.75 remains unsubmitted.
+
+Next: inspect 14074753 until terminal and verify complete artifacts, then submit tau 0.75. All existing results and checkpoints remain preserved.
