@@ -220,3 +220,11 @@ All three thresholds completed and passed checkpoint, configuration, initializat
 - Added final DIRECTION_A_REPORT.md, DIRECTION_A_MANIFEST.json, requirement-by-requirement completion audit, raw artifacts, actual commands, failures/recovery history, diagnostic summaries and measured follow-up estimates. No control, extra seed, other research direction or downstream run was launched.
 
 Next action: push the completed report/artifacts and verify GitHub branch equality. After delivery, review the negative comparison to XSA before deciding on any separately authorized mechanistic control or fresh-seed study.
+
+## Direction A delivery complete
+
+- Scientific results, source, report, plots and completion audit published as **1b6032933c5e64d891b4eaaf8558f7db3e6511d4** on GitHub main; `git ls-remote` matched the local commit and the remote worktree was clean.
+- Final delivery checks confirm unchanged numerical/config hashes, all five latest/previous checkpoint pairs and original initialization preserved, no active user jobs, unchanged original job ledger, and project storage **7,195,989,506 bytes (6.702 GiB)** below 8 GiB. Evidence is in `evidence/direction_a/delivery.json`.
+- The full authorized Direction A goal is achieved: implementation, correctness, profiling, all three full-budget threshold runs, five-method evaluation/diagnostics/collection, resource accounting and GitHub delivery are verified.
+
+Next action: review DIRECTION_A_REPORT.md before choosing any separately authorized follow-up. No additional training, controls, seeds or downstream tasks are scheduled.
