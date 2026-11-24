@@ -1,0 +1,11 @@
+{
+  "numerical_source_matches_cuda_proof": true,
+  "baseline_max_window_difference": {
+    "sa": 0.0,
+    "xsa": 0.0
+  },
+  "last_observed_training_job": "14072518",
+  "last_observed_training_update": 246,
+  "current_cluster_state": "unverified: SSH connection timeout",
+  "additional_training_submitted": false
+}

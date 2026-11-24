@@ -167,3 +167,9 @@ Next action: finish threshold metadata/diagnostics/strict collection and budgete
 - Collection rollback test failed before implementation, then all 3 screen/collection/budget tests passed locally. Numerical code/config hashes are frozen by the CUDA gate. Stage reserved GPU seconds so far: 180/7200; verification reservation 180/300. Actual GPU time: 38 seconds.
 
 Next: commit the verified implementation, submit only tau=0.25 with a 30-minute cap, and inspect its terminal state/full-budget artifacts before the next threshold.
+
+- Implemented source and verification evidence pushed to GitHub main as **57aa6e2**. Submitted **tau 0.25 job 14072518**, edu/short A6000, 8 CPUs/32 GiB, 1800-second cap. It is running on ins093; manifest initialization/data/evaluation hashes match the preserved pilot. Stage reservation is now **1980/7200 GPU seconds**, including **180/300 verification seconds**. Tau 0.50/0.75 remain unsubmitted.
+
+- Connectivity interruption after job 14072518 started: ordinary SSH, bounded keepalive SSH and a fresh non-multiplexed connection all timed out on port 22. Last successful job observation: RUNNING on ins093 at update 246 / 8,060,928 tokens, finite loss/gradients. No evidence of job failure and no duplicate/retry submitted. The documentation SCP failed before the subsequent status query; local documentation is retained. Next: restore/read-only connectivity, inspect existing 14072518 and its artifacts, then continue the remaining thresholds only after successful full completion.
+
+- Independent local audit confirms all numerical/config hashes still match the successful CUDA proof and both baseline re-evaluations have **maximum per-window difference 0.0**. General internet and GitHub SSH remain reachable; only Insomnia port 22 times out. Publishing protocol/status documentation from the local checkout while cluster access is unavailable. No additional Slurm submission or model change.
