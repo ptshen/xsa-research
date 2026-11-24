@@ -119,24 +119,39 @@ def value_penalty_attention(q, k, v, strength, chunk_size=128, eps=1e-12, dropou
         return torch.cat(chunks, dim=-2).to(dtype)
 
 
+def geometry_terms(v, output_weight, eps=1e-12):
+    """Gram product, quadratic denominator and conservative resolution threshold.
+
+    The relative floor scales with dtype precision, dot-product dimensions,
+    ||v||^2 and ||W_h||_F^2. It rejects near-null directions unresolved by Gram
+    arithmetic rather than dividing by cancellation noise. No metric ridge.
+    """
+    w = output_weight.to(v.dtype).reshape(-1, v.size(1), v.size(-1)).permute(1, 0, 2)
+    gram = w.transpose(-1, -2) @ w
+    gv = v @ gram
+    denominator = (v * gv).sum(-1, keepdim=True)
+    roundoff = torch.finfo(v.dtype).eps * (w.size(-2) + 2 * w.size(-1))
+    threshold = (roundoff * w.square().sum((-1, -2))[None, :, None, None]
+                 * v.square().sum(-1, keepdim=True)).clamp_min(eps**2)
+    return gv, denominator, threshold
+
+
 def geometry_project(y, v, output_weight, eps=1e-12):
     """C: per-head projection under W_h.T @ W_h, with gradients through W_h.
 
     Linear.weight has shape [d_model, heads * head_dim]. Skip correction when
-    the computed squared written-value norm is <= eps**2 (including roundoff
-    negatives). No ridge or inverse is introduced; guard cases have no bound.
+    the computed squared written-value norm is below the absolute/relative
+    resolution threshold. No ridge or inverse is used; guard cases have no bound.
     """
     dtype = y.dtype
     with torch.autocast(device_type=y.device.type, enabled=False):
         if dtype in (torch.float16, torch.bfloat16):
             y, v = y.float(), v.float()
-        w = output_weight.to(y.dtype).reshape(-1, y.size(1), y.size(-1)).permute(1, 0, 2)
-        gram = w.transpose(-1, -2) @ w
-        gv = v @ gram
-        denominator = (v * gv).sum(-1, keepdim=True)
+        gv, denominator, threshold = geometry_terms(v, output_weight, eps)
         numerator = (y * gv).sum(-1, keepdim=True)
-        scale = numerator / denominator.clamp_min(eps**2)
-        scale = torch.where(denominator > eps**2, scale, 0.)
+        valid = denominator > threshold
+        safe_denominator = torch.where(valid, denominator, 1.)
+        scale = torch.where(valid, numerator / safe_denominator, 0.)
         return (y - scale * v).to(dtype)
 
 

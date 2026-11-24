@@ -1,6 +1,6 @@
 # Reproduction specification
 
-This repository implements **Part 1**, a matched SA/XSA baseline. It does not implement proposal extensions A/B/C. Fixture runs establish execution and numerical correctness, not reproduction of language-model results.
+This document records the original **Part 1** matched SA/XSA specification. Later extensions are specified separately: [Direction A](DIRECTION_A_PROTOCOL.md) and [Directions B/C](DIRECTIONS_BC_PROTOCOL.md). Their results and deviations are in their stage reports; fixture runs alone establish execution and numerical correctness, not reproduction of language-model results.
 
 ## Authority and pins
 

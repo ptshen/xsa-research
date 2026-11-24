@@ -1,0 +1,25 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_____ test_c_roundoff_nullspace_does_not_amplify_unresolvable_denominator ______
+
+    def test_c_roundoff_nullspace_does_not_amplify_unresolvable_denominator():
+        # A rank-one block whose written self-value is zero in fp32; Gram roundoff
+        # previously produced a positive denominator and a >300x head update.
+        torch.manual_seed(41)
+        a,b=torch.randn(3,1),torch.randn(1,2)
+        w=(a@b).requires_grad_()
+        v=torch.tensor([[[[-b[0,1],b[0,0]]]]],requires_grad=True)
+        y=torch.randn_like(v,requires_grad=True)
+        assert (v@w.T).norm()==0
+        z=geometry_project(y,v,w)
+>       torch.testing.assert_close(z,y,atol=0,rtol=0)
+E       AssertionError: Tensor-likes are not equal!
+E       
+E       Mismatched elements: 2 / 2 (100.0%)
+E       Greatest absolute difference: 312.26202392578125 at index (0, 0, 0, 0)
+E       Greatest relative difference: 500.2830810546875 at index (0, 0, 0, 0)
+
+tests/test_directions_bc.py:248: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_directions_bc.py::test_c_roundoff_nullspace_does_not_amplify_unresolvable_denominator
+1 failed, 34 deselected in 0.64s

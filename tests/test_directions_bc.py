@@ -178,6 +178,11 @@ def test_cuda_bf16_matches_fp32_reductions_and_has_finite_gradients(kind):
     torch.testing.assert_close(z,ref.to(torch.bfloat16),atol=0,rtol=0)
     inputs=(q,k,v) if kind=='value_penalty' else (q,v,w)
     assert all(torch.isfinite(g).all() for g in torch.autograd.grad(z.float().square().sum(),inputs))
+    if kind=='output_geometry':
+        blocks=w.reshape(10,3,8).permute(1,0,2)
+        written_z=z.float()@blocks.transpose(-1,-2)
+        written_v=v.float()@blocks.transpose(-1,-2)
+        assert F.cosine_similarity(written_z,written_v,dim=-1).abs().max()<.01
 
 
 def test_sa_xsa_a_unchanged_against_frozen_source():
@@ -233,3 +238,51 @@ def test_reject_irrelevant_settings_and_invalid_chunk():
     with pytest.raises(ValueError): ModelConfig(similarity_lambda=.5)
     for chunk in (0,-1,1.5,True):
         with pytest.raises(ValueError): ModelConfig(attention_type='value_penalty',similarity_lambda=.5,query_chunk_size=chunk)
+
+
+@pytest.mark.parametrize('device',['cpu','cuda'])
+def test_c_roundoff_nullspace_does_not_amplify_unresolvable_denominator(device):
+    # A rank-one block whose written self-value is zero in fp32; Gram roundoff
+    # previously produced a positive denominator and a >300x head update.
+    torch.manual_seed(41)
+    if device=='cuda' and not torch.cuda.is_available(): pytest.skip('allocated CUDA GPU required')
+    a,b=torch.randn(3,1),torch.randn(1,2)
+    w=(a@b).to(device).requires_grad_()
+    v=torch.tensor([[[[-b[0,1],b[0,0]]]]],device=device,requires_grad=True)
+    y=torch.randn_like(v,requires_grad=True)
+    assert (v@w.T).norm()<1e-6
+    z=geometry_project(y,v,w)
+    torch.testing.assert_close(z,y,atol=0,rtol=0)
+    assert all(torch.isfinite(g).all() for g in torch.autograd.grad(z.sum(),(y,v,w)))
+    from xsa.diagnostics import diagnostic_stats
+    stats=diagnostic_stats(v.detach(),v.detach(),v.detach(),y.detach(),z.detach(),output_weight=w.detach())
+    assert stats['geometry_guard_fraction']==[1.]
+
+
+def test_b_unchanged_by_c_numerical_hardening():
+    spec=importlib.util.spec_from_file_location('pre_guard','evidence/direction_bc/pre_guard_model.py')
+    old=importlib.util.module_from_spec(spec); sys.modules[spec.name]=old; spec.loader.exec_module(old)
+    for strength in (.1,.5,1.):
+        kw=dict(vocab_size=31,n_layers=2,d_model=12,n_heads=2,head_dim=8,seq_len=8,
+                attention_type='value_penalty',similarity_lambda=strength,query_chunk_size=3)
+        torch.manual_seed(17); before=old.GPT(old.ModelConfig(**kw))
+        torch.manual_seed(17); after=GPT(ModelConfig(**kw))
+        x=torch.randint(31,(2,8)); a,b=before(x),after(x)
+        torch.testing.assert_close(a,b,atol=0,rtol=0)
+        a.square().mean().backward(); b.square().mean().backward()
+        for p,q in zip(before.parameters(),after.parameters()): torch.testing.assert_close(p.grad,q.grad,atol=0,rtol=0)
+
+
+@pytest.mark.parametrize('dtype',[torch.float32,torch.bfloat16])
+def test_cuda_b_zero_matches_sdpa_outputs_and_gradients(dtype):
+    if not torch.cuda.is_available(): pytest.skip('allocated CUDA GPU required')
+    torch.manual_seed(29)
+    q,k,v=[torch.randn(2,3,9,8,device='cuda',dtype=dtype,requires_grad=True) for _ in range(3)]
+    b=value_penalty_attention(q,k,v,0.,chunk_size=4)
+    sa=attention(q,k,v)
+    atol,rtol=(3e-6,3e-5) if dtype==torch.float32 else (.01,.01)
+    torch.testing.assert_close(b,sa,atol=atol,rtol=rtol)
+    for x,y in zip(torch.autograd.grad(b.float().square().sum(),(q,k,v)),
+                   torch.autograd.grad(sa.float().square().sum(),(q,k,v))):
+        atol,rtol=(6e-6,6e-5) if dtype==torch.float32 else (.03,.03)
+        torch.testing.assert_close(x,y,atol=atol,rtol=rtol)

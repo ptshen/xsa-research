@@ -1,0 +1,273 @@
+{
+  "passed": true,
+  "tests": {
+    "tests": 87,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "preserved_run_rechecks": [
+    {
+      "run": "runs/pilot-sa-s17",
+      "max_window_delta": 0.0,
+      "evaluation_and_loading_seconds": 2.615878453012556
+    },
+    {
+      "run": "runs/pilot-xsa-s17",
+      "max_window_delta": 0.0,
+      "evaluation_and_loading_seconds": 2.7837443770840764
+    },
+    {
+      "run": "runs/direction-a-tau025-s17",
+      "max_window_delta": 0.0,
+      "evaluation_and_loading_seconds": 2.4494896880351007
+    },
+    {
+      "run": "runs/direction-a-tau050-s17",
+      "max_window_delta": 0.0,
+      "evaluation_and_loading_seconds": 1.6264636830892414
+    },
+    {
+      "run": "runs/direction-a-tau075-s17",
+      "max_window_delta": 0.0,
+      "evaluation_and_loading_seconds": 1.5323820498306304
+    }
+  ],
+  "shared_initialization_verified": true,
+  "all_preserved_batches_equal": true,
+  "source_sha256": {
+    "DIRECTIONS_BC_PROTOCOL.md": "b960f692755e09cfd507e6aaa0957ed6a2d6350ffcc703d1349af53327b6b9d7",
+    "configs/direction_b010.json": "0e29227b471f6b5758cec328e2917b3a0ebb2abf87846e357752b8716ffabfb7",
+    "configs/direction_b050.json": "851eae759343e7a3bea6253119a1f8477c39a73260ec063e325e2f4007e8d29f",
+    "configs/direction_b100.json": "a0bc9199d279c86abc3bcd56def5abd25fb125c871786e389840ba884c94c302",
+    "configs/direction_c.json": "f8b2ede199882564bcd3a2b7a827aa03c30d9055e63c1d53eb96ad1ff9d40f12",
+    "evidence/direction_bc/audit_remote.py": "e5b14359fc1e451c2ec30aa700dd9b0e6cac698b7f1b429a4b17a1db6ef223c2",
+    "evidence/direction_bc/budget.json": "c43835c6e88a7f2fbf35709278839844c23f601097617e8886391d6650d7a425",
+    "slurm/direction_bc_collect.sbatch": "ef6af051608d70e6cd1922808e6f2efd8f0bb09129a9cd8d5494df1150abe9b1",
+    "slurm/direction_bc_train.sbatch": "12cc99697e82ffbaefb6f61a0d95d39a86c069f2d00bd65962bc6bf531473113",
+    "slurm/direction_bc_verify.sbatch": "292ec1213d54ce20214088ca5b4ace424f09cb96e57c8853e82f0bf3c4d60549",
+    "slurm/train.sbatch": "7cda28549a6c79c286c3ce357288f3aded97671cf49f58bfa9ebaaa1381c7e15",
+    "tests/test_alignment_cap.py": "6abbba33cc4e2e85e218b24dafb1c53bdc8546da68f7673abe2f23de091fbd4f",
+    "tests/test_analysis.py": "e4d4f7ebef617f8ecffe280af106e527192d9bca9bd143938d7bf482638f2912",
+    "tests/test_direction_a_screen.py": "83497e36ef9f017d750cf87502f73d0ac58218020b42763f27cc127408aa3f7a",
+    "tests/test_direction_bc_screen.py": "63816343f4405a8735a797765152799bc3d5e9d684c8a28992676f61c8a34250",
+    "tests/test_directions_bc.py": "7550160fdac6f84f0bbc563f30d6b7e75820a44ffdb1b1ed1b54ae073fffa1af",
+    "tests/test_model.py": "ee14fc5559b30dbda9c3df548c1778c828c3feb66563d2a3ed3b0465264bce39",
+    "tests/test_pilot_gate.py": "204da689612f863de5e474bce56d72374ac7922a17f0d028ce4acb0773d5f23b",
+    "tests/test_pipeline.py": "eb12b55546e0e5594cbb6ed0700810417e613f83e1d0bf2360bb8d63f4504d8e",
+    "tests/test_signal.py": "8d6d618423785f0af3d40fd71904784dba4b316fc8aff1cd3ad44cbd66e26006",
+    "tests/test_submission.py": "566d9fa2f427f19b4cb4473c4d5d68cc98fb94c26335bc8198f9ee8e92180e24",
+    "xsa/__init__.py": "af462f57faea46d513b91310656a1817cdbdb84beda4fe3bd1400526110d9631",
+    "xsa/bc_submission.py": "059e523f6dd1b312e91342def164ed0498a9c504b45f51e2a8d1b2979cbe1b91",
+    "xsa/benchmark.py": "b014c43df392318d511a5bc5bbeabbd29f0ca3cd434744fbed23ea95f2fee428",
+    "xsa/collect.py": "36036f92ea8e37db2cc825f9946caf077cf0f71284087ad9104479a4373c39f2",
+    "xsa/config.py": "25b20f9cf29a70841c8951aa152032f00c3e65fbed934202e5c2f3ed3bb998e9",
+    "xsa/data.py": "c7a124cf34d580f33f84a1528d2c98a372a65b0fefae229ae544d5095d388ef5",
+    "xsa/diagnostics.py": "b736cd6a527a8cc0c8c905059c9f704c9e57bb5c959e514a90e32939f01eb1f2",
+    "xsa/direction_a.py": "4dfd76063bdde2441756785f2890cd89f16e18e3fe1a6d1f9b754de114cc84ee",
+    "xsa/direction_bc.py": "256cfa900b692442b02b8c5a2a06decf105741d20eeb53078411a30f9584a4d4",
+    "xsa/downstream.py": "b43237a9c00e1686404b55422c8902ab24d069810fc1947663be7e1a0c37856d",
+    "xsa/evaluate.py": "d8b2dcc0d1c27d310ad79cfe27e5e4f3ebf05d5b5c1fbada1db8799fcbbd5b10",
+    "xsa/initialize.py": "49ea6b70d55540adf90aebdfd5ae90b7800e03cc2c2633c246326f339cac316f",
+    "xsa/model.py": "fa15ed338be7847ca92757e1acad89ce0e9cba8891c644866bd7a82a8c7a1a65",
+    "xsa/pilot.py": "84be03eea63f7510ab297ac38e059d8d5e7f4437ee29c2e8e9620126f39555bc",
+    "xsa/smoke.py": "cc9d7856ff92e5def71ccabf7e310112442bbce423217bd571a9e92515158568",
+    "xsa/stage_submission.py": "bb5ec63c417562529d5bb6ababc4d8700051b913273ff29dea4d500563396772",
+    "xsa/submission.py": "f2724516f47ace1bf1aeb5f8e83c55364b61828d897bb0d9d1790d6fe3b8e562",
+    "xsa/train.py": "f374ca5f205e7c05ab02785e549bc90e9cddeee321c1040dade1d17b88d41992"
+  },
+  "plan": {
+    "train_seconds": [
+      1740,
+      1740,
+      1740,
+      1200
+    ],
+    "compute_only_seconds": [
+      1057.556578318278,
+      1059.7749365170796,
+      1059.8631394704182,
+      580.6509235699972
+    ],
+    "project_peak_bytes": 11041321929,
+    "verification_reserved_allowance": 600,
+    "fits": true,
+    "assumptions": "Same A6000, batch/accumulation/precision; 50% compute margin +120s per run; four latest/previous pairs, one atomic temporary, 128MiB metadata/test allowance. Queue time excluded; peak disk is a conservative estimate, not continuous sampling.",
+    "home_quota_free_bytes": 13958742016,
+    "configs": [
+      {
+        "label": "Direction b010: matched seed-17 screening",
+        "seed": 17,
+        "data_seed": 1017,
+        "eval_seed": 2017,
+        "data_kind": "fineweb",
+        "model": {
+          "vocab_size": 50304,
+          "n_layers": 6,
+          "d_model": 384,
+          "n_heads": 6,
+          "head_dim": 64,
+          "seq_len": 512,
+          "attention_type": "value_penalty",
+          "dropout": 0.0,
+          "bias": false,
+          "rope_base": 10000.0,
+          "projection_eps": 1e-12,
+          "projection_precision": "float32",
+          "backend": "sdpa",
+          "similarity_lambda": 0.1,
+          "query_chunk_size": 128
+        },
+        "train": {
+          "updates": 2048,
+          "microbatch_sequences": 8,
+          "accumulation_steps": 8,
+          "learning_rate": 0.0006,
+          "min_lr_ratio": 0.1,
+          "warmup_updates": 64,
+          "weight_decay": 0.1,
+          "betas": [
+            0.9,
+            0.95
+          ],
+          "grad_clip": 1.0,
+          "precision": "bfloat16",
+          "eval_interval": 128,
+          "eval_windows": 64,
+          "checkpoint_interval": 64
+        },
+        "initial_state_path": "runs/initial/pilot-s17.pt"
+      },
+      {
+        "label": "Direction b050: matched seed-17 screening",
+        "seed": 17,
+        "data_seed": 1017,
+        "eval_seed": 2017,
+        "data_kind": "fineweb",
+        "model": {
+          "vocab_size": 50304,
+          "n_layers": 6,
+          "d_model": 384,
+          "n_heads": 6,
+          "head_dim": 64,
+          "seq_len": 512,
+          "attention_type": "value_penalty",
+          "dropout": 0.0,
+          "bias": false,
+          "rope_base": 10000.0,
+          "projection_eps": 1e-12,
+          "projection_precision": "float32",
+          "backend": "sdpa",
+          "similarity_lambda": 0.5,
+          "query_chunk_size": 128
+        },
+        "train": {
+          "updates": 2048,
+          "microbatch_sequences": 8,
+          "accumulation_steps": 8,
+          "learning_rate": 0.0006,
+          "min_lr_ratio": 0.1,
+          "warmup_updates": 64,
+          "weight_decay": 0.1,
+          "betas": [
+            0.9,
+            0.95
+          ],
+          "grad_clip": 1.0,
+          "precision": "bfloat16",
+          "eval_interval": 128,
+          "eval_windows": 64,
+          "checkpoint_interval": 64
+        },
+        "initial_state_path": "runs/initial/pilot-s17.pt"
+      },
+      {
+        "label": "Direction b100: matched seed-17 screening",
+        "seed": 17,
+        "data_seed": 1017,
+        "eval_seed": 2017,
+        "data_kind": "fineweb",
+        "model": {
+          "vocab_size": 50304,
+          "n_layers": 6,
+          "d_model": 384,
+          "n_heads": 6,
+          "head_dim": 64,
+          "seq_len": 512,
+          "attention_type": "value_penalty",
+          "dropout": 0.0,
+          "bias": false,
+          "rope_base": 10000.0,
+          "projection_eps": 1e-12,
+          "projection_precision": "float32",
+          "backend": "sdpa",
+          "similarity_lambda": 1.0,
+          "query_chunk_size": 128
+        },
+        "train": {
+          "updates": 2048,
+          "microbatch_sequences": 8,
+          "accumulation_steps": 8,
+          "learning_rate": 0.0006,
+          "min_lr_ratio": 0.1,
+          "warmup_updates": 64,
+          "weight_decay": 0.1,
+          "betas": [
+            0.9,
+            0.95
+          ],
+          "grad_clip": 1.0,
+          "precision": "bfloat16",
+          "eval_interval": 128,
+          "eval_windows": 64,
+          "checkpoint_interval": 64
+        },
+        "initial_state_path": "runs/initial/pilot-s17.pt"
+      },
+      {
+        "label": "Direction c: matched seed-17 screening",
+        "seed": 17,
+        "data_seed": 1017,
+        "eval_seed": 2017,
+        "data_kind": "fineweb",
+        "model": {
+          "vocab_size": 50304,
+          "n_layers": 6,
+          "d_model": 384,
+          "n_heads": 6,
+          "head_dim": 64,
+          "seq_len": 512,
+          "attention_type": "output_geometry",
+          "dropout": 0.0,
+          "bias": false,
+          "rope_base": 10000.0,
+          "projection_eps": 1e-12,
+          "projection_precision": "float32",
+          "backend": "sdpa"
+        },
+        "train": {
+          "updates": 2048,
+          "microbatch_sequences": 8,
+          "accumulation_steps": 8,
+          "learning_rate": 0.0006,
+          "min_lr_ratio": 0.1,
+          "warmup_updates": 64,
+          "weight_decay": 0.1,
+          "betas": [
+            0.9,
+            0.95
+          ],
+          "grad_clip": 1.0,
+          "precision": "bfloat16",
+          "eval_interval": 128,
+          "eval_windows": 64,
+          "checkpoint_interval": 64
+        },
+        "initial_state_path": "runs/initial/pilot-s17.pt"
+      }
+    ]
+  },
+  "project_bytes": 7671754798,
+  "initial_file_sha256": "859d5babc27d42f6268b8a08386a20e2d37439b47a1deddd4aac3f9c4234cd64",
+  "job_id": "14076373"
+}

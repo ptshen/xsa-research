@@ -26,7 +26,8 @@ def source_hashes():
     paths = list(Path('xsa').glob('*.py')) + list(Path('tests').glob('*.py'))
     paths += [Path(f'configs/direction_{tag}.json') for tag in TAGS]
     paths += list(Path('slurm').glob('direction_bc_*.sbatch'))
-    paths += [Path('slurm/train.sbatch'), ROOT/'budget.json', ROOT/'audit_remote.py', Path('DIRECTIONS_BC_PROTOCOL.md')]
+    paths += [Path('slurm/train.sbatch'), ROOT/'budget.json', ROOT/'audit_remote.py',
+              ROOT/'baseline_model.py', ROOT/'pre_guard_model.py', Path('DIRECTIONS_BC_PROTOCOL.md')]
     return {str(p): hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(paths)}
 
 
@@ -106,7 +107,7 @@ def verify(test_xml):
     from .train import load_checkpoint, state_hash
     suites=list(ET.parse(test_xml).getroot().iter('testsuite'))
     counts={k:sum(int(s.attrib.get(k,0)) for s in suites) for k in ('tests','failures','errors','skipped')}
-    if counts['tests'] < 87 or any(counts[k] for k in ('failures','errors','skipped')):
+    if counts['tests'] < 92 or any(counts[k] for k in ('failures','errors','skipped')):
         raise ValueError(f'CUDA correctness gate failed: {counts}')
     identities=[]; rechecks=[]
     for path in OLD_RUNS:

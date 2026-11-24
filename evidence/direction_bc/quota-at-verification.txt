@@ -1,0 +1,4 @@
+                         Block Limits                                               |     File Limits
+Filesystem Fileset    type             KB      quota      limit   in_doubt    grace |    files   quota    limit in_doubt    grace  Remarks
+insomnia   home       USR        36681424   52428800   52428800    2115792     none |   119690  153600   153600      239     none insomnia.ins
+insomnia   edu        USR               0          0          0          0     none |        4       0        0        0     none insomnia.ins

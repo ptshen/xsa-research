@@ -9,7 +9,7 @@ from torch.nn import functional as F
 
 from .data import TokenData
 from .evaluate import load_model
-from .model import operator_metadata
+from .model import operator_metadata, geometry_terms
 
 
 def diagnostic_stats(q, k, v, y, z, tau=None, eps=1e-12, strength=None, output_weight=None):
@@ -47,8 +47,10 @@ def diagnostic_stats(q, k, v, y, z, tau=None, eps=1e-12, strength=None, output_w
     if output_weight is not None:
         w=output_weight.float().reshape(-1,v.size(1),v.size(-1)).permute(1,0,2)
         written_y, written_v, written_z = [a @ w.transpose(-1,-2) for a in (y,v,z)]
-        denominator=(v*(v @ (w.transpose(-1,-2) @ w))).sum(-1)
-        extra['geometry_guard_fraction']=(denominator <= eps**2).float().mean((0,2)).tolist()
+        _,denominator,threshold=geometry_terms(v,output_weight.float(),eps)
+        denominator,threshold=denominator.squeeze(-1),threshold.squeeze(-1)
+        extra['geometry_guard_fraction']=(denominator <= threshold).float().mean((0,2)).tolist()
+        extra['geometry_threshold_mean']=threshold.mean((0,2)).tolist()
         samples=denominator.transpose(0,1).flatten(1)
         for name, quantile in [('min',0.),('q05',.05),('q50',.5),('q95',.95),('max',1.)]:
             extra[f'geometry_denominator_{name}']=samples.quantile(quantile,dim=1).tolist()

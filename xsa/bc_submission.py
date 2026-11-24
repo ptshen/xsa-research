@@ -91,6 +91,7 @@ def main():
         cmd.append(f'slurm/direction_bc_{a.kind}.sbatch')
         env=dict(os.environ,XSA_BC_TAG=a.tag or '',XSA_RESUME='1' if a.resume else '0')
         entry={'key':a.key,'kind':a.kind,'seconds':a.seconds,'tag':a.tag,'resume':a.resume,
+               'source_commit':subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),
                'job_id':None,'submitted_at':time.time(),'command':cmd,'state':'submission_pending'}
         jobs.append(entry); save_ledger(path,jobs)
         result=subprocess.check_output(cmd,env=env,text=True).strip()

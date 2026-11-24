@@ -1,6 +1,8 @@
 # XSA / Insomnia progress
 
-## Goal and limits
+**Current stage:** implement, verify and screen Directions B/C under the objective preserved in `evidence/direction_bc/objective.md`. Latest state and next action are at the end of this log. Earlier stage limits below are historical.
+
+## Original Part 1 goal and limits
 
 Implement Part 1 of `XSA_Insomnia_complete_handoff.md`; do not implement proposal extensions or launch the full training matrix. Total smoke/profile training budget: **600 seconds**, including local smoke work. Correctness tests and environment/data setup are separate. Preserve logs and checkpoints. Remote working root: **`~/algollms/xsa`**, per user instruction.
 
@@ -243,3 +245,27 @@ Next: write failing numerical and resume tests, implement both operators, then c
 - Before launch: all historical IDs, including the old intentionally cancelled data-preparation attempt, were checked and are terminal. No active jobs. Numerical source and configs will freeze after the allocated verification/profile gate.
 
 Next: publish implementation, run a 300-second maximum A6000 correctness/profile allocation, inspect actual proof and frozen full-screen estimate, then train only if all gates pass.
+
+- Published source/configuration/tests/protocol as **1db7eff** and fast-forwarded the clean remote checkout. Submitted GPU verification **14076373**, key `direction-bc-verify-v1`, 300-second cap, edu/short/A6000/8 CPUs/32 GiB; observed PENDING (Priority). Reservations: **300/14400 GPU seconds**, **300/600 verification seconds**. No training submitted.
+
+Next: inspect this exact job and its logs/proof; do not resubmit based on an observation timeout.
+
+- **14076373 COMPLETED**, exit 0, 59 GPU seconds on ins093 A6000. **87 tests passed / 0 failed / 0 skipped**, 13.55 s. All five preserved checkpoints re-evaluate with maximum per-window loss difference **0.0**; initial tensor hashes and preserved batch histories match.
+- Frozen profile and plan saved. Compute-only full-run estimates: B 0.1 **1057.56 s**, B 0.5 **1059.77 s**, B 1.0 **1059.86 s**, C **580.65 s**. Conservative training reservations **1740/1740/1740/1200 s**; all training plus full verification allowance **7020/14400 s**. Project peak estimate **11,041,321,929 bytes (10.28 GiB)**, within 12 GiB and current quota.
+- Actual dispatch: SA/XSA/A/C use CUDA flash SDPA (C also uses Gram-matrix bmm); B uses explicit fp32 softmax/bmm. B profile peak allocation ~4.98 GiB versus C ~4.25 GiB. This is measured method+backend cost, not an isolated penalty-kernel comparison.
+
+Next: submit B lambda 0.1 with the frozen 1740-second cap; inspect complete matched artifacts before proceeding to the next configuration.
+
+- Submitted B lambda **0.1 / job 14076378**, 1740-second cap, same A6000 allocation. Observed RUNNING with finite early training loss/gradients and expected method metadata. Cumulative GPU reservation **2040/14400 s**; verification remains **300/600 s reserved, 59 s actual**.
+
+Next: monitor 14076378 through terminal state and verify its 2048-update artifacts before B lambda 0.5. No duplicate/retry submitted.
+
+- Independent fp32 rank-one/null-space stress found a real C guard defect: a computed zero written value could produce a small positive Gram denominator and a corrected norm of **313.35** from aggregate norm **0.7993** (seed 41). Reproduced with failing test in `geometry_guard_red.txt`. No C training has launched.
+- Hardened C locally with an absolute plus dimension/dtype/scale-aware denominator floor, safe guarded division, and matching diagnostic guard reporting. Preserved the first gate/profile/plan under `verification_v1/` and the pre-hardening model source. Added an exact B output/gradient regression; B's operator and current running source are unchanged.
+
+Next: finish local checks, wait for existing B 0.1 job 14076378, preserve its completed artifacts, then deploy and run the second 300-second GPU verification gate before any remaining training. Total verification reservations will be 600/600 seconds; no additional profile allocation beyond that.
+
+- Hardened local suite: **79 passed / 13 CUDA-only skipped**, 4.05 s. New coverage includes CUDA bf16 written-space tolerance and B lambda-zero SDPA forward/gradient agreement (pending allocated execution). AST equality confirms ModelConfig, B operator, Attention.forward, GPT and operator metadata are unchanged; exact B regression also passes.
+- Job **14076378** observed RUNNING at update **1382**, with every committed minibatch hash matching SA and all losses/gradients finite. No remote code changes have been made during this run.
+
+Next: inspect 14076378 at completion, record its actual outcome, then synchronize the guarded C source and run the second bounded verification allocation.
