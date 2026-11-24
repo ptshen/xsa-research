@@ -1,0 +1,13 @@
+{
+  "tag": "c",
+  "job_id": "14076871",
+  "state": "COMPLETED",
+  "elapsed_seconds": 726,
+  "update": 2048,
+  "tokens": 67108864,
+  "cross_entropy": 4.807390972971916,
+  "perplexity": 122.4118247653318,
+  "all_batch_hashes_match": true,
+  "config_data_initial_eval_software_match": true,
+  "checkpoint_full_audit": "pending CPU collector"
+}

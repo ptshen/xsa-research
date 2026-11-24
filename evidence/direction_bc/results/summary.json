@@ -1,0 +1,189 @@
+{
+  "results": [
+    {
+      "attention": "sa",
+      "alignment_tau": null,
+      "similarity_lambda": null,
+      "query_chunk_size": null,
+      "cross_entropy": 4.890469938516617,
+      "perplexity": 133.01606873983184,
+      "tokens": 67108864,
+      "seed": 17,
+      "minus_sa": 0.0,
+      "minus_sa_window_bootstrap_95ci": [
+        0.0,
+        0.0
+      ],
+      "minus_xsa": 0.08713721483945847,
+      "minus_xsa_window_bootstrap_95ci": [
+        0.07541421875357628,
+        0.09983557593077418
+      ]
+    },
+    {
+      "attention": "xsa",
+      "alignment_tau": null,
+      "similarity_lambda": null,
+      "query_chunk_size": null,
+      "cross_entropy": 4.803332723677158,
+      "perplexity": 121.91605372546456,
+      "tokens": 67108864,
+      "seed": 17,
+      "minus_sa": -0.08713721483945847,
+      "minus_sa_window_bootstrap_95ci": [
+        -0.09983557593077422,
+        -0.07541421875357629
+      ],
+      "minus_xsa": 0.0,
+      "minus_xsa_window_bootstrap_95ci": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "attention": "alignment_cap",
+      "alignment_tau": 0.25,
+      "similarity_lambda": null,
+      "query_chunk_size": null,
+      "cross_entropy": 4.821492746472359,
+      "perplexity": 124.15027741574238,
+      "tokens": 67108864,
+      "seed": 17,
+      "minus_sa": -0.06897719204425812,
+      "minus_sa_window_bootstrap_95ci": [
+        -0.08086019903421401,
+        -0.058495788276195546
+      ],
+      "minus_xsa": 0.018160022795200348,
+      "minus_xsa_window_bootstrap_95ci": [
+        0.01062997505068779,
+        0.02533871810883283
+      ]
+    },
+    {
+      "attention": "alignment_cap",
+      "alignment_tau": 0.5,
+      "similarity_lambda": null,
+      "query_chunk_size": null,
+      "cross_entropy": 4.814513556659222,
+      "perplexity": 123.28682566595867,
+      "tokens": 67108864,
+      "seed": 17,
+      "minus_sa": -0.07595638185739517,
+      "minus_sa_window_bootstrap_95ci": [
+        -0.0872408939525485,
+        -0.0649890398606658
+      ],
+      "minus_xsa": 0.011180832982063293,
+      "minus_xsa_window_bootstrap_95ci": [
+        0.003703085891902447,
+        0.019385526143014427
+      ]
+    },
+    {
+      "attention": "alignment_cap",
+      "alignment_tau": 0.75,
+      "similarity_lambda": null,
+      "query_chunk_size": null,
+      "cross_entropy": 4.871186397969723,
+      "perplexity": 130.47562111991948,
+      "tokens": 67108864,
+      "seed": 17,
+      "minus_sa": -0.019283540546894073,
+      "minus_sa_window_bootstrap_95ci": [
+        -0.02486054562032223,
+        -0.01348159927874804
+      ],
+      "minus_xsa": 0.06785367429256439,
+      "minus_xsa_window_bootstrap_95ci": [
+        0.057249261625111104,
+        0.07970202602446079
+      ]
+    },
+    {
+      "attention": "value_penalty",
+      "alignment_tau": null,
+      "similarity_lambda": 0.1,
+      "query_chunk_size": 128,
+      "cross_entropy": 4.88484551012516,
+      "perplexity": 132.27002937547778,
+      "tokens": 67108864,
+      "seed": 17,
+      "minus_sa": -0.005624428391456604,
+      "minus_sa_window_bootstrap_95ci": [
+        -0.011561729572713375,
+        0.0005353797227144219
+      ],
+      "minus_xsa": 0.08151278644800186,
+      "minus_xsa_window_bootstrap_95ci": [
+        0.06806574091315269,
+        0.0964074844494462
+      ]
+    },
+    {
+      "attention": "value_penalty",
+      "alignment_tau": null,
+      "similarity_lambda": 0.5,
+      "query_chunk_size": 128,
+      "cross_entropy": 4.880451641976833,
+      "perplexity": 131.69012724614353,
+      "tokens": 67108864,
+      "seed": 17,
+      "minus_sa": -0.010018296539783478,
+      "minus_sa_window_bootstrap_95ci": [
+        -0.016053102910518646,
+        -0.004111159406602384
+      ],
+      "minus_xsa": 0.07711891829967499,
+      "minus_xsa_window_bootstrap_95ci": [
+        0.06636608429253102,
+        0.08942982237786054
+      ]
+    },
+    {
+      "attention": "value_penalty",
+      "alignment_tau": null,
+      "similarity_lambda": 1.0,
+      "query_chunk_size": 128,
+      "cross_entropy": 4.909962140023708,
+      "perplexity": 135.63427920066152,
+      "tokens": 67108864,
+      "seed": 17,
+      "minus_sa": 0.019492201507091522,
+      "minus_sa_window_bootstrap_95ci": [
+        0.011360791511833668,
+        0.027892702631652354
+      ],
+      "minus_xsa": 0.10662941634654999,
+      "minus_xsa_window_bootstrap_95ci": [
+        0.09035917669534684,
+        0.1246867410838604
+      ]
+    },
+    {
+      "attention": "output_geometry",
+      "alignment_tau": null,
+      "similarity_lambda": null,
+      "query_chunk_size": null,
+      "cross_entropy": 4.807390972971916,
+      "perplexity": 122.4118247653318,
+      "tokens": 67108864,
+      "seed": 17,
+      "minus_sa": -0.08307896554470062,
+      "minus_sa_window_bootstrap_95ci": [
+        -0.09438924826681613,
+        -0.07200320549309254
+      ],
+      "minus_xsa": 0.004058249294757843,
+      "minus_xsa_window_bootstrap_95ci": [
+        -0.0031197862699627876,
+        0.011399331130087374
+      ]
+    }
+  ],
+  "primary_metric": "token-weighted held-out cross-entropy (nats/token)",
+  "perplexity": "exp(cross_entropy); same ranking, not independent evidence",
+  "selection_data": "validation",
+  "training_seeds": 1,
+  "uncertainty_note": "2000 paired window resamples, RNG 2026; independence approximation can be optimistic for shared documents. Does not quantify training-seed variability or adjust for configuration selection. No untouched test."
+}

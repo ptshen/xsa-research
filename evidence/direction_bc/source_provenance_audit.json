@@ -1,0 +1,7 @@
+{
+  "original_verified_source_commit": "1db7eff4ff61ade882e3dc0c3369e817fbc066f6",
+  "original_verified_files": 39,
+  "current_verified_files": 41,
+  "all_source_hashes_match": true,
+  "training_results_audit": "complete: independent_checkpoint_audit.json and final_audit.json both passed"
+}

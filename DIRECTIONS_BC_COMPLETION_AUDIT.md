@@ -1,20 +1,29 @@
-# Directions B/C completion audit — in progress
+# Directions B/C requirement audit
 
-The goal is not complete. Source and GPU numerical verification are complete. B 0.1 finished; B 0.5 is job 14076783; B 1.0, C and final collection remain.
+The scientific screen, independent collection and resource audits are complete. Final GitHub delivery verification remains before marking the full goal complete. The exact authorized objective is preserved in [objective.md](evidence/direction_bc/objective.md).
 
-| Requirement | Required authoritative evidence | Current status |
-|---|---|---|
-| Read objective/current repository and cluster state | Preserved objective, Git equality, queue/quota/accounting | Inspected; recorded in PROGRESS |
-| Correct B penalty including diagonal, gradients and causal chunks | Independent per-query reference, finite differences, causality and lambda-zero tests | CPU/CUDA passed, final gate 14076777 |
-| Correct C head-block geometry and differentiable metric | Written-space reference, head-width mismatch, gradients, guard/degeneracy tests | CPU/CUDA passed, final gate 14076777 |
-| Unchanged SA/XSA/A and no new parameters | Frozen-source output/gradient tests, parameter/initialization hashes | Frozen-source tests pass; all five real checkpoints re-evaluate exactly |
-| Deterministic resume and setting rejection | CPU/CUDA model/optimizer/data comparisons and strict config checks | CPU/CUDA passed |
-| All required CUDA tests and actual preserved checkpoint re-evaluation | JUnit with zero failures/skips; five per-window recheck records | Final job 14076777: 92 passed, no skips; first gate archived |
-| Measured profile and frozen complete-screen resource estimate | Nine-method timing/memory/kernel trace and DIRECTIONS_BC_PLAN.json | Final gate passed; complete screen fits |
-| Four complete matched screening runs | Four final 2048-update/67,108,864-token checkpoints and evaluations | B 0.1 complete; B 0.5 submitted; two remain |
-| Combined nine-method evaluation | Exact config/data/init/window/software identity; all batch hashes; summary and curves | Pending |
-| Method-specific diagnostics | Actual B weights/penalties; C written geometry and denominator/guard summaries | Implemented; final samples pending |
-| Resumable latest/previous checkpoint pairs | Independent loading, finite model/optimizer tensors and identity audit | Pending |
-| Budgets and preservation | All job IDs, starts/ends/TRES, reservations, quota/storage; original ledger and checkpoint checksums | 4080 GPU seconds reserved; final audit pending |
-| Actual commands, failures, results, limits and next-stage estimate | Final report, manifests, PROGRESS and raw evidence | Pending |
-| GitHub publication | Published source and final evidence commits verified against origin and Insomnia | Implementation 1db7eff published; final evidence pending |
+| Requirement | Verified outcome and evidence |
+|---|---|
+| Inspect workspace, prior results and available allocation | Local/Insomnia/GitHub state, ancestor/user instructions, handoff, previous reports/manifests, historical IDs, edu/short account and A6000/quota inspection recorded in PROGRESS and pre-implementation cluster evidence. Remote records preserved before synchronization. |
+| B formula and practical implementation | Positive value-cosine penalty before softmax, diagonal included, original values, differentiable value path, finite/nonnegative lambda, 128-query causal chunks and zero-strength SA recovery. Independent per-query references, output/gradient and causal-boundary tests pass. |
+| C output geometry | Actual contiguous output-weight column blocks, current differentiable Gram metric, pre-concatenation correction, no inverse/ridge/extra parameters. Written-space reference, identity-metric XSA equivalence, weight gradients and rectangular-head tests pass. |
+| Stable numerical conventions | fp32 low-precision reductions, preserved fp64 references, epsilon conventions, degeneracy/collinear/first-position tests. Real rank-one C failure preserved and fixed with a scale-aware safe denominator guard before C training. Guarded/bf16/per-head limitations documented. |
+| Unchanged baseline behavior and parameter budget | Frozen-source SA/XSA/A outputs/gradients and parameter names/shapes/counts match; 29,938,944 unique parameters for all nine. Original B source is independently preserved and verified. |
+| Meaningful red/green TDD | model_red, metadata_red, screen_red, geometry_guard_red and accounting_red artifacts with corresponding green results. Numerical/reference, finite-difference and end-to-end resume checks, not only implementation-mirroring assertions. |
+| Real CUDA correctness and preserved model re-evaluation | Hardened job 14076777: 92 tests, zero failures/errors/skips. Local 79 pass/13 CUDA-only skips distinguished. Five preserved checkpoints re-evaluate with maximum per-window difference 0.0 in both allocated gates. |
+| Checkpoint/resume and changed-setting rejection | CPU/CUDA bf16 interrupted/uninterrupted model, optimizer, RNG/data tests pass. Exact config equality includes lambda/chunks/epsilon. All 18 real latest/previous checkpoint files independently loaded and finite; no full training interruption was needed or claimed. |
+| Profile actual shape and freeze complete plan before screen | Nine methods profiled on A6000 at batch 8/context 512 with warmup/synchronization/full optimizer updates and measured peak memory/kernel dispatch. Written protocol and source hashes frozen. Full-screen reservations fit; second gate precedes all hardened-source runs. |
+| Four complete authorized configurations | Jobs 14076378/14076783/14076831/14076871 all COMPLETED 0:0, each 2048 updates/67,108,864 tokens. B strengths exactly 0.1/0.5/1.0 and one C. No setting tuned after viewing outcomes. |
+| Reproducible matched comparison | Nine-run collection checks raw shared configuration, software, initialization, data/evaluation hashes, all 2048 ordered batch hashes, final data state and exact token budgets. Existing SA/XSA/A runs reused, not repeated. |
+| Evaluation, uncertainty and curves | All nine CE/PPL values, paired differences and 2000-resample window intervals versus SA/XSA independently recomputed. PPL explicitly exp(CE); validation selection/window uncertainty separated from training-seed/test uncertainty. Full/zoomed curves versus tokens and elapsed loop time visually inspected. |
+| Actual timing/memory and backends | Report includes full-run allocated/loop times, throughput, measured training/profile memory and explicit B versus flash-SDPA paths. Historical SA/XSA training peaks remain missing. No unsupported chunk-memory or isolated-kernel speed claim. |
+| B/C diagnostics and conventions | Same four length-128 training windows/seed7017/fp32 forwards. B actual penalties/weighted similarity/diagonal mass/alignment; C head/written alignment, correction, denominator summaries and guards. All 6×6 records retained; zero/near-zero outputs separate; averaging and quantile conventions explained. |
+| Independent full checkpoint/collection audit | CPU job 14076904 COMPLETED 0:0, 75 seconds. Nine latest/previous pairs, finite model/optimizer/RNG metadata, complete histories, identities, loss/PPL/bootstrap reproduction and diagnostic/frozen-source checks pass in independent_checkpoint_audit.json. |
+| Compute/storage and no duplication | final_audit.json passes scheduler start/end/elapsed/request/TRES and sequential one-A6000 checks. Actual 4310 GPU seconds, including 163 verification/profile; 75 CPU seconds. Reservations 7020 GPU/600 verification/300 CPU within 14400/600/1800 limits. Final 10.278 GiB; estimated transient peak 11.40 GiB within 12 GiB and inspected quota. |
+| Preserve historical accounting and all artifacts | Original Part 1/A ledgers, five historical checkpoint-pair checksums and compact artifacts match. All logs, datasets, initialization and nine latest/previous pairs retained on university storage. No deletion to fit budget; no live user jobs at final queue check. |
+| Complete report, commands and failures | DIRECTIONS_BC_REPORT.md contains implementation/math/guard explanations, all positive and negative outcomes, job IDs/commands, two verification gates, C defect/fix, ancillary readiness-schema error, limitations and measured next-stage proposal. PROGRESS remains chronological with exact next action. |
+| Measured bounded follow-up proposal | Three fresh paired SA/XSA/C seeds: nine runs/603,979,776 tokens; measured projection 1.68 A6000 GPU-hours, conservative 4h35m GPU reservation plus 5-minute CPU cap; projected storage 17.10 GiB requires a separate cap/budget. Data preparation/queue time excluded explicitly. Nothing launched. |
+| Scope restrictions | No paid resources, extra hyperparameters/seeds/controls/downstream tasks/context/model sweeps/full matrix. No KV cache added; unsupported decoding reported. Negative/inconclusive result accepted. |
+| Owned GitHub publication | Implementation and intermediate evidence already published; final source/results/report commit and local/Insomnia/GitHub equality are the last delivery check. See delivery.json after verification. |
+
+No scientific or execution requirement remains blocked. Only final publication verification is pending.

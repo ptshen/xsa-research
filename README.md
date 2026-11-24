@@ -1,6 +1,6 @@
 # SA / XSA on Insomnia
 
-Directions B/C are in progress. See [DIRECTIONS_BC_PROTOCOL.md](DIRECTIONS_BC_PROTOCOL.md), [DIRECTIONS_BC_REPORT.md](DIRECTIONS_BC_REPORT.md), and [PROGRESS.md](PROGRESS.md) for the active stage and exact job state.
+Directions B/C are complete: all four new runs and the combined nine-configuration audit passed. No extension beat XSA in this one-seed validation screen; C was closest. See [DIRECTIONS_BC_PROTOCOL.md](DIRECTIONS_BC_PROTOCOL.md), [DIRECTIONS_BC_REPORT.md](DIRECTIONS_BC_REPORT.md), and [PROGRESS.md](PROGRESS.md) for results, limitations and verified job states.
 
 Direction A is complete: all three thresholds were trained and verified. See [DIRECTION_A_REPORT.md](DIRECTION_A_REPORT.md) for the full comparison and limitations. See [DIRECTION_A_STATUS.md](DIRECTION_A_STATUS.md) and [DIRECTION_A_PROTOCOL.md](DIRECTION_A_PROTOCOL.md).
 
@@ -8,7 +8,7 @@ The **approved one-seed pilot is complete**. See [PILOT_REPORT.md](PILOT_REPORT.
 
 A matched, resumable PyTorch baseline for Part 1 of `XSA_Insomnia_complete_handoff.md`. Start with [REPORT.md](REPORT.md) for actual results and [PROGRESS.md](PROGRESS.md) for jobs, failures and the next action. [REPRODUCTION_SPEC.md](REPRODUCTION_SPEC.md) distinguishes paper settings, upstream inheritance and assumptions.
 
-Remote root: **`~/algollms/xsa`**. GitHub: https://github.com/ptshen/xsa-research. All remote commands below start there. The exploratory pilot is complete; the paper-scale training matrix remains unlaunched. Direction A is implemented and screened; Directions B and C are implemented; their bounded screening is in progress.
+Remote root: **`~/algollms/xsa`**. GitHub: https://github.com/ptshen/xsa-research. All remote commands below start there. The exploratory pilot is complete; the paper-scale training matrix remains unlaunched. Directions A, B and C are implemented and screened. No further experiment is scheduled.
 
 ## Layout
 

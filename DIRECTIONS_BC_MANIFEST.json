@@ -1,0 +1,928 @@
+{
+  "screen_collected": true,
+  "final_accounting_pending": false,
+  "source_sha256": {
+    "DIRECTIONS_BC_PROTOCOL.md": "0063ce2a7637298789ec99359173e8e3c352a9847ef654dca8bd8f62fc3d1a73",
+    "configs/direction_b010.json": "0e29227b471f6b5758cec328e2917b3a0ebb2abf87846e357752b8716ffabfb7",
+    "configs/direction_b050.json": "851eae759343e7a3bea6253119a1f8477c39a73260ec063e325e2f4007e8d29f",
+    "configs/direction_b100.json": "a0bc9199d279c86abc3bcd56def5abd25fb125c871786e389840ba884c94c302",
+    "configs/direction_c.json": "f8b2ede199882564bcd3a2b7a827aa03c30d9055e63c1d53eb96ad1ff9d40f12",
+    "evidence/direction_bc/audit_remote.py": "e5b14359fc1e451c2ec30aa700dd9b0e6cac698b7f1b429a4b17a1db6ef223c2",
+    "evidence/direction_bc/baseline_model.py": "978345cc94ada9fd1efaa700f917190b119dcd17ff8e5c6ac11171005091027a",
+    "evidence/direction_bc/budget.json": "c43835c6e88a7f2fbf35709278839844c23f601097617e8886391d6650d7a425",
+    "evidence/direction_bc/pre_guard_model.py": "fa15ed338be7847ca92757e1acad89ce0e9cba8891c644866bd7a82a8c7a1a65",
+    "slurm/direction_bc_collect.sbatch": "ef6af051608d70e6cd1922808e6f2efd8f0bb09129a9cd8d5494df1150abe9b1",
+    "slurm/direction_bc_train.sbatch": "12cc99697e82ffbaefb6f61a0d95d39a86c069f2d00bd65962bc6bf531473113",
+    "slurm/direction_bc_verify.sbatch": "292ec1213d54ce20214088ca5b4ace424f09cb96e57c8853e82f0bf3c4d60549",
+    "slurm/train.sbatch": "7cda28549a6c79c286c3ce357288f3aded97671cf49f58bfa9ebaaa1381c7e15",
+    "tests/test_alignment_cap.py": "6abbba33cc4e2e85e218b24dafb1c53bdc8546da68f7673abe2f23de091fbd4f",
+    "tests/test_analysis.py": "e4d4f7ebef617f8ecffe280af106e527192d9bca9bd143938d7bf482638f2912",
+    "tests/test_direction_a_screen.py": "83497e36ef9f017d750cf87502f73d0ac58218020b42763f27cc127408aa3f7a",
+    "tests/test_direction_bc_screen.py": "63816343f4405a8735a797765152799bc3d5e9d684c8a28992676f61c8a34250",
+    "tests/test_directions_bc.py": "51e1ed88290338d159084e5bb9165ac6b601fb6604e830fd0d5b3b25ca4de4ef",
+    "tests/test_model.py": "ee14fc5559b30dbda9c3df548c1778c828c3feb66563d2a3ed3b0465264bce39",
+    "tests/test_pilot_gate.py": "204da689612f863de5e474bce56d72374ac7922a17f0d028ce4acb0773d5f23b",
+    "tests/test_pipeline.py": "eb12b55546e0e5594cbb6ed0700810417e613f83e1d0bf2360bb8d63f4504d8e",
+    "tests/test_signal.py": "8d6d618423785f0af3d40fd71904784dba4b316fc8aff1cd3ad44cbd66e26006",
+    "tests/test_submission.py": "566d9fa2f427f19b4cb4473c4d5d68cc98fb94c26335bc8198f9ee8e92180e24",
+    "xsa/__init__.py": "af462f57faea46d513b91310656a1817cdbdb84beda4fe3bd1400526110d9631",
+    "xsa/bc_submission.py": "84adad4bd5331d18b237299e6c1d7e04b30d2ddb48ecbc5f6ead0f29ba6169f4",
+    "xsa/benchmark.py": "b014c43df392318d511a5bc5bbeabbd29f0ca3cd434744fbed23ea95f2fee428",
+    "xsa/collect.py": "36036f92ea8e37db2cc825f9946caf077cf0f71284087ad9104479a4373c39f2",
+    "xsa/config.py": "25b20f9cf29a70841c8951aa152032f00c3e65fbed934202e5c2f3ed3bb998e9",
+    "xsa/data.py": "c7a124cf34d580f33f84a1528d2c98a372a65b0fefae229ae544d5095d388ef5",
+    "xsa/diagnostics.py": "4fbebc4449024683c0aa93d4e287de4578f34dda6b4995291874e5861b12730c",
+    "xsa/direction_a.py": "4dfd76063bdde2441756785f2890cd89f16e18e3fe1a6d1f9b754de114cc84ee",
+    "xsa/direction_bc.py": "7d84418bc9e9c33ce22f2adc23ea32153aba7750f65cdf87e0d6058dcee3b3b7",
+    "xsa/downstream.py": "b43237a9c00e1686404b55422c8902ab24d069810fc1947663be7e1a0c37856d",
+    "xsa/evaluate.py": "d8b2dcc0d1c27d310ad79cfe27e5e4f3ebf05d5b5c1fbada1db8799fcbbd5b10",
+    "xsa/initialize.py": "49ea6b70d55540adf90aebdfd5ae90b7800e03cc2c2633c246326f339cac316f",
+    "xsa/model.py": "f14718b3f7346091f855e4c13eb32ce4ff26a96421f12acaafdccc5389ac17bc",
+    "xsa/pilot.py": "84be03eea63f7510ab297ac38e059d8d5e7f4437ee29c2e8e9620126f39555bc",
+    "xsa/smoke.py": "cc9d7856ff92e5def71ccabf7e310112442bbce423217bd571a9e92515158568",
+    "xsa/stage_submission.py": "bb5ec63c417562529d5bb6ababc4d8700051b913273ff29dea4d500563396772",
+    "xsa/submission.py": "f2724516f47ace1bf1aeb5f8e83c55364b61828d897bb0d9d1790d6fe3b8e562",
+    "xsa/train.py": "f374ca5f205e7c05ab02785e549bc90e9cddeee321c1040dade1d17b88d41992"
+  },
+  "source_commit": "a752a9da4a790f6483816c5c1f0cbe14fe5b4b4e",
+  "summary": {
+    "results": [
+      {
+        "attention": "sa",
+        "alignment_tau": null,
+        "similarity_lambda": null,
+        "query_chunk_size": null,
+        "cross_entropy": 4.890469938516617,
+        "perplexity": 133.01606873983184,
+        "tokens": 67108864,
+        "seed": 17,
+        "minus_sa": 0.0,
+        "minus_sa_window_bootstrap_95ci": [
+          0.0,
+          0.0
+        ],
+        "minus_xsa": 0.08713721483945847,
+        "minus_xsa_window_bootstrap_95ci": [
+          0.07541421875357628,
+          0.09983557593077418
+        ]
+      },
+      {
+        "attention": "xsa",
+        "alignment_tau": null,
+        "similarity_lambda": null,
+        "query_chunk_size": null,
+        "cross_entropy": 4.803332723677158,
+        "perplexity": 121.91605372546456,
+        "tokens": 67108864,
+        "seed": 17,
+        "minus_sa": -0.08713721483945847,
+        "minus_sa_window_bootstrap_95ci": [
+          -0.09983557593077422,
+          -0.07541421875357629
+        ],
+        "minus_xsa": 0.0,
+        "minus_xsa_window_bootstrap_95ci": [
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "attention": "alignment_cap",
+        "alignment_tau": 0.25,
+        "similarity_lambda": null,
+        "query_chunk_size": null,
+        "cross_entropy": 4.821492746472359,
+        "perplexity": 124.15027741574238,
+        "tokens": 67108864,
+        "seed": 17,
+        "minus_sa": -0.06897719204425812,
+        "minus_sa_window_bootstrap_95ci": [
+          -0.08086019903421401,
+          -0.058495788276195546
+        ],
+        "minus_xsa": 0.018160022795200348,
+        "minus_xsa_window_bootstrap_95ci": [
+          0.01062997505068779,
+          0.02533871810883283
+        ]
+      },
+      {
+        "attention": "alignment_cap",
+        "alignment_tau": 0.5,
+        "similarity_lambda": null,
+        "query_chunk_size": null,
+        "cross_entropy": 4.814513556659222,
+        "perplexity": 123.28682566595867,
+        "tokens": 67108864,
+        "seed": 17,
+        "minus_sa": -0.07595638185739517,
+        "minus_sa_window_bootstrap_95ci": [
+          -0.0872408939525485,
+          -0.0649890398606658
+        ],
+        "minus_xsa": 0.011180832982063293,
+        "minus_xsa_window_bootstrap_95ci": [
+          0.003703085891902447,
+          0.019385526143014427
+        ]
+      },
+      {
+        "attention": "alignment_cap",
+        "alignment_tau": 0.75,
+        "similarity_lambda": null,
+        "query_chunk_size": null,
+        "cross_entropy": 4.871186397969723,
+        "perplexity": 130.47562111991948,
+        "tokens": 67108864,
+        "seed": 17,
+        "minus_sa": -0.019283540546894073,
+        "minus_sa_window_bootstrap_95ci": [
+          -0.02486054562032223,
+          -0.01348159927874804
+        ],
+        "minus_xsa": 0.06785367429256439,
+        "minus_xsa_window_bootstrap_95ci": [
+          0.057249261625111104,
+          0.07970202602446079
+        ]
+      },
+      {
+        "attention": "value_penalty",
+        "alignment_tau": null,
+        "similarity_lambda": 0.1,
+        "query_chunk_size": 128,
+        "cross_entropy": 4.88484551012516,
+        "perplexity": 132.27002937547778,
+        "tokens": 67108864,
+        "seed": 17,
+        "minus_sa": -0.005624428391456604,
+        "minus_sa_window_bootstrap_95ci": [
+          -0.011561729572713375,
+          0.0005353797227144219
+        ],
+        "minus_xsa": 0.08151278644800186,
+        "minus_xsa_window_bootstrap_95ci": [
+          0.06806574091315269,
+          0.0964074844494462
+        ]
+      },
+      {
+        "attention": "value_penalty",
+        "alignment_tau": null,
+        "similarity_lambda": 0.5,
+        "query_chunk_size": 128,
+        "cross_entropy": 4.880451641976833,
+        "perplexity": 131.69012724614353,
+        "tokens": 67108864,
+        "seed": 17,
+        "minus_sa": -0.010018296539783478,
+        "minus_sa_window_bootstrap_95ci": [
+          -0.016053102910518646,
+          -0.004111159406602384
+        ],
+        "minus_xsa": 0.07711891829967499,
+        "minus_xsa_window_bootstrap_95ci": [
+          0.06636608429253102,
+          0.08942982237786054
+        ]
+      },
+      {
+        "attention": "value_penalty",
+        "alignment_tau": null,
+        "similarity_lambda": 1.0,
+        "query_chunk_size": 128,
+        "cross_entropy": 4.909962140023708,
+        "perplexity": 135.63427920066152,
+        "tokens": 67108864,
+        "seed": 17,
+        "minus_sa": 0.019492201507091522,
+        "minus_sa_window_bootstrap_95ci": [
+          0.011360791511833668,
+          0.027892702631652354
+        ],
+        "minus_xsa": 0.10662941634654999,
+        "minus_xsa_window_bootstrap_95ci": [
+          0.09035917669534684,
+          0.1246867410838604
+        ]
+      },
+      {
+        "attention": "output_geometry",
+        "alignment_tau": null,
+        "similarity_lambda": null,
+        "query_chunk_size": null,
+        "cross_entropy": 4.807390972971916,
+        "perplexity": 122.4118247653318,
+        "tokens": 67108864,
+        "seed": 17,
+        "minus_sa": -0.08307896554470062,
+        "minus_sa_window_bootstrap_95ci": [
+          -0.09438924826681613,
+          -0.07200320549309254
+        ],
+        "minus_xsa": 0.004058249294757843,
+        "minus_xsa_window_bootstrap_95ci": [
+          -0.0031197862699627876,
+          0.011399331130087374
+        ]
+      }
+    ],
+    "primary_metric": "token-weighted held-out cross-entropy (nats/token)",
+    "perplexity": "exp(cross_entropy); same ranking, not independent evidence",
+    "selection_data": "validation",
+    "training_seeds": 1,
+    "uncertainty_note": "2000 paired window resamples, RNG 2026; independence approximation can be optimistic for shared documents. Does not quantify training-seed variability or adjust for configuration selection. No untouched test."
+  },
+  "identities": [
+    {
+      "run": "runs/pilot-sa-s17",
+      "checkpoint_sha256": "191d08c8c043cc183a7b484a5bd76a6b714ffbda59e6ea97d79f6fe8cdd7a3e5",
+      "previous_checkpoint_sha256": "33cf66963a308857a1a215be486888a31742660f33fae9e89a461f443cb41bb7",
+      "initial_state_sha256": "800499a31616c203ec7ee0267d1c99505b74d9ed88d2df0228528491ddcefade",
+      "parameters": {
+        "total_unique": 29938944,
+        "token_embedding_tied_head": 19316736,
+        "non_embedding": 10622208
+      },
+      "updates": 2048,
+      "all_batch_hashes_match_baseline": true,
+      "final_data_state_matches_baseline": true
+    },
+    {
+      "run": "runs/pilot-xsa-s17",
+      "checkpoint_sha256": "a62d3fce351c940bced933769e2118b6ec95c4a6ea613c6b936b16b583ff195c",
+      "previous_checkpoint_sha256": "069f901d3cbbaee4fc38ecebf348c92458ad47b85e7f50c486e962a0a08c2116",
+      "initial_state_sha256": "800499a31616c203ec7ee0267d1c99505b74d9ed88d2df0228528491ddcefade",
+      "parameters": {
+        "total_unique": 29938944,
+        "token_embedding_tied_head": 19316736,
+        "non_embedding": 10622208
+      },
+      "updates": 2048,
+      "all_batch_hashes_match_baseline": true,
+      "final_data_state_matches_baseline": true
+    },
+    {
+      "run": "runs/direction-a-tau025-s17",
+      "checkpoint_sha256": "4094413e1f4a70cb696b05dbd63800a19a5a0889263842101d18eccb2f7629b7",
+      "previous_checkpoint_sha256": "1a875c393372255f80b6dae8caf8414d7150fbc2822872226201bab7576243b8",
+      "initial_state_sha256": "800499a31616c203ec7ee0267d1c99505b74d9ed88d2df0228528491ddcefade",
+      "parameters": {
+        "total_unique": 29938944,
+        "token_embedding_tied_head": 19316736,
+        "non_embedding": 10622208
+      },
+      "updates": 2048,
+      "all_batch_hashes_match_baseline": true,
+      "final_data_state_matches_baseline": true
+    },
+    {
+      "run": "runs/direction-a-tau050-s17",
+      "checkpoint_sha256": "bb9bba8307bd9d78aff3b91f49231995ff903b718289f198679127a2aa33f652",
+      "previous_checkpoint_sha256": "926a3e04a5bc10a6650f83cbb009247ab138ad11be7dbcd84ca171e0af50d746",
+      "initial_state_sha256": "800499a31616c203ec7ee0267d1c99505b74d9ed88d2df0228528491ddcefade",
+      "parameters": {
+        "total_unique": 29938944,
+        "token_embedding_tied_head": 19316736,
+        "non_embedding": 10622208
+      },
+      "updates": 2048,
+      "all_batch_hashes_match_baseline": true,
+      "final_data_state_matches_baseline": true
+    },
+    {
+      "run": "runs/direction-a-tau075-s17",
+      "checkpoint_sha256": "0179b5dcd5d98870e764459304e7b355fd715d638d039136afa97c6c9de30dba",
+      "previous_checkpoint_sha256": "a3bba5447122d5c7631cd943c97a3f51807f57fa957dedaacfef4e00837f20e7",
+      "initial_state_sha256": "800499a31616c203ec7ee0267d1c99505b74d9ed88d2df0228528491ddcefade",
+      "parameters": {
+        "total_unique": 29938944,
+        "token_embedding_tied_head": 19316736,
+        "non_embedding": 10622208
+      },
+      "updates": 2048,
+      "all_batch_hashes_match_baseline": true,
+      "final_data_state_matches_baseline": true
+    },
+    {
+      "run": "runs/direction-b010-s17",
+      "checkpoint_sha256": "06f5cc08ba136186391a6c2ae212d068d8401f6bb4e3ac8ad1c105a0bc1f5c13",
+      "previous_checkpoint_sha256": "2e8bf56a3bbc0247cf73d0002008f919eec47064e6c2b37fc4102fc6664257bf",
+      "initial_state_sha256": "800499a31616c203ec7ee0267d1c99505b74d9ed88d2df0228528491ddcefade",
+      "parameters": {
+        "total_unique": 29938944,
+        "token_embedding_tied_head": 19316736,
+        "non_embedding": 10622208
+      },
+      "updates": 2048,
+      "all_batch_hashes_match_baseline": true,
+      "final_data_state_matches_baseline": true
+    },
+    {
+      "run": "runs/direction-b050-s17",
+      "checkpoint_sha256": "941e042687ea2d4b8044c1e6c6182689abac77a250d1dc2ee28ca1250e41610f",
+      "previous_checkpoint_sha256": "ce396fc414261c8f67d9532429f05e9c26e1ee34724258246d0df398d8597425",
+      "initial_state_sha256": "800499a31616c203ec7ee0267d1c99505b74d9ed88d2df0228528491ddcefade",
+      "parameters": {
+        "total_unique": 29938944,
+        "token_embedding_tied_head": 19316736,
+        "non_embedding": 10622208
+      },
+      "updates": 2048,
+      "all_batch_hashes_match_baseline": true,
+      "final_data_state_matches_baseline": true
+    },
+    {
+      "run": "runs/direction-b100-s17",
+      "checkpoint_sha256": "d1712f874011db105e32d862ec5e1501312fdf2444be0471daa2c005f0958785",
+      "previous_checkpoint_sha256": "087e9be8b845f3bb37514e29d667d7476750794880259ce44c31b6e54e6adf50",
+      "initial_state_sha256": "800499a31616c203ec7ee0267d1c99505b74d9ed88d2df0228528491ddcefade",
+      "parameters": {
+        "total_unique": 29938944,
+        "token_embedding_tied_head": 19316736,
+        "non_embedding": 10622208
+      },
+      "updates": 2048,
+      "all_batch_hashes_match_baseline": true,
+      "final_data_state_matches_baseline": true
+    },
+    {
+      "run": "runs/direction-c-s17",
+      "checkpoint_sha256": "d66a9351ba2d82042d7d3eac9b7cb45cfa95700fb2a447c679ef778c85439b98",
+      "previous_checkpoint_sha256": "a603510e4daa466af8a2c513110dc0e80827825d06283086f68c1b4a63e6005f",
+      "initial_state_sha256": "800499a31616c203ec7ee0267d1c99505b74d9ed88d2df0228528491ddcefade",
+      "parameters": {
+        "total_unique": 29938944,
+        "token_embedding_tied_head": 19316736,
+        "non_embedding": 10622208
+      },
+      "updates": 2048,
+      "all_batch_hashes_match_baseline": true,
+      "final_data_state_matches_baseline": true
+    }
+  ],
+  "timing": [
+    {
+      "run": "runs/pilot-sa-s17",
+      "training_loop_seconds": 582.2252516900189,
+      "training_loop_tokens_per_second": 115262.71628584269,
+      "peak_training_allocated_bytes": null,
+      "runtime_sessions": []
+    },
+    {
+      "run": "runs/pilot-xsa-s17",
+      "training_loop_seconds": 640.6024811069947,
+      "training_loop_tokens_per_second": 104758.98233180796,
+      "peak_training_allocated_bytes": null,
+      "runtime_sessions": []
+    },
+    {
+      "run": "runs/direction-a-tau025-s17",
+      "training_loop_seconds": 652.7950820829719,
+      "training_loop_tokens_per_second": 102802.34309649761,
+      "peak_training_allocated_bytes": 4029444096,
+      "runtime_sessions": [
+        {
+          "session": "d94d2cecfb1b434c88afdae00be2e9f1",
+          "attention": "alignment_cap",
+          "alignment_tau": 0.25,
+          "session_tokens": 67108864,
+          "session_seconds_including_final_evaluation_and_saves": 653.465632018866,
+          "peak_allocated_bytes": 4029444096,
+          "peak_reserved_bytes": 4521459712
+        }
+      ]
+    },
+    {
+      "run": "runs/direction-a-tau050-s17",
+      "training_loop_seconds": 659.2204616179224,
+      "training_loop_tokens_per_second": 101800.33525551521,
+      "peak_training_allocated_bytes": 4029444096,
+      "runtime_sessions": [
+        {
+          "session": "d7ba3b9771cf4d7b9da0f8aaa92a57b7",
+          "attention": "alignment_cap",
+          "alignment_tau": 0.5,
+          "session_tokens": 67108864,
+          "session_seconds_including_final_evaluation_and_saves": 663.0377335350495,
+          "peak_allocated_bytes": 4029444096,
+          "peak_reserved_bytes": 4521459712
+        }
+      ]
+    },
+    {
+      "run": "runs/direction-a-tau075-s17",
+      "training_loop_seconds": 646.337646863889,
+      "training_loop_tokens_per_second": 103829.4215502077,
+      "peak_training_allocated_bytes": 4029444096,
+      "runtime_sessions": [
+        {
+          "session": "1aec8eef4d58489b8d6671dd38546395",
+          "attention": "alignment_cap",
+          "alignment_tau": 0.75,
+          "session_tokens": 67108864,
+          "session_seconds_including_final_evaluation_and_saves": 647.0220850589685,
+          "peak_allocated_bytes": 4029444096,
+          "peak_reserved_bytes": 4521459712
+        }
+      ]
+    },
+    {
+      "run": "runs/direction-b010-s17",
+      "training_loop_seconds": 1108.4190829880536,
+      "training_loop_tokens_per_second": 60544.66675103544,
+      "peak_training_allocated_bytes": 4821374976,
+      "runtime_sessions": [
+        {
+          "session": "c9d26b4187864d57b6f2ed6f09d52ba8",
+          "attention": "value_penalty",
+          "alignment_tau": null,
+          "similarity_lambda": 0.1,
+          "query_chunk_size": 128,
+          "attention_backend": "explicit fp32 query chunks",
+          "session_tokens": 67108864,
+          "session_seconds_including_final_evaluation_and_saves": 1109.3830206019338,
+          "peak_allocated_bytes": 4821374976,
+          "peak_reserved_bytes": 5328863232
+        }
+      ]
+    },
+    {
+      "run": "runs/direction-b050-s17",
+      "training_loop_seconds": 1127.4667395299766,
+      "training_loop_tokens_per_second": 59521.81261504587,
+      "peak_training_allocated_bytes": 4821374976,
+      "runtime_sessions": [
+        {
+          "session": "7c9227b0abe94978813a80a7aba8ba49",
+          "attention": "value_penalty",
+          "alignment_tau": null,
+          "similarity_lambda": 0.5,
+          "query_chunk_size": 128,
+          "attention_backend": "explicit fp32 query chunks",
+          "session_tokens": 67108864,
+          "session_seconds_including_final_evaluation_and_saves": 1128.6605190320406,
+          "peak_allocated_bytes": 4821374976,
+          "peak_reserved_bytes": 5328863232
+        }
+      ]
+    },
+    {
+      "run": "runs/direction-b100-s17",
+      "training_loop_seconds": 1123.0203361241147,
+      "training_loop_tokens_per_second": 59757.478864196826,
+      "peak_training_allocated_bytes": 4821374976,
+      "runtime_sessions": [
+        {
+          "session": "c8d9907b87234e349665a8a2f909bcbe",
+          "attention": "value_penalty",
+          "alignment_tau": null,
+          "similarity_lambda": 1.0,
+          "query_chunk_size": 128,
+          "attention_backend": "explicit fp32 query chunks",
+          "session_tokens": 67108864,
+          "session_seconds_including_final_evaluation_and_saves": 1125.2661259311717,
+          "peak_allocated_bytes": 4821374976,
+          "peak_reserved_bytes": 5328863232
+        }
+      ]
+    },
+    {
+      "run": "runs/direction-c-s17",
+      "training_loop_seconds": 668.4391707610339,
+      "training_loop_tokens_per_second": 100396.36654386212,
+      "peak_training_allocated_bytes": 4034441216,
+      "runtime_sessions": [
+        {
+          "session": "c7161dd3c7e3412896b3e0c8b89e5934",
+          "attention": "output_geometry",
+          "alignment_tau": null,
+          "similarity_lambda": null,
+          "query_chunk_size": null,
+          "attention_backend": "sdpa",
+          "session_tokens": 67108864,
+          "session_seconds_including_final_evaluation_and_saves": 669.4735471201129,
+          "peak_allocated_bytes": 4034441216,
+          "peak_reserved_bytes": 4523556864
+        }
+      ]
+    }
+  ],
+  "project_bytes": 11035887923,
+  "jobs": [
+    {
+      "key": "direction-bc-verify-v1",
+      "kind": "verify",
+      "seconds": 300,
+      "tag": null,
+      "resume": false,
+      "job_id": "14076373",
+      "submitted_at": 1795507488.034276,
+      "command": [
+        "sbatch",
+        "--parsable",
+        "--no-requeue",
+        "--account=edu",
+        "--partition=short",
+        "--job-name=xsa-bc-verify",
+        "--time=00:05:00",
+        "--output=logs/direction-bc-verify-v1-%j.log",
+        "--cpus-per-task=8",
+        "--mem=32G",
+        "--gres=gpu:A6000:1",
+        "slurm/direction_bc_verify.sbatch"
+      ],
+      "state": "completed",
+      "actual_elapsed_seconds": 59,
+      "exit_code": "0:0",
+      "source_commit": "1db7eff4ff61ade882e3dc0c3369e817fbc066f6",
+      "started": "2026-11-24T03:05:28",
+      "ended": "2026-11-24T03:06:27"
+    },
+    {
+      "key": "direction-bc-b010-v1",
+      "kind": "train",
+      "seconds": 1740,
+      "tag": "b010",
+      "resume": false,
+      "job_id": "14076378",
+      "submitted_at": 1795507690.284108,
+      "command": [
+        "sbatch",
+        "--parsable",
+        "--no-requeue",
+        "--account=edu",
+        "--partition=short",
+        "--job-name=xsa-bc-train",
+        "--time=00:29:00",
+        "--output=logs/direction-bc-b010-v1-%j.log",
+        "--cpus-per-task=8",
+        "--mem=32G",
+        "--gres=gpu:A6000:1",
+        "slurm/direction_bc_train.sbatch"
+      ],
+      "state": "completed",
+      "actual_elapsed_seconds": 1118,
+      "exit_code": "0:0",
+      "source_commit": "1db7eff4ff61ade882e3dc0c3369e817fbc066f6",
+      "started": "2026-11-24T03:08:28",
+      "ended": "2026-11-24T03:27:06"
+    },
+    {
+      "key": "direction-bc-verify-v2",
+      "kind": "verify",
+      "seconds": 300,
+      "tag": null,
+      "resume": false,
+      "source_commit": "a752a9da4a790f6483816c5c1f0cbe14fe5b4b4e",
+      "job_id": "14076777",
+      "submitted_at": 1795508933.1467931,
+      "command": [
+        "sbatch",
+        "--parsable",
+        "--no-requeue",
+        "--account=edu",
+        "--partition=short",
+        "--job-name=xsa-bc-verify",
+        "--time=00:05:00",
+        "--output=logs/direction-bc-verify-v2-%j.log",
+        "--cpus-per-task=8",
+        "--mem=32G",
+        "--gres=gpu:A6000:1",
+        "slurm/direction_bc_verify.sbatch"
+      ],
+      "state": "completed",
+      "actual_elapsed_seconds": 104,
+      "exit_code": "0:0",
+      "started": "2026-11-24T03:29:23",
+      "ended": "2026-11-24T03:31:07"
+    },
+    {
+      "key": "direction-bc-b050-v1",
+      "kind": "train",
+      "seconds": 1740,
+      "tag": "b050",
+      "resume": false,
+      "source_commit": "a752a9da4a790f6483816c5c1f0cbe14fe5b4b4e",
+      "job_id": "14076783",
+      "submitted_at": 1795509122.7267656,
+      "command": [
+        "sbatch",
+        "--parsable",
+        "--no-requeue",
+        "--account=edu",
+        "--partition=short",
+        "--job-name=xsa-bc-train",
+        "--time=00:29:00",
+        "--output=logs/direction-bc-b050-v1-%j.log",
+        "--cpus-per-task=8",
+        "--mem=32G",
+        "--gres=gpu:A6000:1",
+        "slurm/direction_bc_train.sbatch"
+      ],
+      "state": "completed",
+      "actual_elapsed_seconds": 1153,
+      "exit_code": "0:0",
+      "started": "2026-11-24T03:32:04",
+      "ended": "2026-11-24T03:51:17"
+    },
+    {
+      "key": "direction-bc-b100-v1",
+      "kind": "train",
+      "seconds": 1740,
+      "tag": "b100",
+      "resume": false,
+      "source_commit": "a752a9da4a790f6483816c5c1f0cbe14fe5b4b4e",
+      "job_id": "14076831",
+      "submitted_at": 1795510312.7888343,
+      "command": [
+        "sbatch",
+        "--parsable",
+        "--no-requeue",
+        "--account=edu",
+        "--partition=short",
+        "--job-name=xsa-bc-train",
+        "--time=00:29:00",
+        "--output=logs/direction-bc-b100-v1-%j.log",
+        "--cpus-per-task=8",
+        "--mem=32G",
+        "--gres=gpu:A6000:1",
+        "slurm/direction_bc_train.sbatch"
+      ],
+      "state": "completed",
+      "actual_elapsed_seconds": 1150,
+      "exit_code": "0:0",
+      "started": "2026-11-24T03:52:03",
+      "ended": "2026-11-24T04:11:13"
+    },
+    {
+      "key": "direction-bc-c-v1",
+      "kind": "train",
+      "seconds": 1200,
+      "tag": "c",
+      "resume": false,
+      "source_commit": "a752a9da4a790f6483816c5c1f0cbe14fe5b4b4e",
+      "job_id": "14076871",
+      "submitted_at": 1795511508.4707663,
+      "command": [
+        "sbatch",
+        "--parsable",
+        "--no-requeue",
+        "--account=edu",
+        "--partition=short",
+        "--job-name=xsa-bc-train",
+        "--time=00:20:00",
+        "--output=logs/direction-bc-c-v1-%j.log",
+        "--cpus-per-task=8",
+        "--mem=32G",
+        "--gres=gpu:A6000:1",
+        "slurm/direction_bc_train.sbatch"
+      ],
+      "state": "completed",
+      "actual_elapsed_seconds": 726,
+      "exit_code": "0:0",
+      "started": "2026-11-24T04:12:04",
+      "ended": "2026-11-24T04:24:10"
+    },
+    {
+      "key": "direction-bc-collect-v1",
+      "kind": "collect",
+      "seconds": 300,
+      "tag": null,
+      "resume": false,
+      "source_commit": "a752a9da4a790f6483816c5c1f0cbe14fe5b4b4e",
+      "job_id": "14076904",
+      "submitted_at": 1795512281.9698327,
+      "command": [
+        "sbatch",
+        "--parsable",
+        "--no-requeue",
+        "--account=edu",
+        "--partition=short",
+        "--job-name=xsa-bc-collect",
+        "--time=00:05:00",
+        "--output=logs/direction-bc-collect-v1-%j.log",
+        "--cpus-per-task=2",
+        "--mem=8G",
+        "slurm/direction_bc_collect.sbatch"
+      ],
+      "state": "completed",
+      "actual_elapsed_seconds": 75,
+      "exit_code": "0:0",
+      "started": "2026-11-24T04:24:54",
+      "ended": "2026-11-24T04:26:09"
+    }
+  ],
+  "selection_data": "validation",
+  "next_stage_launched": false,
+  "scientific_screen_complete": true,
+  "delivery_pending": true,
+  "resource_audit": {
+    "gpu_seconds": 4310,
+    "verification_gpu_seconds": 163,
+    "cpu_seconds": 75,
+    "reserved_gpu_seconds": 7020,
+    "reserved_verification_gpu_seconds": 600,
+    "reserved_cpu_seconds": 300,
+    "sequential_gpu_allocations": true,
+    "failed_or_cancelled_jobs": [],
+    "jobs": [
+      {
+        "job_id": "14076373",
+        "kind": "verify",
+        "tag": null,
+        "state": "COMPLETED",
+        "exit_code": "0:0",
+        "node": "ins093",
+        "allocated_seconds": 59,
+        "reserved_seconds": 300,
+        "start": "2026-11-24T03:05:28",
+        "end": "2026-11-24T03:06:27",
+        "alloc_tres": "billing=8,cpu=8,gres/gpu:a6000=1,gres/gpu=1,mem=32G,node=1"
+      },
+      {
+        "job_id": "14076378",
+        "kind": "train",
+        "tag": "b010",
+        "state": "COMPLETED",
+        "exit_code": "0:0",
+        "node": "ins093",
+        "allocated_seconds": 1118,
+        "reserved_seconds": 1740,
+        "start": "2026-11-24T03:08:28",
+        "end": "2026-11-24T03:27:06",
+        "alloc_tres": "billing=8,cpu=8,gres/gpu:a6000=1,gres/gpu=1,mem=32G,node=1"
+      },
+      {
+        "job_id": "14076777",
+        "kind": "verify",
+        "tag": null,
+        "state": "COMPLETED",
+        "exit_code": "0:0",
+        "node": "ins083",
+        "allocated_seconds": 104,
+        "reserved_seconds": 300,
+        "start": "2026-11-24T03:29:23",
+        "end": "2026-11-24T03:31:07",
+        "alloc_tres": "billing=8,cpu=8,gres/gpu:a6000=1,gres/gpu=1,mem=32G,node=1"
+      },
+      {
+        "job_id": "14076783",
+        "kind": "train",
+        "tag": "b050",
+        "state": "COMPLETED",
+        "exit_code": "0:0",
+        "node": "ins083",
+        "allocated_seconds": 1153,
+        "reserved_seconds": 1740,
+        "start": "2026-11-24T03:32:04",
+        "end": "2026-11-24T03:51:17",
+        "alloc_tres": "billing=8,cpu=8,gres/gpu:a6000=1,gres/gpu=1,mem=32G,node=1"
+      },
+      {
+        "job_id": "14076831",
+        "kind": "train",
+        "tag": "b100",
+        "state": "COMPLETED",
+        "exit_code": "0:0",
+        "node": "ins083",
+        "allocated_seconds": 1150,
+        "reserved_seconds": 1740,
+        "start": "2026-11-24T03:52:03",
+        "end": "2026-11-24T04:11:13",
+        "alloc_tres": "billing=8,cpu=8,gres/gpu:a6000=1,gres/gpu=1,mem=32G,node=1"
+      },
+      {
+        "job_id": "14076871",
+        "kind": "train",
+        "tag": "c",
+        "state": "COMPLETED",
+        "exit_code": "0:0",
+        "node": "ins081",
+        "allocated_seconds": 726,
+        "reserved_seconds": 1200,
+        "start": "2026-11-24T04:12:04",
+        "end": "2026-11-24T04:24:10",
+        "alloc_tres": "billing=8,cpu=8,gres/gpu:a6000=1,gres/gpu=1,mem=32G,node=1"
+      },
+      {
+        "job_id": "14076904",
+        "kind": "collect",
+        "tag": null,
+        "state": "COMPLETED",
+        "exit_code": "0:0",
+        "node": "ins024",
+        "allocated_seconds": 75,
+        "reserved_seconds": 300,
+        "start": "2026-11-24T04:24:54",
+        "end": "2026-11-24T04:26:09",
+        "alloc_tres": "billing=2,cpu=2,mem=8G,node=1"
+      }
+    ],
+    "project_bytes": 11035931384,
+    "passed": true,
+    "frozen_sources_match": true,
+    "preserved_historical_artifacts": [
+      "evidence/job_ledger.json",
+      "evidence/direction_a/job_ledger.json",
+      "runs/pilot-sa-s17",
+      "runs/pilot-xsa-s17",
+      "runs/direction-a-tau025-s17",
+      "runs/direction-a-tau050-s17",
+      "runs/direction-a-tau075-s17"
+    ],
+    "original_b_source_verified": true,
+    "independent_checkpoint_audit_passed": true,
+    "note": "Storage peak is estimated separately; end-of-stage storage and actual scheduler usage are measured. GitHub delivery is verified separately."
+  },
+  "independent_audit": {
+    "passed": true,
+    "runs": [
+      {
+        "run": "runs/pilot-sa-s17",
+        "latest_and_previous_valid": true,
+        "full_batch_history_verified": true,
+        "config_and_software_match": true,
+        "metrics_recomputed": true,
+        "diagnostics_checked": true
+      },
+      {
+        "run": "runs/pilot-xsa-s17",
+        "latest_and_previous_valid": true,
+        "full_batch_history_verified": true,
+        "config_and_software_match": true,
+        "metrics_recomputed": true,
+        "diagnostics_checked": true
+      },
+      {
+        "run": "runs/direction-a-tau025-s17",
+        "latest_and_previous_valid": true,
+        "full_batch_history_verified": true,
+        "config_and_software_match": true,
+        "metrics_recomputed": true,
+        "diagnostics_checked": true
+      },
+      {
+        "run": "runs/direction-a-tau050-s17",
+        "latest_and_previous_valid": true,
+        "full_batch_history_verified": true,
+        "config_and_software_match": true,
+        "metrics_recomputed": true,
+        "diagnostics_checked": true
+      },
+      {
+        "run": "runs/direction-a-tau075-s17",
+        "latest_and_previous_valid": true,
+        "full_batch_history_verified": true,
+        "config_and_software_match": true,
+        "metrics_recomputed": true,
+        "diagnostics_checked": true
+      },
+      {
+        "run": "runs/direction-b010-s17",
+        "latest_and_previous_valid": true,
+        "full_batch_history_verified": true,
+        "config_and_software_match": true,
+        "metrics_recomputed": true,
+        "diagnostics_checked": true
+      },
+      {
+        "run": "runs/direction-b050-s17",
+        "latest_and_previous_valid": true,
+        "full_batch_history_verified": true,
+        "config_and_software_match": true,
+        "metrics_recomputed": true,
+        "diagnostics_checked": true
+      },
+      {
+        "run": "runs/direction-b100-s17",
+        "latest_and_previous_valid": true,
+        "full_batch_history_verified": true,
+        "config_and_software_match": true,
+        "metrics_recomputed": true,
+        "diagnostics_checked": true
+      },
+      {
+        "run": "runs/direction-c-s17",
+        "latest_and_previous_valid": true,
+        "full_batch_history_verified": true,
+        "config_and_software_match": true,
+        "metrics_recomputed": true,
+        "diagnostics_checked": true
+      }
+    ],
+    "pairs_of_checkpoints_loaded": 9,
+    "comparisons_and_bootstrap_reproduced": true,
+    "frozen_sources_match": true,
+    "resource_accounting": "separate final scheduler audit after collector exits"
+  },
+  "final_storage": {
+    "project_bytes": 11035931384,
+    "largest_checkpoint_bytes": 359483267,
+    "initial_state_bytes": 119770862,
+    "captured_at": "2026-11-24T09:27:38.562020+00:00",
+    "peak_disk": "estimated separately in frozen plan, not continuously sampled"
+  },
+  "report": "DIRECTIONS_BC_REPORT.md"
+}

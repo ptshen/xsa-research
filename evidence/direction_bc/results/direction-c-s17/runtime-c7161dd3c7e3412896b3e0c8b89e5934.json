@@ -1,0 +1,12 @@
+{
+  "session": "c7161dd3c7e3412896b3e0c8b89e5934",
+  "attention": "output_geometry",
+  "alignment_tau": null,
+  "similarity_lambda": null,
+  "query_chunk_size": null,
+  "attention_backend": "sdpa",
+  "session_tokens": 67108864,
+  "session_seconds_including_final_evaluation_and_saves": 669.4735471201129,
+  "peak_allocated_bytes": 4034441216,
+  "peak_reserved_bytes": 4523556864
+}

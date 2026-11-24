@@ -1,0 +1,9 @@
+{
+  "session": "1aec8eef4d58489b8d6671dd38546395",
+  "attention": "alignment_cap",
+  "alignment_tau": 0.75,
+  "session_tokens": 67108864,
+  "session_seconds_including_final_evaluation_and_saves": 647.0220850589685,
+  "peak_allocated_bytes": 4029444096,
+  "peak_reserved_bytes": 4521459712
+}

@@ -1,0 +1,81 @@
+{
+  "passed": true,
+  "runs": [
+    {
+      "run": "runs/pilot-sa-s17",
+      "latest_and_previous_valid": true,
+      "full_batch_history_verified": true,
+      "config_and_software_match": true,
+      "metrics_recomputed": true,
+      "diagnostics_checked": true
+    },
+    {
+      "run": "runs/pilot-xsa-s17",
+      "latest_and_previous_valid": true,
+      "full_batch_history_verified": true,
+      "config_and_software_match": true,
+      "metrics_recomputed": true,
+      "diagnostics_checked": true
+    },
+    {
+      "run": "runs/direction-a-tau025-s17",
+      "latest_and_previous_valid": true,
+      "full_batch_history_verified": true,
+      "config_and_software_match": true,
+      "metrics_recomputed": true,
+      "diagnostics_checked": true
+    },
+    {
+      "run": "runs/direction-a-tau050-s17",
+      "latest_and_previous_valid": true,
+      "full_batch_history_verified": true,
+      "config_and_software_match": true,
+      "metrics_recomputed": true,
+      "diagnostics_checked": true
+    },
+    {
+      "run": "runs/direction-a-tau075-s17",
+      "latest_and_previous_valid": true,
+      "full_batch_history_verified": true,
+      "config_and_software_match": true,
+      "metrics_recomputed": true,
+      "diagnostics_checked": true
+    },
+    {
+      "run": "runs/direction-b010-s17",
+      "latest_and_previous_valid": true,
+      "full_batch_history_verified": true,
+      "config_and_software_match": true,
+      "metrics_recomputed": true,
+      "diagnostics_checked": true
+    },
+    {
+      "run": "runs/direction-b050-s17",
+      "latest_and_previous_valid": true,
+      "full_batch_history_verified": true,
+      "config_and_software_match": true,
+      "metrics_recomputed": true,
+      "diagnostics_checked": true
+    },
+    {
+      "run": "runs/direction-b100-s17",
+      "latest_and_previous_valid": true,
+      "full_batch_history_verified": true,
+      "config_and_software_match": true,
+      "metrics_recomputed": true,
+      "diagnostics_checked": true
+    },
+    {
+      "run": "runs/direction-c-s17",
+      "latest_and_previous_valid": true,
+      "full_batch_history_verified": true,
+      "config_and_software_match": true,
+      "metrics_recomputed": true,
+      "diagnostics_checked": true
+    }
+  ],
+  "pairs_of_checkpoints_loaded": 9,
+  "comparisons_and_bootstrap_reproduced": true,
+  "frozen_sources_match": true,
+  "resource_accounting": "separate final scheduler audit after collector exits"
+}

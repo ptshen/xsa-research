@@ -1,6 +1,6 @@
 # XSA / Insomnia progress
 
-**Current stage:** implement, verify and screen Directions B/C under the objective preserved in `evidence/direction_bc/objective.md`. Latest state and next action are at the end of this log. Earlier stage limits below are historical.
+**Current stage:** Directions B/C science, independent collection and resource audits are complete; final GitHub delivery verification remains. The objective is preserved in `evidence/direction_bc/objective.md`. Latest state and next action are at the end of this log. Earlier stage limits below are historical.
 
 ## Original Part 1 goal and limits
 
@@ -295,3 +295,25 @@ Next action: inspect **14076783** with squeue/sacct and its existing artifacts. 
 - Confirmed completed B/C stage GPU usage now **2434 seconds** (163 verification +1118 B 0.1 +1153 B 0.5), plus current job 14076831. Reservations **5820/14400 GPU seconds**, verification **600/600**; C's planned 1200-second reservation still fits. CPU collector remains unsubmitted.
 
 Next action: monitor existing **14076831** through terminal state and complete artifact checks. The active sequencing workflow will submit only **c**, with a 1200-second cap, after B 1.0 succeeds; check the authoritative ledger before any manual action. Then submit the 300-second CPU collector, complete final scheduler/storage/preservation audit, inspect both plots, finish the report and measured fresh-seed estimate, and publish/verify final results. No additional verification or training variants are planned.
+
+- **b100 / 14076831 COMPLETED**, exit 0, **1150 GPU seconds**, full 2048 updates / 67,108,864 tokens. CE **4.9099621400**, perplexity **135.6342792**. All ordered batch hashes, protocol identities and finite training metrics pass; checkpoint pairs/evaluation/diagnostics exist. Full checkpoint/optimizer audit remains for the CPU collector.
+
+- Submitted **c / job 14076871**, key direction-bc-c-v1, 1200-second cap, one A6000 on edu/short, after confirming earlier jobs terminal and complete artifacts. Next: inspect this exact job through completion; no duplicate/retry.
+
+- **c / 14076871 COMPLETED**, exit 0, **726 GPU seconds**, full 2048 updates / 67,108,864 tokens. CE **4.8073909730**, perplexity **122.4118248**. All ordered batch hashes, protocol identities and finite training metrics pass; checkpoint pairs/evaluation/diagnostics exist. Full checkpoint/optimizer audit remains for the CPU collector.
+
+- Submitted CPU collector/independent checkpoint audit **14076904**, key direction-bc-collect-v1, 300-second cap, edu/short/2 CPUs/8 GiB. All six GPU jobs are COMPLETED 0:0; actual GPU total **4310 s**, verification **163 s**, reservations **7020 GPU / 600 verification / 300 CPU seconds**.
+- An ancillary readiness-print command expected an update key absent from the earlier B 0.1 readiness schema and raised KeyError. The guarded launcher independently checked every final evaluation and the frozen gate before submission; direct checks of all four evaluations confirm full 2048-update/67,108,864-token budgets. This was an observation-format error, not a training or collector failure. Use actual evaluation records for uniform budget checks.
+
+Next action: inspect existing CPU job **14076904**; then capture final scheduler/storage accounting, independently audit preserved artifacts, inspect plots, finalize report/next-stage estimate, and publish to GitHub. No more GPU runs.
+
+- **CPU collector 14076904 COMPLETED 0:0, 75 allocated seconds, ins024**. Combined nine-method collection and independent audit pass: all 18 latest/previous checkpoints loaded, finite model/optimizer state, exact complete batch/config/data/initialization/software identities, recomputed CE/PPL and paired intervals, diagnostic and frozen-source checks.
+- Final measured GPU allocation **4310 seconds (71m50s)** including **163 verification/profile seconds**; reservations **7020 GPU / 600 verification / 300 CPU seconds**. All jobs terminal, sequential one-A6000 allocations; queue empty. Final measured storage 11035931384 bytes. No historical artifact deleted.
+- C final CE **4.80739097297**, PPL **122.4118248**. Best extension, but XSA remains lower at 4.80333272368. C minus XSA **+0.0040582493**, paired-window interval **[-0.0031197863, +0.0113993311]**; no resolved superiority/equivalence claim.
+
+Next action: complete independent local resource/preservation audit, visually inspect plots, finish report and measured next-stage estimate, publish and verify all checkouts. No further jobs.
+
+- Independent local final audit **passed**: all seven scheduler records agree with reservations and elapsed/start/end/TRES, GPU intervals do not overlap, historical Part 1/A ledgers and checkpoint/compact-artifact identities are unchanged, both original/current source proofs match. Final project storage **11,035,931,384 bytes (10.278 GiB)**; frozen temporary-write peak estimate **11.40 GiB** below 12 GiB.
+- Both full and zoomed nine-method curves visually inspected. Final report contains every loss/difference/interval, measured runtime/memory, B/C diagnostics, numerical conventions, defect/recovery, actual commands and limitations. Next-stage proposal is three fresh paired seeds of SA/XSA/frozen C: **1.68 GPU-hours measured projection**, **4h35m conservative GPU reservation**, **17.10 GiB projected peak** (requires a separately authorized storage/compute budget). Nothing further launched.
+
+Next action: publish completed source/compact evidence/report, preserve the authoritative remote records before fast-forwarding, and verify local/Insomnia/GitHub commit equality and clean worktrees.

@@ -1,0 +1,7 @@
+{
+  "project_bytes": 11035931384,
+  "largest_checkpoint_bytes": 359483267,
+  "initial_state_bytes": 119770862,
+  "captured_at": "2026-11-24T09:27:38.562020+00:00",
+  "peak_disk": "estimated separately in frozen plan, not continuously sampled"
+}
