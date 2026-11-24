@@ -21,7 +21,7 @@ The original XSA paper identifies substantial alignment between an attention out
 For one attention head, let the ordinary causal attention aggregate be
 
 $$
-a_{ij}=\operatorname{softmax}_{j\le i}\!\left(\frac{q_i^\top k_j}{\sqrt{d_h}}\right),
+a_{ij}=\mathrm{softmax}_{j\le i}\!\left(\frac{q_i^\top k_j}{\sqrt{d_h}}\right),
 \qquad y_i=\sum_{j\le i}a_{ij}v_j.
 $$
 
@@ -46,7 +46,7 @@ We decompose the aggregate into parallel and perpendicular components and clip t
 $$
 u_i=\frac{v_i}{\|v_i\|},\quad c_i=y_i^\top u_i,\quad r_i=y_i-c_i u_i,
 \quad b_i=\frac{\tau}{\sqrt{1-\tau^2}}\|r_i\|,
-\qquad z_i=r_i+\operatorname{clip}(c_i,-b_i,b_i)u_i.
+\qquad z_i=r_i+\mathrm{clip}(c_i,-b_i,b_i)u_i.
 $$
 
 The bound limits the **absolute** cosine alignment for nonzero, numerically resolved outputs. We screened $\tau\in\{0.25,0.50,0.75\}$. At zero, A recovers XSA. The intervention clips negative as well as positive alignment. It is also not a simple interpolation to SA: for a collinear aggregate, including the first causal position, the perpendicular component is zero and every threshold below one produces zero output in exact arithmetic.
@@ -58,7 +58,7 @@ The bound limits the **absolute** cosine alignment for nonzero, numerically reso
 $$
 s'_{ij}=\frac{q_i^\top k_j}{\sqrt{d_h}}
 -\lambda\max\!\left(0,\cos(v_i,v_j)\right),
-\qquad z_i=\sum_{j\le i}\operatorname{softmax}_{j\le i}(s'_{ij})v_j.
+\qquad z_i=\sum_{j\le i}\mathrm{softmax}_{j\le i}(s'_{ij})v_j.
 $$
 
 We screened $\lambda\in\{0.1,0.5,1.0\}$. The penalty includes the diagonal, the values being aggregated remain unchanged, and gradients flow through value similarity. Lambda zero recovers SA within the tested numerical tolerances. B encourages different attention allocation but does not enforce output orthogonality. Its first position still returns its sole available value.
@@ -264,7 +264,7 @@ We should choose a small control family based on the question, rather than launc
 
 Two focused modifications could follow if diagnostics justify them:
 
-- **Interpolate projection geometry.** For nondegenerate output weights, use $G_{\alpha,h}=(1-\alpha)\bar g_h I+\alpha G_h$, where $\bar g_h=\operatorname{tr}(G_h)/d_h$. In exact arithmetic, the endpoints recover Euclidean/XSA and output-geometry/C projection. A small frozen grid can ask whether an intermediate geometry is useful. Shared numerical guards and endpoint tests are necessary; this is an unimplemented hypothesis, not a demonstrated improvement.
+- **Interpolate projection geometry.** For nondegenerate output weights, use $G_{\alpha,h}=(1-\alpha)\bar g_h I+\alpha G_h$, where $\bar g_h=\mathrm{tr}(G_h)/d_h$. In exact arithmetic, the endpoints recover Euclidean/XSA and output-geometry/C projection. A small frozen grid can ask whether an intermediate geometry is useful. Shared numerical guards and endpoint tests are necessary; this is an unimplemented hypothesis, not a demonstrated improvement.
 - **Distinguish positive and negative alignment.** A currently clips both signs, although the motivating bias is positive alignment. A positive-only cap would preserve negative parallel components and test whether symmetric clipping discards useful countervailing information. Measure signed activation and loss by position/head first. At threshold zero this variant would not generally equal XSA, which removes either sign.
 
 Learned per-head strengths or thresholds are another possible extension, but introduce parameters and more tuning freedom. They should follow fixed-strength and headwise diagnostic controls, with matched-capacity comparisons and a related-work review before any novelty claim.

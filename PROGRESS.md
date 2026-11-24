@@ -334,3 +334,9 @@ Next action: review DIRECTIONS_BC_REPORT.md and decide whether the proposed fres
 - Checked every reported CE/PPL/delta row and selected interval against the collected JSON, diagnostic means against saved layer/head records, aggregate token/compute arithmetic, local document/image links and Markdown structure. `python3 -m xsa.direction_bc gate` still passes; frozen numerical sources and experiment evidence are unchanged. Rechecked the primary XSA and BLiMP sources for the report's background references.
 
 Next research action: review MIDPOINT_REPORT.md and choose the follow-up question before defining a new scope and budget. No further experiment is scheduled; this documentation change includes GitHub publication and checkout verification.
+
+## Midpoint report LaTeX compatibility fix
+
+- Replaced all four unsupported operatorname macros in MIDPOINT_REPORT.md with standard roman math labels for softmax, clip and trace. Mathematical content and experimental results are unchanged. Checked that no prohibited macro remains and that math delimiters/braces are balanced.
+
+Next research action remains review of the midpoint findings and selection of a separately scoped follow-up; no experiment was launched for this formatting fix.
