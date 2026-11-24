@@ -80,6 +80,33 @@
       "--mem=32G",
       "slurm/direction_a_train.sbatch"
     ],
+    "state": "completed",
+    "actual_elapsed_seconds": 690,
+    "exit_code": "0:0",
+    "current_state_verified": true
+  },
+  {
+    "key": "direction-a-tau075-v1",
+    "kind": "train",
+    "seconds": 1800,
+    "tag": "075",
+    "resume": false,
+    "job_id": "14074780",
+    "submitted_at": 1795500309.2044923,
+    "command": [
+      "sbatch",
+      "--parsable",
+      "--no-requeue",
+      "--account=edu",
+      "--partition=short",
+      "--job-name=xsa-a-train",
+      "--time=00:30:00",
+      "--output=logs/direction-a-tau075-v1-%j.log",
+      "--gres=gpu:A6000:1",
+      "--cpus-per-task=8",
+      "--mem=32G",
+      "slurm/direction_a_train.sbatch"
+    ],
     "state": "submitted"
   }
 ]

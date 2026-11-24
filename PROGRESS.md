@@ -198,3 +198,7 @@ Resume action: restore the required network/VPN or cluster availability, then in
 - Submitted tau **0.50 job 14074753**, A6000/edu/short, 8 CPUs/32 GiB, 1800-second cap. Stage reservation **3780/7200 GPU seconds**, including 180/300 verification seconds. Confirmed actual elapsed so far is 38+663=**701 GPU seconds**, plus the new job when allocated. Tau 0.75 remains unsubmitted.
 
 Next: inspect 14074753 until terminal and verify complete artifacts, then submit tau 0.75. All existing results and checkpoints remain preserved.
+
+- **Tau 0.50 / 14074753 COMPLETED**, exit 0, **690 seconds**, ins093 A6000. Reached 2048 updates / 67,108,864 tokens; validation CE **4.8145135567**, perplexity **123.2868257**. All 2048 batch hashes, protocol identities and finite training metrics pass; evaluation, diagnostics and latest/previous checkpoints exist. Project **6,472,059,560 bytes**, leaving sufficient headroom for the final pair of checkpoints and an atomic temporary file (projected peak ~7.06 GiB). Confirmed stage GPU time: **1391 seconds**. Next: submit only tau 0.75, then collect all five methods.
+
+- Submitted final threshold **tau 0.75 / job 14074780**, same A6000/edu/short/8 CPUs/32 GiB/1800-second cap. Stage GPU reservations are **5580/7200 seconds**, including **180/300 verification seconds**. Prior two training jobs are terminal and their artifacts passed lightweight identity checks; full checkpoint loading/checksums for all five methods will run in the CPU collector. Next: monitor 14074780; no further training jobs are planned.
