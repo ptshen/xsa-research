@@ -1,5 +1,7 @@
 # SA / XSA on Insomnia
 
+Read [MIDPOINT_REPORT.md](MIDPOINT_REPORT.md) for the project overview, research directions, experimental workflow, nine-method results, analysis and proposed next steps.
+
 Directions B/C are complete: all four new runs and the combined nine-configuration audit passed. No extension beat XSA in this one-seed validation screen; C was closest. See [DIRECTIONS_BC_PROTOCOL.md](DIRECTIONS_BC_PROTOCOL.md), [DIRECTIONS_BC_REPORT.md](DIRECTIONS_BC_REPORT.md), and [PROGRESS.md](PROGRESS.md) for results, limitations and verified job states.
 
 Direction A is complete: all three thresholds were trained and verified. See [DIRECTION_A_REPORT.md](DIRECTION_A_REPORT.md) for the full comparison and limitations. See [DIRECTION_A_STATUS.md](DIRECTION_A_STATUS.md) and [DIRECTION_A_PROTOCOL.md](DIRECTION_A_PROTOCOL.md).

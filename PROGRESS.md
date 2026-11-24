@@ -326,3 +326,11 @@ Next action: publish completed source/compact evidence/report, preserve the auth
 - Full B/C goal achieved: correct resumable implementations, reproducible protocol, two bounded CUDA gates, four complete matched runs, nine-method collection/diagnostics/curves, independent audit, resource accounting, report and publication. No extension beats XSA by observed loss; C is closest and its window interval overlaps zero.
 
 Next action: review DIRECTIONS_BC_REPORT.md and decide whether the proposed fresh-seed SA/XSA/C confirmation merits a separately authorized compute/storage budget. No further job is scheduled.
+
+## Midpoint project report — November 24, 2026
+
+- Added `MIDPOINT_REPORT.md` and linked it from README. The report covers SA/XSA and Directions A/B/C, implementation and Insomnia/data/training setup, verification and the C numerical failure/repair, all nine outcomes, uncertainty, cost and diagnostic analysis.
+- Distinguished observations from hypotheses and proposed work: fresh-seed SA/XSA/C confirmation, independent evaluation data, partial-removal and magnitude controls, B penalty ablations, geometry interpolation, positive-only alignment caps, and controlled context tasks. No new variant, training job or benchmark was executed for this report.
+- Checked every reported CE/PPL/delta row and selected interval against the collected JSON, diagnostic means against saved layer/head records, aggregate token/compute arithmetic, local document/image links and Markdown structure. `python3 -m xsa.direction_bc gate` still passes; frozen numerical sources and experiment evidence are unchanged. Rechecked the primary XSA and BLiMP sources for the report's background references.
+
+Next research action: review MIDPOINT_REPORT.md and choose the follow-up question before defining a new scope and budget. No further experiment is scheduled; this documentation change includes GitHub publication and checkout verification.
