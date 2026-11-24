@@ -717,7 +717,7 @@
   "selection_data": "validation",
   "next_stage_launched": false,
   "scientific_screen_complete": true,
-  "delivery_pending": true,
+  "delivery_pending": false,
   "resource_audit": {
     "gpu_seconds": 4310,
     "verification_gpu_seconds": 163,
@@ -924,5 +924,8 @@
     "captured_at": "2026-11-24T09:27:38.562020+00:00",
     "peak_disk": "estimated separately in frozen plan, not continuously sampled"
   },
-  "report": "DIRECTIONS_BC_REPORT.md"
+  "report": "DIRECTIONS_BC_REPORT.md",
+  "completed": true,
+  "published_scientific_commit": "c1cfc3265e62911a6d77937f9c567c3b02d3d215",
+  "delivery_evidence": "evidence/direction_bc/delivery.json"
 }

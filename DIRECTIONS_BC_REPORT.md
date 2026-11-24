@@ -74,7 +74,7 @@ The original B/C implementation, first GPU gate and B λ=0.1 run use **1db7eff4f
 
 The CPU collector loaded all nine real final models and checked finite weights, exact config/data/initialization/evaluation identities, software, all ordered batch hashes, final data state and complete token budgets. The independent checkpoint audit loaded **all 18 latest/previous checkpoints**, checked finite model/optimizer tensors, RNG and batch histories, recomputed CE/perplexity and paired bootstrap intervals, and checked diagnostic shapes/ranges and frozen source/data hashes. Historical checkpoint checksums, compact artifacts and Part 1/A ledgers are unchanged. All logs, data, initialization and checkpoints remain on university storage.
 
-Evidence: [checkpoint identities](evidence/direction_bc/results/identity.json), [independent checkpoint audit](evidence/direction_bc/independent_checkpoint_audit.json), [resource/preservation audit](evidence/direction_bc/final_audit.json), [manifest](DIRECTIONS_BC_MANIFEST.json) and [requirement audit](DIRECTIONS_BC_COMPLETION_AUDIT.md). Publication is verified separately in `evidence/direction_bc/delivery.json`.
+Evidence: [checkpoint identities](evidence/direction_bc/results/identity.json), [independent checkpoint audit](evidence/direction_bc/independent_checkpoint_audit.json), [resource/preservation audit](evidence/direction_bc/final_audit.json), [manifest](DIRECTIONS_BC_MANIFEST.json) and [requirement audit](DIRECTIONS_BC_COMPLETION_AUDIT.md). Publication of scientific commit `c1cfc3265e62911a6d77937f9c567c3b02d3d215` is verified separately in [delivery.json](evidence/direction_bc/delivery.json).
 
 
 ## Runtime, memory and resources

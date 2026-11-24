@@ -1,0 +1,67 @@
+{
+  "published_scientific_commit": "c1cfc3265e62911a6d77937f9c567c3b02d3d215",
+  "github_commit": "c1cfc3265e62911a6d77937f9c567c3b02d3d215",
+  "remote_commit": "c1cfc3265e62911a6d77937f9c567c3b02d3d215",
+  "remote_worktree_clean": true,
+  "queue_empty": true,
+  "frozen_sources_match": true,
+  "checkpoint_pairs_preserved": [
+    {
+      "run": "runs/pilot-sa-s17",
+      "latest_bytes": 359483203,
+      "previous_bytes": 359483203
+    },
+    {
+      "run": "runs/pilot-xsa-s17",
+      "latest_bytes": 359483203,
+      "previous_bytes": 359483203
+    },
+    {
+      "run": "runs/direction-a-tau025-s17",
+      "latest_bytes": 359483267,
+      "previous_bytes": 359483267
+    },
+    {
+      "run": "runs/direction-a-tau050-s17",
+      "latest_bytes": 359483267,
+      "previous_bytes": 359483267
+    },
+    {
+      "run": "runs/direction-a-tau075-s17",
+      "latest_bytes": 359483267,
+      "previous_bytes": 359483267
+    },
+    {
+      "run": "runs/direction-b010-s17",
+      "latest_bytes": 359483267,
+      "previous_bytes": 359483267
+    },
+    {
+      "run": "runs/direction-b050-s17",
+      "latest_bytes": 359483267,
+      "previous_bytes": 359483267
+    },
+    {
+      "run": "runs/direction-b100-s17",
+      "latest_bytes": 359483267,
+      "previous_bytes": 359483267
+    },
+    {
+      "run": "runs/direction-c-s17",
+      "latest_bytes": 359483203,
+      "previous_bytes": 359483203
+    }
+  ],
+  "shared_initialization_preserved": true,
+  "project_bytes_after_sync": 11038641564,
+  "checkpoint_validation": "Full hashes/model/optimizer/RNG audit performed in CPU job 14076904; post-sync existence and sizes checked here.",
+  "preservation_stash": "83d2f75188db2240569b1655498714bec07a5f64",
+  "earlier_preservation_stash": "0c37e7478e0e1f71c99b0b1987db5f9480cd63c5",
+  "next_stage_launched": false,
+  "local_commit": "c1cfc3265e62911a6d77937f9c567c3b02d3d215",
+  "local_tracked_worktree_clean": true,
+  "independent_checkpoint_audit_sha256": "7a40261e994669648cf198444d3047f05604c4d3dae1a326b34e7c29f09b526e",
+  "resource_audit_sha256": "d8211145306526661c24c7ad071050cda21fbb664422c2e4c7a96f7c2ad8c4df",
+  "goal_requirements_audited": true,
+  "delivery_verified": true
+}

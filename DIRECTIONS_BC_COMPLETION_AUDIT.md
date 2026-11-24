@@ -1,6 +1,6 @@
 # Directions B/C requirement audit
 
-The scientific screen, independent collection and resource audits are complete. Final GitHub delivery verification remains before marking the full goal complete. The exact authorized objective is preserved in [objective.md](evidence/direction_bc/objective.md).
+The full authorized goal is complete: implementation, screening, independent audits, accounting and GitHub delivery are verified. The exact authorized objective is preserved in [objective.md](evidence/direction_bc/objective.md).
 
 | Requirement | Verified outcome and evidence |
 |---|---|
@@ -24,6 +24,6 @@ The scientific screen, independent collection and resource audits are complete. 
 | Complete report, commands and failures | DIRECTIONS_BC_REPORT.md contains implementation/math/guard explanations, all positive and negative outcomes, job IDs/commands, two verification gates, C defect/fix, ancillary readiness-schema error, limitations and measured next-stage proposal. PROGRESS remains chronological with exact next action. |
 | Measured bounded follow-up proposal | Three fresh paired SA/XSA/C seeds: nine runs/603,979,776 tokens; measured projection 1.68 A6000 GPU-hours, conservative 4h35m GPU reservation plus 5-minute CPU cap; projected storage 17.10 GiB requires a separate cap/budget. Data preparation/queue time excluded explicitly. Nothing launched. |
 | Scope restrictions | No paid resources, extra hyperparameters/seeds/controls/downstream tasks/context/model sweeps/full matrix. No KV cache added; unsupported decoding reported. Negative/inconclusive result accepted. |
-| Owned GitHub publication | Implementation and intermediate evidence already published; final source/results/report commit and local/Insomnia/GitHub equality are the last delivery check. See delivery.json after verification. |
+| Owned GitHub publication | Scientific source/results/report published as c1cfc3265e62911a6d77937f9c567c3b02d3d215. Local, Insomnia and GitHub commits match; remote worktree is clean, queue empty, frozen sources match and checkpoint pairs remain. Delivery evidence is in evidence/direction_bc/delivery.json. |
 
-No scientific or execution requirement remains blocked. Only final publication verification is pending.
+Every authorized requirement has passing evidence. No required work remains blocked or pending. The separately proposed confirmation study is not launched or authorized by this stage.

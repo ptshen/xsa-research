@@ -1,6 +1,6 @@
 # XSA / Insomnia progress
 
-**Current stage:** Directions B/C science, independent collection and resource audits are complete; final GitHub delivery verification remains. The objective is preserved in `evidence/direction_bc/objective.md`. Latest state and next action are at the end of this log. Earlier stage limits below are historical.
+**Current stage:** Directions B/C complete, including all four full-budget runs, independent audits and verified GitHub delivery. The objective is preserved in `evidence/direction_bc/objective.md`. Latest state and next action are at the end of this log. Earlier stage limits below are historical.
 
 ## Original Part 1 goal and limits
 
@@ -317,3 +317,12 @@ Next action: complete independent local resource/preservation audit, visually in
 - Both full and zoomed nine-method curves visually inspected. Final report contains every loss/difference/interval, measured runtime/memory, B/C diagnostics, numerical conventions, defect/recovery, actual commands and limitations. Next-stage proposal is three fresh paired seeds of SA/XSA/frozen C: **1.68 GPU-hours measured projection**, **4h35m conservative GPU reservation**, **17.10 GiB projected peak** (requires a separately authorized storage/compute budget). Nothing further launched.
 
 Next action: publish completed source/compact evidence/report, preserve the authoritative remote records before fast-forwarding, and verify local/Insomnia/GitHub commit equality and clean worktrees.
+
+## Directions B/C delivery complete
+
+- Published the complete scientific source/results/report as **c1cfc3265e62911a6d77937f9c567c3b02d3d215**. Local, Insomnia and GitHub main match. Remote working tree is clean; source hashes still match the 92-test GPU gate; no active user jobs remain.
+- Preserved all 70 modified/untracked remote records before synchronization. Every artifact matched the local copy except the deliberately finalized manifest/progress notes; originals are retained in Git stash **83d2f75188db2240569b1655498714bec07a5f64**. Previous stash remains preserved. Raw log whitespace is kept byte-for-byte; authored files pass whitespace checks.
+- Post-sync checks confirm all nine latest/previous checkpoint pairs and shared initialization remain. Project storage **11038641564 bytes**, below 12 GiB. Full checkpoint hashes/model/optimizer/RNG were audited in CPU job 14076904; post-sync presence/sizes verified separately. See evidence/direction_bc/delivery.json and the completed requirement audit.
+- Full B/C goal achieved: correct resumable implementations, reproducible protocol, two bounded CUDA gates, four complete matched runs, nine-method collection/diagnostics/curves, independent audit, resource accounting, report and publication. No extension beats XSA by observed loss; C is closest and its window interval overlaps zero.
+
+Next action: review DIRECTIONS_BC_REPORT.md and decide whether the proposed fresh-seed SA/XSA/C confirmation merits a separately authorized compute/storage budget. No further job is scheduled.
