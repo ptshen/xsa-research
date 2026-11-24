@@ -269,3 +269,9 @@ Next: finish local checks, wait for existing B 0.1 job 14076378, preserve its co
 - Job **14076378** observed RUNNING at update **1382**, with every committed minibatch hash matching SA and all losses/gradients finite. No remote code changes have been made during this run.
 
 Next: inspect 14076378 at completion, record its actual outcome, then synchronize the guarded C source and run the second bounded verification allocation.
+
+- **B lambda 0.1 / job 14076378 COMPLETED**, exit 0, **1118 allocated GPU seconds (18m38s)**. Reached **2048 updates / 67,108,864 tokens**; validation CE **4.8848455101**, perplexity **132.2700294**. All 2048 batch hashes, finite losses/gradients, data/init/evaluation/config/software identities match the preserved baseline. Latest/previous files and final evaluation/diagnostics are present; full checkpoint/optimizer audit remains for the CPU collector.
+- B 0.1 improves slightly on SA (CE 4.89046994) but is worse than XSA (4.80333272) in this single validation screen. No setting was changed in response to that result. Source commit was 1db7eff; C hardening changes no B computation.
+- Stage actual GPU time so far **1177 seconds** (59 verification +1118 training), reservation **2040 seconds**. No job is active. The C fix was published separately as **4b6ceec**, but has not yet been deployed to Insomnia.
+
+Next: preserve/reconcile the authoritative remote ledger, fast-forward the idle remote checkout, and submit the second 300-second verification gate. No additional screening run may start until it passes.

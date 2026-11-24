@@ -1,0 +1,11 @@
+{
+  "run": "runs/direction-b010-s17",
+  "job_id": "14076378",
+  "updates": 2048,
+  "tokens": 67108864,
+  "all_batch_hashes_match": true,
+  "config_data_initial_eval_software_match": true,
+  "cross_entropy": 4.88484551012516,
+  "perplexity": 132.27002937547778,
+  "checkpoint_full_audit": "pending CPU collector"
+}
